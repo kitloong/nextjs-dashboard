@@ -1,0 +1,44 @@
+$header-background: #fff;
+$header-link-color: rgba(44, 56, 74, 0.681);
+$header-link-color-hover: rgba(44, 56, 74, 0.95);
+$header-brand-color: #4f5d73;
+
+.header {
+  background: $header-background;
+
+  .header-brand {
+    color: $header-brand-color;
+  }
+
+  .header-navbar {
+    min-height: 3rem;
+
+    .header-toggler {
+      color: $header-link-color;
+    }
+
+    .header-nav {
+      .nav-link {
+        color: $header-link-color;
+
+        &:hover {
+          color: $header-link-color-hover;
+        }
+      }
+    }
+  }
+
+  .breadcrumb {
+    min-height: 2rem;
+
+    .breadcrumb-item {
+      a {
+        color: $header-link-color;
+
+        &:hover {
+          color: $header-link-color-hover;
+        }
+      }
+    }
+  }
+}
