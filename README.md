@@ -4,9 +4,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 A Next.JS boilerplate with the famous Open Source Boostrap Admin Template, [CoreUI](https://coreui.io/).
 
-This dashboard is built with `Typescript` and implement some main layout.
+This dashboard is built with `Typescript` and implement some layouts, with [React Bootstrap](https://react-bootstrap.github.io/).
 
 ## Screenshot
+
+Demo: https://nextjs-dashboard-olive.vercel.app
 
 ### Dashboard
 
@@ -83,7 +85,7 @@ To use ISR, add the `revalidate` prop to `getStaticProps`.
 
 https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
 
-## Tools
+## Installed Packages
 
 1. [Redux](https://redux.js.org/tutorials/fundamentals/part-1-overview)
    1. [React redux](https://react-redux.js.org/introduction/getting-started)
