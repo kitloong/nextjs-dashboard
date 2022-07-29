@@ -8,28 +8,36 @@ This dashboard is built with `Typescript` and implement some layouts, with [Reac
 
 ## Screenshot
 
-Demo: https://nextjs-dashboard-olive.vercel.app
-
 ### Dashboard
+
+https://nextjs-dashboard-olive.vercel.app
 
 <img alt="drawing" width="400" src="https://user-images.githubusercontent.com/7660346/180629352-f92216e3-7cf4-4fba-92fa-089dd96b4478.png" />
 
 ### Login
 
+https://nextjs-dashboard-olive.vercel.app/login
+
 <img alt="drawing" width="400" src="https://user-images.githubusercontent.com/7660346/180629556-539b6157-b34f-4ecc-aed9-b34f94d5d2ef.png" />
 
 ### Register
+
+https://nextjs-dashboard-olive.vercel.app/register
 
 <img alt="drawing" width="400" src="https://user-images.githubusercontent.com/7660346/180629498-1b23eb9a-cfd4-4909-8c02-58eaf6b06ff5.png" />
 
 ## Getting Started
 
-First, run the development server:
+First, setup the application:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+```
+
+Then, run the development server:
+
+```bash
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
