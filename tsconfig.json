@@ -19,6 +19,8 @@
       "@components": ["src/components"],
       "@layout": ["src/layout"],
       "@layout/*": ["src/layout/*"],
+      "@models": ["src/models"],
+      "@models/*": ["src/models/*"],
       "@pages": ["src/pages"],
       "@store": ["src/store"],
       "@styles/*": ["src/styles/*"]

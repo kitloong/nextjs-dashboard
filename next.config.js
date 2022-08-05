@@ -7,6 +7,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    domains: ['img.pokemondb.net'],
+  },
 }
 
 module.exports = nextConfig
