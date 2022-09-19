@@ -48,7 +48,7 @@ export default function Header(props: HeaderProps) {
         <div className="header-nav ms-auto">
           <HeaderNotificationNav />
         </div>
-        <div className="header-nav ms-3">
+        <div className="header-nav ms-2">
           <HeaderProfileNav />
         </div>
       </Container>
