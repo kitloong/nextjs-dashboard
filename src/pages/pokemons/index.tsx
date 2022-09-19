@@ -143,7 +143,6 @@ const Pagination = (props: PaginationProps) => {
         {' '}
         <Form.Select
           value={perPage}
-          defaultValue={20}
           className="d-inline-block w-auto"
           aria-label="Item per page"
           onChange={(event) => {
