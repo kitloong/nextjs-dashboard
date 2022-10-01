@@ -34,7 +34,7 @@ export default function Header(props: HeaderProps) {
         >
           <FontAwesomeIcon icon={faBars} />
         </Button>
-        <Link href="/src/pages">
+        <Link href="/">
           <a className="header-brand d-md-none">
             <svg width="118" height="46">
               <title>CoreUI Logo</title>
