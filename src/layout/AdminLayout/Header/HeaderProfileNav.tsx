@@ -38,10 +38,9 @@ export default function HeaderProfileNav() {
     <Nav>
       <Dropdown as={NavItem}>
         <Dropdown.Toggle variant="link" bsPrefix="shadow-none" className="py-0 px-2 rounded-0" id="dropdown-profile">
-          <div className="avatar">
+          <div className="avatar position-relative">
             <Image
-              width={128}
-              height={128}
+              fill
               className="rounded-circle"
               src="/assets/img/avatars/8.jpg"
               alt="user@email.com"
@@ -50,7 +49,7 @@ export default function HeaderProfileNav() {
         </Dropdown.Toggle>
         <Dropdown.Menu className="pt-0">
           <Dropdown.Header className="bg-light fw-bold rounded-top">Account</Dropdown.Header>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faBell}>
                 Updates
@@ -58,7 +57,7 @@ export default function HeaderProfileNav() {
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faEnvelopeOpen}>
                 Updates
@@ -66,7 +65,7 @@ export default function HeaderProfileNav() {
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faListCheck}>
                 Tasks
@@ -74,7 +73,7 @@ export default function HeaderProfileNav() {
               </ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faMessage}>
                 Messages
@@ -84,22 +83,22 @@ export default function HeaderProfileNav() {
           </Link>
 
           <Dropdown.Header className="bg-light fw-bold">Settings</Dropdown.Header>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faUser}>Profile</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faGear}>Settings</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faCreditCard}>Payments</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faFile}>Projects</ProfileDropdownItem>
             </Dropdown.Item>
@@ -107,12 +106,12 @@ export default function HeaderProfileNav() {
 
           <Dropdown.Divider />
 
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faLock}>Lock Account</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/login" passHref>
+          <Link href="/login" passHref legacyBehavior>
             <Dropdown.Item>
               <ProfileDropdownItem icon={faPowerOff}>Logout</ProfileDropdownItem>
             </Dropdown.Item>

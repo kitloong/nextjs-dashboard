@@ -143,7 +143,6 @@ const Pagination = (props: PaginationProps) => {
         {' '}
         <Form.Select
           value={perPage}
-          defaultValue={20}
           className="d-inline-block w-auto"
           aria-label="Item per page"
           onChange={(event) => {
@@ -239,8 +238,8 @@ const Pokemons: NextPage<Props> = (props) => {
                   <td>
                     <div className="position-relative mx-auto" style={{ width: '70px', height: '70px' }}>
                       <ImageFallback
-                        layout="fill"
-                        objectFit="contain"
+                        fill
+                        style={{ objectFit: 'contain' }}
                         alt={pokemon.identifier}
                         src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.identifier}.gif`}
                         fallbackSrc={`https://img.pokemondb.net/sprites/sword-shield/icon/${pokemon.identifier}.png`}

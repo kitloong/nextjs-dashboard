@@ -960,8 +960,7 @@ const Home: NextPage = () => (
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                          width={128}
-                          height={128}
+                          fill
                           className="rounded-circle"
                           src="/assets/img/avatars/1.jpg"
                           alt="user@email.com"
@@ -1027,8 +1026,7 @@ const Home: NextPage = () => (
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                          width={128}
-                          height={128}
+                          fill
                           className="rounded-circle"
                           src="/assets/img/avatars/2.jpg"
                           alt="user@email.com"
@@ -1094,8 +1092,7 @@ const Home: NextPage = () => (
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                          width={128}
-                          height={128}
+                          fill
                           className="rounded-circle"
                           src="/assets/img/avatars/3.jpg"
                           alt="user@email.com"
@@ -1161,8 +1158,7 @@ const Home: NextPage = () => (
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                          width={128}
-                          height={128}
+                          fill
                           className="rounded-circle"
                           src="/assets/img/avatars/4.jpg"
                           alt="user@email.com"
@@ -1228,8 +1224,7 @@ const Home: NextPage = () => (
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                          width={128}
-                          height={128}
+                          fill
                           className="rounded-circle"
                           src="/assets/img/avatars/5.jpg"
                           alt="user@email.com"
@@ -1295,8 +1290,7 @@ const Home: NextPage = () => (
                     <td className="text-center">
                       <div className="avatar avatar-md d-inline-flex position-relative">
                         <Image
-                          width={128}
-                          height={128}
+                          fill
                           className="rounded-circle"
                           src="/assets/img/avatars/6.jpg"
                           alt="user@email.com"

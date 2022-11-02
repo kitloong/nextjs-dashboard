@@ -34,13 +34,11 @@ export default function Header(props: HeaderProps) {
         >
           <FontAwesomeIcon icon={faBars} />
         </Button>
-        <Link href="/src/pages">
-          <a className="header-brand d-md-none">
-            <svg width="118" height="46">
-              <title>CoreUI Logo</title>
-              <use xlinkHref="/assets/brand/coreui.svg#full" />
-            </svg>
-          </a>
+        <Link href="/" className="header-brand d-md-none">
+          <svg width="118" height="46">
+            <title>CoreUI Logo</title>
+            <use xlinkHref="/assets/brand/coreui.svg#full" />
+          </svg>
         </Link>
         <div className="header-nav d-none d-md-flex">
           <HeaderFeaturedNav />
@@ -48,7 +46,7 @@ export default function Header(props: HeaderProps) {
         <div className="header-nav ms-auto">
           <HeaderNotificationNav />
         </div>
-        <div className="header-nav ms-3">
+        <div className="header-nav ms-2">
           <HeaderProfileNav />
         </div>
       </Container>
