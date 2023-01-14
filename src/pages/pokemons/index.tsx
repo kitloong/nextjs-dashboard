@@ -323,6 +323,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     },
   })
 
+  const getTo = (total: number, p: number, pp: number) => {
+    if (p === 1) {
+      return total < pp ? total : pp
+    }
+
+    return (p - 1) * pp + pp
+  }
+
   const total = parseInt(headers['x-total-count'], 10)
   const pokemonResourceList: ResourceList<Pokemon> = {
     data: pokemons,
@@ -330,7 +338,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       current_page: page,
       last_page: Math.ceil(total / perPage),
       from: page === 1 ? 1 : (page - 1) * perPage + 1,
-      to: page === 1 ? perPage : (page - 1) * perPage + perPage,
+      to: getTo(total, page, perPage),
       per_page: perPage,
       total,
     },
