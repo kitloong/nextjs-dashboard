@@ -1,4 +1,4 @@
-export interface ResourceList<T> {
+export interface Resource<T> {
   data: T[];
   meta: {
     current_page: number;
