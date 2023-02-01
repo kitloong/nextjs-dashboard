@@ -241,7 +241,7 @@ const Pokemons: NextPage<Props> = (props) => {
                         fill
                         style={{ objectFit: 'contain' }}
                         alt={pokemon.identifier}
-                        src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.identifier}.gif`}
+                        src={`https://img.pokemondb.net/sprites/sword-shield/icon/${pokemon.identifier}.gif`}
                         fallbackSrc={`https://img.pokemondb.net/sprites/sword-shield/icon/${pokemon.identifier}.png`}
                       />
                     </div>
