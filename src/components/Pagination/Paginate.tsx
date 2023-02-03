@@ -5,10 +5,11 @@ import { useRouter } from 'next/router'
 type Props = {
   currentPage: number;
   lastPage: number;
+  setPage?: (page: number) => void;
 }
 
 export default function Paginate(props: Props) {
-  const { currentPage, lastPage } = props
+  const { currentPage, lastPage, setPage } = props
   const [pageIndex, setPageIndex] = useState(currentPage - 1)
   const router = useRouter()
 
@@ -37,11 +38,17 @@ export default function Paginate(props: Props) {
         activeClassName="active"
         disabledClassName="disabled"
         onPageChange={(selectedItem) => {
+          const page = selectedItem.selected + 1
+
+          if (setPage) {
+            setPage(page)
+          }
+
           router.push({
             pathname: router.pathname,
             query: {
               ...router.query,
-              page: selectedItem.selected + 1,
+              page,
             },
           })
         }}

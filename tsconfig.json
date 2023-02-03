@@ -18,6 +18,8 @@
     "paths": {
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
+      "@hooks": ["src/hooks"],
+      "@hooks/*": ["src/hooks/*"],
       "@layout": ["src/layout"],
       "@layout/*": ["src/layout/*"],
       "@models": ["src/models"],

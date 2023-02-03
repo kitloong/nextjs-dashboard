@@ -1,12 +1,10 @@
 import { Dropdown, Table } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faEllipsisVertical, faSort, faSortDown, faSortUp,
-} from '@fortawesome/free-solid-svg-icons'
-import React, { PropsWithChildren, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
 import { Pokemon } from '@models/pokemon'
 import { ImageFallback } from '@components/Image'
+import { THSort } from '@components/TableSort'
 
 const typeColorMap: Record<string, string> = {
   normal: '#aa9',
@@ -49,76 +47,29 @@ const TypeLabel = ({ type }: TypeLabelProps) => (
   </span>
 )
 
-type THSortProps = {
-  name: string;
-} & PropsWithChildren
-
-const THSort = (props: THSortProps) => {
-  const {
-    name, children,
-  } = props
-  const [icon, setIcon] = useState(faSort)
-  const router = useRouter()
-  const { query: { sort, order } } = router
-
-  const onClick = () => {
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        sort: name,
-        order: order === 'asc' ? 'desc' : 'asc',
-      },
-    })
-  }
-
-  useEffect(() => {
-    if (sort !== name) {
-      setIcon(faSort)
-      return
-    }
-
-    if (order === 'asc') {
-      setIcon(faSortUp)
-      return
-    }
-
-    if (order === 'desc') {
-      setIcon(faSortDown)
-    }
-  }, [sort, order, name])
-
-  return (
-    <a className="text-decoration-none" role="button" tabIndex={0} onClick={onClick} onKeyDown={onClick}>
-      {children}
-      <FontAwesomeIcon icon={icon} fixedWidth size="xs" />
-    </a>
-  )
-}
-
 type Props = {
   pokemons: Pokemon[];
-}
+} & Pick<Parameters<typeof THSort>[0], 'setSort' | 'setOrder'>
 
 export default function PokemonList(props: Props) {
-  const { pokemons } = props
+  const { pokemons, setSort, setOrder } = props
 
   return (
     <Table responsive bordered hover>
       <thead className="bg-light">
         <tr>
-          <th><THSort name="id">#</THSort></th>
+          <th><THSort name="id" setSort={setSort} setOrder={setOrder}>#</THSort></th>
           <th aria-label="Photo" />
-          <th><THSort name="name">Name</THSort></th>
+          <th><THSort name="name" setSort={setSort} setOrder={setOrder}>Name</THSort></th>
           <th>Type</th>
           <th className="text-center">Egg group</th>
-          <th className="text-end"><THSort name="hp">Hp</THSort></th>
-          <th className="text-end"><THSort name="attack">Atk</THSort></th>
-          <th className="text-end"><THSort name="defense">Def</THSort></th>
-          <th className="text-end"><THSort name="special_attack">SpA</THSort></th>
-          <th className="text-end"><THSort name="special_defense">SpD</THSort></th>
-          <th className="text-end"><THSort name="speed">Spd</THSort></th>
-          <th className="text-end"><THSort name="total">Total</THSort></th>
+          <th className="text-end"><THSort name="hp" setSort={setSort} setOrder={setOrder}>Hp</THSort></th>
+          <th className="text-end"><THSort name="attack" setSort={setSort} setOrder={setOrder}>Atk</THSort></th>
+          <th className="text-end"><THSort name="defense" setSort={setSort} setOrder={setOrder}>Def</THSort></th>
+          <th className="text-end"><THSort name="special_attack" setSort={setSort} setOrder={setOrder}>SpA</THSort></th>
+          <th className="text-end"><THSort name="special_defense" setSort={setSort} setOrder={setOrder}>SpD</THSort></th>
+          <th className="text-end"><THSort name="speed" setSort={setSort} setOrder={setOrder}>Spd</THSort></th>
+          <th className="text-end"><THSort name="total" setSort={setSort} setOrder={setOrder}>Total</THSort></th>
           <th aria-label="Action" />
         </tr>
       </thead>

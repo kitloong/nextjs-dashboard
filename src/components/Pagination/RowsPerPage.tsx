@@ -4,10 +4,11 @@ import { useRouter } from 'next/router'
 
 type Props = {
   perPage: number;
+  setPerPage?: (perPage: number) => void;
 }
 
 export default function RowsPerPage(props: Props) {
-  const { perPage } = props
+  const { perPage, setPerPage } = props
   const router = useRouter()
 
   return (
@@ -15,10 +16,14 @@ export default function RowsPerPage(props: Props) {
       Rows per page:
       {' '}
       <Form.Select
-        value={perPage}
+        defaultValue={perPage}
         className="d-inline-block w-auto"
         aria-label="Item per page"
         onChange={(event) => {
+          if (setPerPage) {
+            setPerPage(parseInt(event.target.value, 10))
+          }
+
           router.push({
             pathname: router.pathname,
             query: {
