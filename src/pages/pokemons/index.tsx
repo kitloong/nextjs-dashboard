@@ -3,30 +3,55 @@ import { AdminLayout } from '@layout'
 import { Card } from 'react-bootstrap'
 import axios from 'axios'
 import { Pokemon } from '@models/pokemon'
-import { Resource } from '@models/resource'
+import { newResource, Resource } from '@models/resource'
 import React from 'react'
 import { Pagination } from '@components/Pagination'
 import { PokemonList } from '@components/Pokemon'
+import { transformResponseWrapper, useSWRAxios } from '@hooks'
 
 type Props = {
   pokemonResource: Resource<Pokemon>;
+  page: number;
+  perPage: number;
+  sort: string;
+  order: string;
 }
 
 const Pokemons: NextPage<Props> = (props) => {
   const {
-    pokemonResource: {
-      data: pokemons, meta,
-    },
+    pokemonResource, page, perPage, sort, order,
   } = props
+
+  const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
+
+  // swr: data -> axios: data -> resource: data
+  const { data: { data: resource } } = useSWRAxios<Resource<Pokemon>>({
+    url: pokemonListURL,
+    params: {
+      _page: page,
+      _limit: perPage,
+      _sort: sort,
+      _order: order,
+    },
+    transformResponse: transformResponseWrapper((d: Pokemon[], h) => {
+      const total = h ? parseInt(h['x-total-count'], 10) : 0
+      return newResource(d, total, page, perPage)
+    }),
+  }, {
+    data: pokemonResource,
+    headers: {
+      'x-total-count': pokemonResource.meta.total.toString(),
+    },
+  })
 
   return (
     <AdminLayout>
       <Card>
         <Card.Header>Pokémon</Card.Header>
         <Card.Body>
-          <Pagination meta={meta} />
-          <PokemonList pokemons={pokemons} />
-          <Pagination meta={meta} />
+          <Pagination meta={resource.meta} />
+          <PokemonList pokemons={resource.data} />
+          <Pagination meta={resource.meta} />
         </Card.Body>
       </Card>
     </AdminLayout>
@@ -64,30 +89,16 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     },
   })
 
-  const getTo = (total: number, p: number, pp: number) => {
-    if (p === 1) {
-      return total < pp ? total : pp
-    }
-
-    return (p - 1) * pp + pp
-  }
-
   const total = parseInt(headers['x-total-count'], 10)
-  const pokemonResource: Resource<Pokemon> = {
-    data: pokemons,
-    meta: {
-      current_page: page,
-      last_page: Math.ceil(total / perPage),
-      from: page === 1 ? 1 : (page - 1) * perPage + 1,
-      to: getTo(total, page, perPage),
-      per_page: perPage,
-      total,
-    },
-  }
+  const pokemonResource: Resource<Pokemon> = newResource(pokemons, total, page, perPage)
 
   return {
     props: {
       pokemonResource,
+      page,
+      perPage,
+      sort,
+      order,
     }, // will be passed to the page component as props
   }
 }
