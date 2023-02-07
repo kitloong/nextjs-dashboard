@@ -22,6 +22,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@layout": ["src/layout"],
       "@layout/*": ["src/layout/*"],
+      "@lib": ["src/lib"],
+      "@lib/*": ["src/lib/*"],
       "@models": ["src/models"],
       "@models/*": ["src/models/*"],
       "@pages": ["src/pages"],

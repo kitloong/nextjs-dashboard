@@ -134,7 +134,11 @@ export default function SidebarNav() {
         <small className="ms-auto"><Badge bg="info" className="ms-auto">NEW</Badge></small>
       </SidebarNavItem>
       <SidebarNavItem icon={faCode} href="/pokemons">
-        Sample
+        Sample (SSR)
+        <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
+      </SidebarNavItem>
+      <SidebarNavItem icon={faCode} href="/pokemons/client">
+        Sample (CSR)
         <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
       </SidebarNavItem>
       <SidebarNavTitle>Theme</SidebarNavTitle>

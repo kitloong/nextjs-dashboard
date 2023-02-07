@@ -20,7 +20,10 @@
     "bootstrap": "^5.2.3",
     "chart.js": "^3.9.1",
     "classnames": "^2.3.2",
+    "cookie": "^0.5.0",
+    "cookies-next": "^2.1.1",
     "next": "13.0.1",
+    "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-chartjs-2": "^4.3.1",
@@ -31,7 +34,9 @@
     "swr": "^2.0.3"
   },
   "devDependencies": {
+    "@types/cookie": "^0.5.1",
     "@types/node": "^18.11.18",
+    "@types/nprogress": "^0.2.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.50.0",

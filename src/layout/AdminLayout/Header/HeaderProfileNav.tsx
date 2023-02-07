@@ -17,6 +17,8 @@ import {
   faGear, faListCheck, faLock, faPowerOff,
 } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 
 type NavItemProps = {
   icon: IconDefinition;
@@ -34,6 +36,15 @@ const ProfileDropdownItem = (props: NavItemProps) => {
 }
 
 export default function HeaderProfileNav() {
+  const router = useRouter()
+
+  const logout = async () => {
+    const res = await axios.post('/api/mock/logout')
+    if (res.status === 200) {
+      router.push('/login')
+    }
+  }
+
   return (
     <Nav>
       <Dropdown as={NavItem}>
@@ -111,11 +122,9 @@ export default function HeaderProfileNav() {
               <ProfileDropdownItem icon={faLock}>Lock Account</ProfileDropdownItem>
             </Dropdown.Item>
           </Link>
-          <Link href="/login" passHref legacyBehavior>
-            <Dropdown.Item>
-              <ProfileDropdownItem icon={faPowerOff}>Logout</ProfileDropdownItem>
-            </Dropdown.Item>
-          </Link>
+          <Dropdown.Item onClick={logout}>
+            <ProfileDropdownItem icon={faPowerOff}>Logout</ProfileDropdownItem>
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </Nav>

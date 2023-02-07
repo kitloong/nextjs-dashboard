@@ -37,6 +37,8 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import React from 'react'
+import { GetServerSideProps } from 'next'
+import { withAuth } from '@lib'
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
 
@@ -1361,5 +1363,7 @@ const Home: NextPage = () => (
     </div>
   </AdminLayout>
 )
+
+export const getServerSideProps: GetServerSideProps = withAuth(async () => ({ props: {} }))
 
 export default Home

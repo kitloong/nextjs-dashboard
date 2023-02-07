@@ -1,29 +1,42 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import {
-  Button,
-  Col, Container, Form, InputGroup, Row,
+  Button, Col, Container, Form, InputGroup, Row,
 } from 'react-bootstrap'
 import Link from 'next/link'
 import { SyntheticEvent, useState } from 'react'
 import { useRouter } from 'next/router'
+import axios from 'axios'
+import { redirectIfAuthenticated } from '@lib'
+import { deleteCookie, getCookie } from 'cookies-next'
 
 const Login: NextPage = () => {
   const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
 
-  const login = (e: SyntheticEvent) => {
+  const getRedirect = () => {
+    const redirect = getCookie('redirect')
+    if (redirect) {
+      deleteCookie('redirect')
+      return redirect.toString()
+    }
+
+    return '/'
+  }
+
+  const login = async (e: SyntheticEvent) => {
     e.stopPropagation()
     e.preventDefault()
 
     setSubmitting(true)
 
-    setTimeout(() => {
-      setSubmitting(false)
-      router.push('/')
-    }, 2000)
+    const res = await axios.post('api/mock/login')
+    if (res.status === 200) {
+      router.push(getRedirect())
+    }
+    setSubmitting(false)
   }
 
   return (
@@ -51,6 +64,7 @@ const Login: NextPage = () => {
                         disabled={submitting}
                         placeholder="Username"
                         aria-label="Username"
+                        defaultValue="Username"
                       />
                     </InputGroup>
 
@@ -68,6 +82,7 @@ const Login: NextPage = () => {
                         disabled={submitting}
                         placeholder="Password"
                         aria-label="Password"
+                        defaultValue="Password"
                       />
                     </InputGroup>
 
@@ -109,5 +124,9 @@ const Login: NextPage = () => {
     </div>
   )
 }
+
+export const getServerSideProps: GetServerSideProps = redirectIfAuthenticated(
+  async () => ({ props: {} }),
+)
 
 export default Login

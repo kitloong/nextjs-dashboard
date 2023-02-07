@@ -8,6 +8,7 @@ import React from 'react'
 import { Pagination } from '@components/Pagination'
 import { PokemonList } from '@components/Pokemon'
 import { transformResponseWrapper, useSWRAxios } from '@hooks'
+import { withAuth } from '@lib'
 
 type Props = {
   pokemonResource: Resource<Pokemon>;
@@ -58,7 +59,7 @@ const Pokemons: NextPage<Props> = (props) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
+export const getServerSideProps: GetServerSideProps<Props> = withAuth(async (context) => {
   const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
   let page = 1
   if (context.query?.page && typeof context.query.page === 'string') {
@@ -101,6 +102,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       order,
     }, // will be passed to the page component as props
   }
-}
+})
 
 export default Pokemons

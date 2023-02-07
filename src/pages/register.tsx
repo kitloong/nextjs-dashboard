@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
@@ -7,21 +7,35 @@ import {
 } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { SyntheticEvent, useState } from 'react'
+import { redirectIfAuthenticated } from '@lib'
+import { deleteCookie, getCookie } from 'cookies-next'
+import axios from 'axios'
 
 const Register: NextPage = () => {
   const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
 
-  const register = (e: SyntheticEvent) => {
+  const getRedirect = () => {
+    const redirect = getCookie('redirect')
+    if (redirect) {
+      deleteCookie('redirect')
+      return redirect.toString()
+    }
+
+    return '/'
+  }
+
+  const register = async (e: SyntheticEvent) => {
     e.stopPropagation()
     e.preventDefault()
 
     setSubmitting(true)
 
-    setTimeout(() => {
-      setSubmitting(false)
-      router.push('/')
-    }, 2000)
+    const res = await axios.post('api/mock/login')
+    if (res.status === 200) {
+      router.push(getRedirect())
+    }
+    setSubmitting(false)
   }
 
   return (
@@ -96,5 +110,9 @@ const Register: NextPage = () => {
     </div>
   )
 }
+
+export const getServerSideProps: GetServerSideProps = redirectIfAuthenticated(
+  async () => ({ props: {} }),
+)
 
 export default Register

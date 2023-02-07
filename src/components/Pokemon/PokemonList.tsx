@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { Pokemon } from '@models/pokemon'
-import { ImageFallback } from '@components/Image'
 import { THSort } from '@components/TableSort'
+import Image from 'next/image'
 
 const typeColorMap: Record<string, string> = {
   normal: '#aa9',
@@ -79,12 +79,11 @@ export default function PokemonList(props: Props) {
             <td>{pokemon.id}</td>
             <td>
               <div className="position-relative mx-auto" style={{ width: '70px', height: '70px' }}>
-                <ImageFallback
+                <Image
                   fill
                   style={{ objectFit: 'contain' }}
                   alt={pokemon.identifier}
                   src={`https://img.pokemondb.net/sprites/sword-shield/icon/${pokemon.identifier}.png`}
-                  fallbackSrc={`https://img.pokemondb.net/sprites/sword-shield/icon/${pokemon.identifier}.png`}
                 />
               </div>
             </td>
