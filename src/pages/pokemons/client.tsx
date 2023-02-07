@@ -1,28 +1,35 @@
 import { GetServerSideProps, NextPage } from 'next'
-import { AdminLayout } from '@layout'
 import { Card } from 'react-bootstrap'
-import axios from 'axios'
+import { PokemonList } from '@components/Pokemon'
+import { AdminLayout } from '@layout'
+import React, { useEffect, useState } from 'react'
 import { Pokemon } from '@models/pokemon'
 import { newResource, Resource } from '@models/resource'
-import React from 'react'
-import { Pagination } from '@components/Pagination'
-import { PokemonList } from '@components/Pokemon'
 import { transformResponseWrapper, useSWRAxios } from '@hooks'
+import { Pagination } from '@components/Pagination'
 
 type Props = {
-  pokemonResource: Resource<Pokemon>;
   page: number;
   perPage: number;
   sort: string;
   order: string;
 }
 
-const Pokemons: NextPage<Props> = (props) => {
+const Client: NextPage<Props> = (props) => {
   const {
-    pokemonResource, page, perPage, sort, order,
+    page: initPage, perPage: initPerPage, sort: initSort, order: initOrder,
   } = props
 
+  const [page, setPage] = useState(initPage)
+  const [perPage, setPerPage] = useState(initPerPage)
+  const [sort, setSort] = useState(initSort)
+  const [order, setOrder] = useState(initOrder)
+
   const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
+
+  const [fallbackResource, setFallbackResource] = useState<Resource<Pokemon>>(
+    newResource([], 0, page, perPage),
+  )
 
   // swr: data -> axios: data -> resource: data
   const { data: { data: resource } } = useSWRAxios<Resource<Pokemon>>({
@@ -38,20 +45,31 @@ const Pokemons: NextPage<Props> = (props) => {
       return newResource(d, total, page, perPage)
     }),
   }, {
-    data: pokemonResource,
+    data: fallbackResource,
     headers: {
-      'x-total-count': pokemonResource.meta.total.toString(),
+      'x-total-count': '0',
     },
   })
+
+  useEffect(() => {
+    setFallbackResource(resource)
+  }, [resource])
 
   return (
     <AdminLayout>
       <Card>
         <Card.Header>Pokémon</Card.Header>
         <Card.Body>
-          <Pagination meta={resource.meta} />
-          <PokemonList pokemons={resource.data} />
-          <Pagination meta={resource.meta} />
+          <Pagination
+            meta={resource.meta}
+            setPerPage={setPerPage}
+            setPage={setPage}
+          />
+          <PokemonList
+            pokemons={resource.data}
+            setSort={setSort}
+            setOrder={setOrder}
+          />
         </Card.Body>
       </Card>
     </AdminLayout>
@@ -59,7 +77,6 @@ const Pokemons: NextPage<Props> = (props) => {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
   let page = 1
   if (context.query?.page && typeof context.query.page === 'string') {
     page = parseInt(context.query.page, 10)
@@ -80,21 +97,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     order = context.query.order
   }
 
-  const { data: pokemons, headers } = await axios.get<Pokemon[]>(pokemonListURL, {
-    params: {
-      _page: page,
-      _limit: perPage,
-      _sort: sort,
-      _order: order,
-    },
-  })
-
-  const total = parseInt(headers['x-total-count'], 10)
-  const pokemonResource: Resource<Pokemon> = newResource(pokemons, total, page, perPage)
-
   return {
     props: {
-      pokemonResource,
       page,
       perPage,
       sort,
@@ -103,4 +107,4 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
 }
 
-export default Pokemons
+export default Client
