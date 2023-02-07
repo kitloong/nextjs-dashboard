@@ -11,6 +11,15 @@ type WithAuth = <
   gssp: GetServerSideProps<P, Q, D>
 ) => GetServerSideProps<P, Q, D>
 
+/**
+ * Use with `GetServerSideProps`
+ * eg:
+ * ```
+ * export const getServerSideProps: GetServerSideProps<Props> = withAuth(async (context) => {
+ *   ...
+ * })
+ * ```
+ */
 const withAuth: WithAuth = (gssp) => async (context) => {
   const { auth: authSession } = context.req.cookies
 
@@ -18,7 +27,7 @@ const withAuth: WithAuth = (gssp) => async (context) => {
     context.res.setHeader('Set-Cookie', serializeCookie('redirect', context.resolvedUrl, { path: '/' }))
     return {
       redirect: {
-        destination: context.req.headers.referer ?? '/login',
+        destination: '/login',
         permanent: false,
       },
     }

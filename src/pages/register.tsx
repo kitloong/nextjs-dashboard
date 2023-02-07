@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
@@ -7,7 +7,6 @@ import {
 } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import { SyntheticEvent, useState } from 'react'
-import { redirectIfAuthenticated } from '@lib'
 import { deleteCookie, getCookie } from 'cookies-next'
 import axios from 'axios'
 
@@ -110,9 +109,5 @@ const Register: NextPage = () => {
     </div>
   )
 }
-
-export const getServerSideProps: GetServerSideProps = redirectIfAuthenticated(
-  async () => ({ props: {} }),
-)
 
 export default Register

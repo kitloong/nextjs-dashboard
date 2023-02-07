@@ -7,7 +7,6 @@ import { Pokemon } from '@models/pokemon'
 import { newResource, Resource } from '@models/resource'
 import { transformResponseWrapper, useSWRAxios } from '@hooks'
 import { Pagination } from '@components/Pagination'
-import { withAuth } from '@lib'
 
 type Props = {
   page: number;
@@ -77,7 +76,7 @@ const Client: NextPage<Props> = (props) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = withAuth(async (context) => {
+export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   let page = 1
   if (context.query?.page && typeof context.query.page === 'string') {
     page = parseInt(context.query.page, 10)
@@ -106,6 +105,6 @@ export const getServerSideProps: GetServerSideProps<Props> = withAuth(async (con
       order,
     }, // will be passed to the page component as props
   }
-})
+}
 
 export default Client

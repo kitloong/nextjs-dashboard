@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +9,6 @@ import Link from 'next/link'
 import { SyntheticEvent, useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import { redirectIfAuthenticated } from '@lib'
 import { deleteCookie, getCookie } from 'cookies-next'
 
 const Login: NextPage = () => {
@@ -124,9 +123,5 @@ const Login: NextPage = () => {
     </div>
   )
 }
-
-export const getServerSideProps: GetServerSideProps = redirectIfAuthenticated(
-  async () => ({ props: {} }),
-)
 
 export default Login

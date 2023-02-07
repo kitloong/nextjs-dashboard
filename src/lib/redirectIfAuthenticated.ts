@@ -1,7 +1,7 @@
+/* eslint-disable max-len */
 import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { PreviewData } from 'next/types'
-import { serializeCookie } from '@lib/cookie'
 
 type RedirectIfAuthenticated = <
   P extends { [key: string]: unknown } = { [key: string]: unknown },
@@ -11,14 +11,21 @@ type RedirectIfAuthenticated = <
   gssp: GetServerSideProps<P, Q, D>
 ) => GetServerSideProps<P, Q, D>
 
+/**
+ * Use with `GetServerSideProps`
+ * eg:
+ * ```
+ * export const getServerSideProps: GetServerSideProps<Props> = redirectIfAuthenticated(async (context) => {
+ *   ...
+ * })
+ * ```
+ */
 const redirectIfAuthenticated: RedirectIfAuthenticated = (gssp) => async (context) => {
   const { auth: authSession } = context.req.cookies
   if (authSession) {
-    // context.res.setHeader('Set-Cookie', serializeCookie('redirect', context.resolvedUrl, { path: '/' }))
-
     return {
       redirect: {
-        destination: context.req.headers.referer ?? '/',
+        destination: '/',
         permanent: false,
       },
     }
