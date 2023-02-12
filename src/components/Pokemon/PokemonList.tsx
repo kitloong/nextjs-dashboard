@@ -82,8 +82,9 @@ export default function PokemonList(props: Props) {
                 <Image
                   fill
                   style={{ objectFit: 'contain' }}
-                  alt={pokemon.identifier}
-                  src={`https://img.pokemondb.net/sprites/sword-shield/icon/${pokemon.identifier}.png`}
+                  alt={pokemon.pokemondb_identifier}
+                  sizes="5vw"
+                  src={`https://img.pokemondb.net/sprites/home/normal/2x/${pokemon.pokemondb_identifier}.jpg`}
                 />
               </div>
             </td>
