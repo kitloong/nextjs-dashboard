@@ -20,11 +20,11 @@ import Link from 'next/link'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 
-type NavItemProps = {
+type ItemWithIconProps = {
   icon: IconDefinition;
 } & PropsWithChildren
 
-const ProfileDropdownItem = (props: NavItemProps) => {
+const ItemWithIcon = (props: ItemWithIconProps) => {
   const { icon, children } = props
 
   return (
@@ -48,7 +48,7 @@ export default function HeaderProfileNav() {
   return (
     <Nav>
       <Dropdown as={NavItem}>
-        <Dropdown.Toggle variant="link" bsPrefix="shadow-none" className="py-0 px-2 rounded-0" id="dropdown-profile">
+        <Dropdown.Toggle variant="link" bsPrefix="hide-caret" className="py-0 px-2 rounded-0" id="dropdown-profile">
           <div className="avatar position-relative">
             <Image
               fill
@@ -62,56 +62,57 @@ export default function HeaderProfileNav() {
           <Dropdown.Header className="bg-light fw-bold rounded-top">Account</Dropdown.Header>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faBell}>
+              <ItemWithIcon icon={faBell}>
                 Updates
                 <Badge bg="info" className="ms-2">42</Badge>
-              </ProfileDropdownItem>
+              </ItemWithIcon>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faEnvelopeOpen}>
+              <ItemWithIcon icon={faEnvelopeOpen}>
                 Updates
                 <Badge bg="success" className="ms-2">42</Badge>
-              </ProfileDropdownItem>
+              </ItemWithIcon>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faListCheck}>
+              <ItemWithIcon icon={faListCheck}>
                 Tasks
                 <Badge bg="danger" className="ms-2">42</Badge>
-              </ProfileDropdownItem>
+              </ItemWithIcon>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faMessage}>
+              <ItemWithIcon icon={faMessage}>
                 Messages
                 <Badge bg="warning" className="ms-2">42</Badge>
-              </ProfileDropdownItem>
+              </ItemWithIcon>
             </Dropdown.Item>
           </Link>
 
           <Dropdown.Header className="bg-light fw-bold">Settings</Dropdown.Header>
+
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faUser}>Profile</ProfileDropdownItem>
+              <ItemWithIcon icon={faUser}>Profile</ItemWithIcon>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faGear}>Settings</ProfileDropdownItem>
+              <ItemWithIcon icon={faGear}>Settings</ItemWithIcon>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faCreditCard}>Payments</ProfileDropdownItem>
+              <ItemWithIcon icon={faCreditCard}>Payments</ItemWithIcon>
             </Dropdown.Item>
           </Link>
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faFile}>Projects</ProfileDropdownItem>
+              <ItemWithIcon icon={faFile}>Projects</ItemWithIcon>
             </Dropdown.Item>
           </Link>
 
@@ -119,11 +120,11 @@ export default function HeaderProfileNav() {
 
           <Link href="/" passHref legacyBehavior>
             <Dropdown.Item>
-              <ProfileDropdownItem icon={faLock}>Lock Account</ProfileDropdownItem>
+              <ItemWithIcon icon={faLock}>Lock Account</ItemWithIcon>
             </Dropdown.Item>
           </Link>
           <Dropdown.Item onClick={logout}>
-            <ProfileDropdownItem icon={faPowerOff}>Logout</ProfileDropdownItem>
+            <ItemWithIcon icon={faPowerOff}>Logout</ItemWithIcon>
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
