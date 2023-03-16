@@ -37,7 +37,7 @@ export default function useSWRAxios<T>(
     {
       fallbackData,
       onErrorRetry: (error: AxiosError<T>, key, config, revalidate, { retryCount }) => {
-      // Never retry on 404.
+        // Never retry on 404.
         if (error.response?.status === 404) return
 
         // Only retry up to `maxRetry` times.
