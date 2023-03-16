@@ -1,7 +1,11 @@
-$avatar-width: 2.5rem;
-$avatar-height: 2.5rem;
-$avatar-status-width: 0.6666666667rem;
-$avatar-status-height: 0.6666666667rem;
+$avatar-width: 2rem;
+$avatar-height: 2rem;
+$avatar-md-width: 2.5rem;
+$avatar-md-height: 2.5rem;
+$avatar-status-width: 0.5333333333rem;
+$avatar-status-height: 0.5333333333rem;
+$avatar-status-md-width: 0.6666666667rem;
+$avatar-status-md-height: 0.6666666667rem;
 
 .avatar {
   width: $avatar-width;
@@ -10,5 +14,15 @@ $avatar-status-height: 0.6666666667rem;
   .avatar-status {
     width: $avatar-status-width;
     height: $avatar-status-height;
+  }
+
+  &.avatar-md {
+    width: $avatar-md-width;
+    height: $avatar-md-height;
+
+    .avatar-status {
+      width: $avatar-status-md-width;
+      height: $avatar-status-md-height;
+    }
   }
 }
