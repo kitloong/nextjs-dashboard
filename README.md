@@ -71,6 +71,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Next.JS Rendering
 
+<details>
+  <summary>Click to expand</summary>
+
 ### Pre-rendering
 
 By default, Next.js pre-renders every page. This means that Next.js generates HTML for each page in advance, instead of having it all done by client-side JavaScript. Pre-rendering can result in better performance and SEO.
@@ -105,6 +108,8 @@ To use ISR, add the `revalidate` prop to `getStaticProps`.
 
 https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
 
+</details>
+
 ## Installed Packages
 
 1. [Redux](https://redux.js.org/tutorials/fundamentals/part-1-overview)
@@ -124,4 +129,7 @@ https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regenera
    4. https://www.npmjs.com/package/eslint-config-airbnb
    5. https://www.npmjs.com/package/eslint-config-airbnb-typescript
    6. https://github.com/prettier/eslint-config-prettier
-8. https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components/
+
+## Reference
+
+1. https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components/
