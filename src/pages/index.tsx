@@ -646,7 +646,7 @@ const Home: NextPage = () => (
 
     <div className="row">
       <div className="col-md-12">
-        <Card className="mb-4">
+        <Card>
           <Card.Header>
             Traffic &amp; Sales
           </Card.Header>
