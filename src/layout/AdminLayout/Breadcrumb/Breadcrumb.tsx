@@ -2,7 +2,7 @@ import { Breadcrumb as BSBreadcrumb } from 'react-bootstrap'
 
 export default function Breadcrumb() {
   return (
-    <BSBreadcrumb listProps={{ className: 'my-0 ms-2 align-items-center' }}>
+    <BSBreadcrumb listProps={{ className: 'mb-0 align-items-center' }}>
       <BSBreadcrumb.Item
         linkProps={{ className: 'text-decoration-none' }}
         href="/"
