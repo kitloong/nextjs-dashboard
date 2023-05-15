@@ -60,7 +60,7 @@ export default function HeaderProfileNav() {
         </Dropdown.Toggle>
         <Dropdown.Menu className="pt-0">
           <Dropdown.Header className="bg-light fw-bold rounded-top">Account</Dropdown.Header>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faBell}>
                 Updates
@@ -68,7 +68,7 @@ export default function HeaderProfileNav() {
               </ItemWithIcon>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faEnvelopeOpen}>
                 Updates
@@ -76,7 +76,7 @@ export default function HeaderProfileNav() {
               </ItemWithIcon>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faListCheck}>
                 Tasks
@@ -84,7 +84,7 @@ export default function HeaderProfileNav() {
               </ItemWithIcon>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faMessage}>
                 Messages
@@ -95,22 +95,22 @@ export default function HeaderProfileNav() {
 
           <Dropdown.Header className="bg-light fw-bold">Settings</Dropdown.Header>
 
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faUser}>Profile</ItemWithIcon>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faGear}>Settings</ItemWithIcon>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faCreditCard}>Payments</ItemWithIcon>
             </Dropdown.Item>
           </Link>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faFile}>Projects</ItemWithIcon>
             </Dropdown.Item>
@@ -118,7 +118,7 @@ export default function HeaderProfileNav() {
 
           <Dropdown.Divider />
 
-          <Link href="/" passHref legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Dropdown.Item>
               <ItemWithIcon icon={faLock}>Lock Account</ItemWithIcon>
             </Dropdown.Item>

@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server'
 
 type Middleware = (request: NextRequest) => NextResponse
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const redirectIfAuthenticated: Middleware = (request) => {
   const authSession = request.cookies.get('auth')?.value
 
@@ -29,12 +30,13 @@ const authenticated: Middleware = (request) => {
 }
 
 export default function middleware(request: NextRequest) {
-  if ([
-    '/login',
-    '/register',
-  ].includes(request.nextUrl.pathname)) {
-    return redirectIfAuthenticated(request)
-  }
+  // Uncomment if you want to redirect if authenticated.
+  // if ([
+  //   '/login',
+  //   '/register',
+  // ].includes(request.nextUrl.pathname)) {
+  //   return redirectIfAuthenticated(request)
+  // }
 
   if ([
     '/',

@@ -43,35 +43,35 @@ export default function HeaderNotificationNav() {
           </Dropdown.Toggle>
           <Dropdown.Menu className="pt-0" align="end">
             <Dropdown.Header className="bg-light fw-bold rounded-top">You have 5 notifications</Dropdown.Header>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <ItemWithIcon icon={faUserPlus}>
                   New user registered
                 </ItemWithIcon>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <ItemWithIcon icon={faUserMinus}>
                   User deleted
                 </ItemWithIcon>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <ItemWithIcon icon={faChartBar}>
                   Sales report is ready
                 </ItemWithIcon>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <ItemWithIcon icon={faBasketShopping}>
                   New client
                 </ItemWithIcon>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <ItemWithIcon icon={faGaugeHigh}>
                   Server overloaded
@@ -81,7 +81,7 @@ export default function HeaderNotificationNav() {
 
             <Dropdown.Header className="bg-light fw-bold">Server</Dropdown.Header>
 
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small><div className="text-uppercase"><b>CPU Usage</b></div></small>
                 <ProgressBar
@@ -94,7 +94,7 @@ export default function HeaderNotificationNav() {
                 </small>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small><div className="text-uppercase"><b>Memory Usage</b></div></small>
                 <ProgressBar
@@ -107,7 +107,7 @@ export default function HeaderNotificationNav() {
                 </small>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small><div className="text-uppercase"><b>SSD 1 Usage</b></div></small>
                 <ProgressBar
@@ -134,7 +134,7 @@ export default function HeaderNotificationNav() {
           <Dropdown.Menu className="pt-0" align="end">
             <Dropdown.Header className="bg-light fw-bold rounded-top">You have 5 pending tasks</Dropdown.Header>
 
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small className="d-flex">
                   <div>Upgrade Next.JS</div>
@@ -147,7 +147,7 @@ export default function HeaderNotificationNav() {
                 />
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small className="d-flex">
                   <div>Train Pokemons</div>
@@ -160,7 +160,7 @@ export default function HeaderNotificationNav() {
                 />
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small className="d-flex">
                   <div>Complete Pokedex</div>
@@ -173,7 +173,7 @@ export default function HeaderNotificationNav() {
                 />
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small className="d-flex">
                   <div>Catch all shiny</div>
@@ -186,7 +186,7 @@ export default function HeaderNotificationNav() {
                 />
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <small className="d-flex">
                   <div>Beat all gyms</div>
@@ -202,7 +202,7 @@ export default function HeaderNotificationNav() {
 
             <Dropdown.Divider />
 
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item className="text-center fw-bold">View all tasks</Dropdown.Item>
             </Link>
 
@@ -219,7 +219,7 @@ export default function HeaderNotificationNav() {
           </Dropdown.Toggle>
           <Dropdown.Menu className="pt-0" align="end">
             <Dropdown.Header className="bg-light fw-bold rounded-top">You have 4 messages</Dropdown.Header>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <div className="message">
                   <div className="py-3 me-3 float-start">
@@ -251,7 +251,7 @@ export default function HeaderNotificationNav() {
                 </div>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <div className="message">
                   <div className="py-3 me-3 float-start">
@@ -281,7 +281,7 @@ export default function HeaderNotificationNav() {
                 </div>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <div className="message">
                   <div className="py-3 me-3 float-start">
@@ -311,7 +311,7 @@ export default function HeaderNotificationNav() {
                 </div>
               </Dropdown.Item>
             </Link>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="#" passHref legacyBehavior>
               <Dropdown.Item>
                 <div className="message">
                   <div className="py-3 me-3 float-start">
