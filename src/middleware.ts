@@ -29,12 +29,13 @@ const authenticated: Middleware = (request) => {
 }
 
 export default function middleware(request: NextRequest) {
-  if ([
-    '/login',
-    '/register',
-  ].includes(request.nextUrl.pathname)) {
-    return redirectIfAuthenticated(request)
-  }
+  // Uncomment if you want to redirect if authenticated.
+  // if ([
+  //   '/login',
+  //   '/register',
+  // ].includes(request.nextUrl.pathname)) {
+  //   return redirectIfAuthenticated(request)
+  // }
 
   if ([
     '/',
