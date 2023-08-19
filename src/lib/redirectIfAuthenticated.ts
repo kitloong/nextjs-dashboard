@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
+import { GetServerSideProps } from 'next'
 import { PreviewData } from 'next/types'
 
 type RedirectIfAuthenticated = <

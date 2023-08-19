@@ -1,5 +1,5 @@
-import { GetServerSideProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
+import { GetServerSideProps } from 'next'
 import { PreviewData } from 'next/types'
 import { serializeCookie } from '@lib/cookie'
 
