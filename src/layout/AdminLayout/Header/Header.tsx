@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import { Button, Container } from 'react-bootstrap'
 import Breadcrumb from '@layout/AdminLayout/Breadcrumb/Breadcrumb'
 import HeaderFeaturedNav from '@layout/AdminLayout/Header/HeaderFeaturedNav'
 import HeaderNotificationNav from '@layout/AdminLayout/Header/HeaderNotificationNav'
 import HeaderProfileNav from '@layout/AdminLayout/Header/HeaderProfileNav'
-import { Button, Container } from 'react-bootstrap'
 
 type HeaderProps = {
   toggleSidebar: () => void;
