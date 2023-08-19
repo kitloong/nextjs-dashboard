@@ -1,46 +1,18 @@
 {
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb",
-    "next/core-web-vitals"
+    "airbnb-typescript",
+    "next/core-web-vitals",
+    "prettier"
   ],
-  "overrides": [
-    {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "airbnb-typescript"
-      ],
-      "plugins": [
-        "@typescript-eslint"
-      ],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
-      "rules": {
-        "@typescript-eslint/semi": [
-          2,
-          "never"
-        ],
-        // Use semicolon as member delimiter for interfaces and type
-        "@typescript-eslint/member-delimiter-style": 2
-      }
-    }
-  ],
-  "plugins": [
-    "react",
-    "react-hooks"
-  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
-    // Checks rules of Hooks
-    "react-hooks/rules-of-hooks": "error",
-    // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn",
     // https://stackoverflow.com/questions/69928061/struggling-with-typescript-react-eslint-and-simple-arrow-functions-components
     "react/function-component-definition": [
       2,
@@ -63,6 +35,9 @@
     ],
     // Since we do not use prop-types
     "react/require-default-props": 0,
+    // Use semicolon as member delimiter for interfaces and type
+    "@typescript-eslint/member-delimiter-style": 2,
+    "@typescript-eslint/semi": 0,
     "semi": [
       2,
       "never"
