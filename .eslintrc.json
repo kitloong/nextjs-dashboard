@@ -6,8 +6,7 @@
     "plugin:react-hooks/recommended",
     "airbnb",
     "airbnb-typescript",
-    "next/core-web-vitals",
-    "prettier"
+    "next/core-web-vitals"
   ],
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -38,6 +37,16 @@
     // Use semicolon as member delimiter for interfaces and type
     "@typescript-eslint/member-delimiter-style": 2,
     "@typescript-eslint/semi": 0,
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "exceptions": ["input", "textarea", "select", "Form.Control", "Form.Check", "Form.Check.Input", "Form.Select", "Form.Switch"]
+      }
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
     "semi": [
       2,
       "never"
