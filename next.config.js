@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 
 /** @type {import('next').NextConfig} */
@@ -8,7 +9,13 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['img.pokemondb.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.pokemondb.net',
+        port: '',
+      },
+    ],
   },
 }
 

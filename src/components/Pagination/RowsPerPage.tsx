@@ -1,6 +1,8 @@
+'use client'
+
 import { Form } from 'react-bootstrap'
 import React from 'react'
-import { useRouter } from 'next/router'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 type Props = {
   perPage: number;
@@ -10,6 +12,8 @@ type Props = {
 export default function RowsPerPage(props: Props) {
   const { perPage, setPerPage } = props
   const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   return (
     <div className="col-auto ms-sm-auto mb-3">
@@ -24,14 +28,11 @@ export default function RowsPerPage(props: Props) {
             setPerPage(parseInt(event.target.value, 10))
           }
 
-          router.push({
-            pathname: router.pathname,
-            query: {
-              ...router.query,
-              page: 1, // Go back to first page
-              per_page: event.target.value,
-            },
-          })
+          const newSearchParams = new URLSearchParams(searchParams)
+          newSearchParams.set('page', '1') // Go back to first page
+          newSearchParams.set('per_page', event.target.value)
+
+          router.push(`${pathname}?${newSearchParams}`)
         }}
       >
         <option value={20}>20</option>

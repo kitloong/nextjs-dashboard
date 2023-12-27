@@ -1,12 +1,14 @@
+'use client'
+
 import { Dropdown, Table } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import Image from 'next/image'
-import { Pokemon } from '@models/pokemon'
-import { THSort } from '@components/TableSort'
-import PokemonTypeLabel from '@components/Pokemon/PokemonTypeLabel'
 import Link from 'next/link'
+import { Pokemon } from '@/models/pokemon'
+import THSort from '@/components/TableSort/THSort'
+import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
 
 type Props = {
   pokemons: Pokemon[];

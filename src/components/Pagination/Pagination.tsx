@@ -1,8 +1,8 @@
 import React from 'react'
-import { Resource } from '@models/resource'
-import Summary from './Summary'
-import RowsPerPage from './RowsPerPage'
-import Paginate from './Paginate'
+import { Resource } from '@/models/resource'
+import Paginate from '@/components/Pagination/Paginate'
+import RowsPerPage from '@/components/Pagination/RowsPerPage'
+import Summary from '@/components/Pagination/Summary'
 
 type Props = {
   meta: Resource<unknown>['meta'];
@@ -13,7 +13,12 @@ type Props = {
 export default function Pagination(props: Props) {
   const {
     meta: {
-      from, to, total, per_page: perPage, last_page: lastPage, current_page: currentPage,
+      from,
+      to,
+      total,
+      per_page: perPage,
+      last_page: lastPage,
+      current_page: currentPage,
     },
     setPerPage,
     setPage,

@@ -1,6 +1,8 @@
+'use client'
+
 import ReactPaginate from 'react-paginate'
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 type Props = {
   currentPage: number;
@@ -12,6 +14,8 @@ export default function Paginate(props: Props) {
   const { currentPage, lastPage, setPage } = props
   const [pageIndex, setPageIndex] = useState(currentPage - 1)
   const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     setPageIndex(currentPage - 1)
@@ -44,13 +48,10 @@ export default function Paginate(props: Props) {
             setPage(page)
           }
 
-          router.push({
-            pathname: router.pathname,
-            query: {
-              ...router.query,
-              page,
-            },
-          })
+          const newSearchParams = new URLSearchParams(searchParams)
+          newSearchParams.set('page', page.toString())
+
+          router.push(`${pathname}?${newSearchParams}`)
         }}
       />
     </div>

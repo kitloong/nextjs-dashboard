@@ -1,11 +1,5 @@
-import {
-  Pokemon,
-  PokemonEggGroup,
-  pokemonEggGroups,
-  PokemonType,
-  pokemonTypes,
-} from '@models/pokemon'
-import { PokemonTypeLabel } from '@components/Pokemon/index'
+'use client'
+
 import {
   Alert, Button, Col, Form, Row,
 } from 'react-bootstrap'
@@ -13,7 +7,15 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import Image from 'next/image'
-import { FormError } from '@components/Form'
+import {
+  Pokemon,
+  PokemonEggGroup,
+  pokemonEggGroups,
+  PokemonType,
+  pokemonTypes,
+} from '@/models/pokemon'
+import FormError from '@/components/Form/FormError'
+import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
 
 type Inputs = {
   name: string;
@@ -74,7 +76,6 @@ export default function PokemonForm(props: Props) {
   })
 
   const [submitting, setSubmitting] = useState(false)
-  const [showNotification, setShowNotification] = useState(false)
   const [notificationMessage, setNotificationMessage] = useState('')
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -91,7 +92,6 @@ export default function PokemonForm(props: Props) {
 
     setSubmitting(false)
     window.scrollTo(0, 0)
-    setShowNotification(true)
 
     if (res) {
       setNotificationMessage('Record saved successfully.')
@@ -106,11 +106,9 @@ export default function PokemonForm(props: Props) {
       noValidate
       onSubmit={handleSubmit(onSubmit)}
     >
-      {showNotification && (
-        <Alert variant="success" onClose={() => setShowNotification(false)} dismissible>
-          {notificationMessage}
-        </Alert>
-      )}
+      <Alert variant="success" show={notificationMessage !== ''} onClose={() => setNotificationMessage('')} dismissible>
+        {notificationMessage}
+      </Alert>
 
       {pokemon && (
         <div
