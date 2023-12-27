@@ -1,51 +1,14 @@
+'use client'
+
 import { Dropdown, Table } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import Image from 'next/image'
-import { Pokemon } from '@models/pokemon'
-import { THSort } from '@components/TableSort'
-
-const typeColorMap: Record<string, string> = {
-  normal: '#aa9',
-  fighting: '#b54',
-  flying: '#89f',
-  poison: '#a59',
-  ground: '#db5',
-  rock: '#ba6',
-  bug: '#ab2',
-  ghost: '#66b',
-  steel: '#aab',
-  fire: '#f42',
-  water: '#39f',
-  grass: '#7c5',
-  electric: '#fc3',
-  psychic: '#f59',
-  ice: '#6cf',
-  dragon: '#76e',
-  dark: '#754',
-  fairy: '#e9e',
-  unknown: '#aa9',
-  shadow: '#aa9',
-}
-
-type TypeLabelProps = {
-  type: string;
-}
-
-const TypeLabel = ({ type }: TypeLabelProps) => (
-  <span
-    className="text-white d-inline-block text-uppercase text-center rounded-1 shadow-sm me-2"
-    style={{
-      backgroundColor: typeColorMap[type],
-      textShadow: '1px 1px 2px rgb(0 0 0 / 70%)',
-      fontSize: '.7rem',
-      width: '70px',
-    }}
-  >
-    {type}
-  </span>
-)
+import Link from 'next/link'
+import { Pokemon } from '@/models/pokemon'
+import THSort from '@/components/TableSort/THSort'
+import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
 
 type Props = {
   pokemons: Pokemon[];
@@ -90,7 +53,7 @@ export default function PokemonList(props: Props) {
             </td>
             <td>{pokemon.name}</td>
             <td>
-              {pokemon.types.map((type) => <TypeLabel key={type} type={type} />)}
+              {pokemon.types.map((type) => <span key={type} className="me-2"><PokemonTypeLabel type={type} /></span>)}
             </td>
             <td className="text-center" style={{ whiteSpace: 'pre' }}>{pokemon.egg_groups.join('\n')}</td>
             <td className="text-end">{pokemon.hp}</td>
@@ -113,7 +76,9 @@ export default function PokemonList(props: Props) {
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Edit</Dropdown.Item>
+                  <Link href={`pokemons/${pokemon.id}/edit`} passHref legacyBehavior>
+                    <Dropdown.Item>Edit</Dropdown.Item>
+                  </Link>
                   <Dropdown.Item
                     className="text-danger"
                     href="#/action-3"

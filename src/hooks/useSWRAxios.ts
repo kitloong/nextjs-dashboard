@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import axios, {
-  AxiosError,
+  AxiosError, AxiosHeaders,
   AxiosRequestConfig,
   AxiosResponse,
   AxiosResponseTransformer,
@@ -26,7 +26,9 @@ export default function useSWRAxios<T>(
     headers: {},
     status: 200,
     statusText: 'Initial',
-    config: {},
+    config: {
+      headers: new AxiosHeaders(),
+    },
   }
 
   const fallbackData: AxiosResponse<T> = { ...initFallbackData, ...axiosFallbackData }

@@ -1,6 +1,8 @@
+'use client'
+
 import React, { PropsWithChildren, useEffect, useState } from 'react'
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
-import { useRouter } from 'next/router'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type Props = {
@@ -15,7 +17,10 @@ export default function THSort(props: Props) {
   } = props
   const [icon, setIcon] = useState(faSort)
   const router = useRouter()
-  const { query: { sort, order } } = router
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const sort = searchParams.get('sort')
+  const order = searchParams.get('order')
 
   const onClick = () => {
     if (setOrder) {
@@ -26,14 +31,11 @@ export default function THSort(props: Props) {
       setSort(name)
     }
 
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        sort: name,
-        order: order === 'asc' ? 'desc' : 'asc',
-      },
-    })
+    const newSearchParams = new URLSearchParams(searchParams)
+    newSearchParams.set('sort', name)
+    newSearchParams.set('order', order === 'asc' ? 'desc' : 'asc')
+
+    router.push(`${pathname}?${newSearchParams}`)
   }
 
   useEffect(() => {

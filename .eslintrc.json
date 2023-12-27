@@ -6,13 +6,21 @@
     "plugin:react-hooks/recommended",
     "airbnb",
     "airbnb-typescript",
-    "next/core-web-vitals",
-    "prettier"
+    "next/core-web-vitals"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  // https://github.com/iamturns/eslint-config-airbnb-typescript/issues/239
+  // https://www.npmjs.com/package/eslint-plugin-import
+  "settings": {
+    "import/resolver": {
+      "typescript": true
+    }
+  },
   "rules": {
+    "import/prefer-default-export": 0,
     // https://stackoverflow.com/questions/69928061/struggling-with-typescript-react-eslint-and-simple-arrow-functions-components
     "react/function-component-definition": [
       2,
@@ -38,6 +46,25 @@
     // Use semicolon as member delimiter for interfaces and type
     "@typescript-eslint/member-delimiter-style": 2,
     "@typescript-eslint/semi": 0,
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "exceptions": [
+          "input",
+          "textarea",
+          "select",
+          "Form.Control",
+          "Form.Check",
+          "Form.Check.Input",
+          "Form.Select",
+          "Form.Switch"
+        ]
+      }
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
     "semi": [
       2,
       "never"

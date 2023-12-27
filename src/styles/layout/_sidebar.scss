@@ -149,4 +149,8 @@ $sidebar-overlay-z-index: 1025;
 
 .sidebar-overlay {
   z-index: $sidebar-overlay-z-index;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
 }

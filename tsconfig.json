@@ -20,45 +20,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@components": [
-        "src/components"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@hooks": [
-        "src/hooks"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@layout": [
-        "src/layout"
-      ],
-      "@layout/*": [
-        "src/layout/*"
-      ],
-      "@lib": [
-        "src/lib"
-      ],
-      "@lib/*": [
-        "src/lib/*"
-      ],
-      "@models": [
-        "src/models"
-      ],
-      "@models/*": [
-        "src/models/*"
-      ],
-      "@pages": [
-        "src/pages"
-      ],
-      "@store": [
-        "src/store"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ]
+      "@/*": ["src/*"]
     },
     "plugins": [
       {
@@ -70,7 +32,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "next.config.js"
   ],
   "exclude": [
     "node_modules"

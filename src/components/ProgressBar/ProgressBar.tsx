@@ -1,14 +1,7 @@
-import NProgress from 'nprogress'
-import { Router } from 'next/router'
+'use client'
 
-Router.events.on('routeChangeStart', () => {
-  NProgress.start()
-})
-
-Router.events.on('routeChangeComplete', () => {
-  NProgress.done(true)
-})
+import { ProgressLoader } from 'nextjs-progressloader'
 
 export default function ProgressBar() {
-  return null
+  return <ProgressLoader />
 }
