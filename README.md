@@ -69,47 +69,6 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Next.JS Rendering
-
-<details>
-  <summary>Click to expand</summary>
-
-### Pre-rendering
-
-By default, Next.js pre-renders every page. This means that Next.js generates HTML for each page in advance, instead of having it all done by client-side JavaScript. Pre-rendering can result in better performance and SEO.
-
-### SSR: Server-side rendering
-
-Next.js will pre-render this page on **each request** using the data returned by `getServerSideProps`.
-
-https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props
-
-### SSG: Static-site generation
-
-Next.js will pre-render this page at **build time** using the props returned by `getStaticProps`.
-
-* In development (next dev), getStaticProps will be called on every request.
-
-https://nextjs.org/docs/basic-features/data-fetching/get-static-props
-
-### CSR: Client-side rendering
-
-If done at the page level, the data is fetched at runtime, and the content of the page is updated as the data changes. When used at the component level, the data is fetched at the time of the component mount, and the content of the component is updated as the data changes.
-
-It is **highly recommended** to use [SWR](https://swr.vercel.app/) if you are fetching data on the client-side. It handles caching, revalidation, focus tracking, refetching on intervals, and more.
-
-https://nextjs.org/docs/basic-features/data-fetching/client-side
-
-### ISR: Incremental Static Regeneration
-
-Next.js allows you to create or update static pages **after you’ve built** your site.
-
-To use ISR, add the `revalidate` prop to `getStaticProps`.
-
-https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
-
-</details>
-
 ## Installed Packages
 
 1. [Redux](https://redux.js.org/tutorials/fundamentals/part-1-overview)
