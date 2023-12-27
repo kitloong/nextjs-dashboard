@@ -15,31 +15,31 @@ This dashboard is built with `Typescript` and implement some layouts, with [Reac
 
 ### Dashboard
 
-https://nextjs-dashboard-olive.vercel.app
+https://nextjs-dashboard-git-pages-router-kitloong.vercel.app
 
-[<img alt="Dashboard" width="400" src="https://user-images.githubusercontent.com/7660346/180629352-f92216e3-7cf4-4fba-92fa-089dd96b4478.png" />](https://nextjs-dashboard-olive.vercel.app)
+[<img alt="Dashboard" width="400" src="https://user-images.githubusercontent.com/7660346/180629352-f92216e3-7cf4-4fba-92fa-089dd96b4478.png" />](https://nextjs-dashboard-git-pages-router-kitloong.vercel.app)
 
 | Mobile (collapsed)                                                                                                                                                                           | Mobile (expand)                                                                                                                                                                              |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [<img alt="Dashboard" height="278" src="https://user-images.githubusercontent.com/7660346/190973509-f681c230-54ba-4ee5-bd8c-7929ef24b6aa.png" />](https://nextjs-dashboard-olive.vercel.app) | [<img alt="Dashboard" height="278" src="https://user-images.githubusercontent.com/7660346/190973862-29c311ab-8867-4399-ad4d-01f2d073d7a2.png" />](https://nextjs-dashboard-olive.vercel.app) |
+| [<img alt="Dashboard" height="278" src="https://user-images.githubusercontent.com/7660346/190973509-f681c230-54ba-4ee5-bd8c-7929ef24b6aa.png" />](https://nextjs-dashboard-git-pages-router-kitloong.vercel.app) | [<img alt="Dashboard" height="278" src="https://user-images.githubusercontent.com/7660346/190973862-29c311ab-8867-4399-ad4d-01f2d073d7a2.png" />](https://nextjs-dashboard-git-pages-router-kitloong.vercel.app) |
 
 ### Sample page
 
-https://nextjs-dashboard-olive.vercel.app/pokemons
+https://nextjs-dashboard-git-pages-router-kitloong.vercel.app/pokemons
 
-[<img alt="Sample page" width="400" src="https://user-images.githubusercontent.com/7660346/183112188-75ffbd15-e7ef-455f-994b-945df16e5846.png">](https://nextjs-dashboard-olive.vercel.app/pokemons)
+[<img alt="Sample page" width="400" src="https://user-images.githubusercontent.com/7660346/183112188-75ffbd15-e7ef-455f-994b-945df16e5846.png">](https://nextjs-dashboard-git-pages-router-kitloong.vercel.app/pokemons)
 
 ### Login
 
-https://nextjs-dashboard-olive.vercel.app/login
+https://nextjs-dashboard-git-pages-router-kitloong.vercel.app/login
 
-[<img alt="Login" width="400" src="https://user-images.githubusercontent.com/7660346/180629556-539b6157-b34f-4ecc-aed9-b34f94d5d2ef.png" />](https://nextjs-dashboard-olive.vercel.app/login)
+[<img alt="Login" width="400" src="https://user-images.githubusercontent.com/7660346/180629556-539b6157-b34f-4ecc-aed9-b34f94d5d2ef.png" />](https://nextjs-dashboard-git-pages-router-kitloong.vercel.app/login)
 
 ### Register
 
-https://nextjs-dashboard-olive.vercel.app/register
+https://nextjs-dashboard-git-pages-router-kitloong.vercel.app/register
 
-[<img alt="Register" width="400" src="https://user-images.githubusercontent.com/7660346/180629498-1b23eb9a-cfd4-4909-8c02-58eaf6b06ff5.png" />](https://nextjs-dashboard-olive.vercel.app/register)
+[<img alt="Register" width="400" src="https://user-images.githubusercontent.com/7660346/180629498-1b23eb9a-cfd4-4909-8c02-58eaf6b06ff5.png" />](https://nextjs-dashboard-git-pages-router-kitloong.vercel.app/register)
 
 ## Getting Started
 
