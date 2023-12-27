@@ -89,10 +89,12 @@ const Home: NextPage = () => (
                   x: {
                     grid: {
                       display: false,
-                      drawBorder: false,
                     },
                     ticks: {
                       display: false,
+                    },
+                    border: {
+                      display: true,
                     },
                   },
                   y: {
@@ -177,10 +179,12 @@ const Home: NextPage = () => (
                   x: {
                     grid: {
                       display: false,
-                      drawBorder: false,
                     },
                     ticks: {
                       display: false,
+                    },
+                    border: {
+                      display: true,
                     },
                   },
                   y: {
@@ -348,11 +352,13 @@ const Home: NextPage = () => (
                   y: {
                     grid: {
                       display: false,
-                      drawBorder: false,
                       drawTicks: false,
                     },
                     ticks: {
                       display: false,
+                    },
+                    border: {
+                      display: true,
                     },
                   },
                 },
@@ -945,7 +951,7 @@ const Home: NextPage = () => (
               <table className="table border mb-0">
                 <thead className="table-light fw-semibold">
                   <tr className="align-middle">
-                    <th className="text-center">
+                    <th className="text-center" aria-label="icon">
                       <FontAwesomeIcon icon={faUsers} fixedWidth />
                     </th>
                     <th>User</th>
@@ -991,7 +997,7 @@ const Home: NextPage = () => (
                       </div>
                       <ProgressBar className="progress-thin" variant="success" now={50} />
                     </td>
-                    <td className="text-center">
+                    <td className="text-center" aria-label="icon">
                       <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                     </td>
                     <td>
@@ -1057,7 +1063,7 @@ const Home: NextPage = () => (
                       </div>
                       <ProgressBar className="progress-thin" variant="info" now={10} />
                     </td>
-                    <td className="text-center">
+                    <td className="text-center" aria-label="icon">
                       <FontAwesomeIcon icon={faCcVisa} size="lg" fixedWidth />
                     </td>
                     <td>
@@ -1123,7 +1129,7 @@ const Home: NextPage = () => (
                       </div>
                       <ProgressBar className="progress-thin" variant="warning" now={74} />
                     </td>
-                    <td className="text-center">
+                    <td className="text-center" aria-label="icon">
                       <FontAwesomeIcon icon={faCcStripe} size="lg" fixedWidth />
                     </td>
                     <td>
@@ -1189,7 +1195,7 @@ const Home: NextPage = () => (
                       </div>
                       <ProgressBar className="progress-thin" variant="danger" now={98} />
                     </td>
-                    <td className="text-center">
+                    <td className="text-center" aria-label="icon">
                       <FontAwesomeIcon icon={faCcPaypal} size="lg" fixedWidth />
                     </td>
                     <td>
@@ -1255,7 +1261,7 @@ const Home: NextPage = () => (
                       </div>
                       <ProgressBar className="progress-thin" variant="info" now={22} />
                     </td>
-                    <td className="text-center">
+                    <td className="text-center" aria-label="icon">
                       <FontAwesomeIcon icon={faCcApplePay} size="lg" fixedWidth />
                     </td>
                     <td>
@@ -1321,7 +1327,7 @@ const Home: NextPage = () => (
                       </div>
                       <ProgressBar className="progress-thin" variant="success" now={43} />
                     </td>
-                    <td className="text-center">
+                    <td className="text-center" aria-label="icon">
                       <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                     </td>
                     <td>
