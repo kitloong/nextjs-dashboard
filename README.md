@@ -1,3 +1,6 @@
+> [!NOTE]
+> You are currently looking at the Next.JS Pages Router. Visit `main` branch for the App Router.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app --typescript`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Next.JS Dashboard
