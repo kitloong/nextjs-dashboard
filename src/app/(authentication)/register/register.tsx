@@ -1,7 +1,7 @@
 'use client'
 
 import {
-  Alert, Button, Form, InputGroup,
+  Alert, Button, Form, FormControl, InputGroup,
 } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons'
@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 import { SyntheticEvent, useState } from 'react'
 import { deleteCookie, getCookie } from 'cookies-next'
 import axios from 'axios'
+import InputGroupText from 'react-bootstrap/InputGroupText'
 
 export default function Register() {
   const router = useRouter()
@@ -51,8 +52,8 @@ export default function Register() {
       <Alert variant="danger" show={error !== ''} onClose={() => setError('')} dismissible>{error}</Alert>
       <Form onSubmit={register}>
         <InputGroup className="mb-3">
-          <InputGroup.Text><FontAwesomeIcon icon={faUser} fixedWidth /></InputGroup.Text>
-          <Form.Control
+          <InputGroupText><FontAwesomeIcon icon={faUser} fixedWidth /></InputGroupText>
+          <FormControl
             name="username"
             required
             disabled={submitting}
@@ -62,10 +63,10 @@ export default function Register() {
         </InputGroup>
 
         <InputGroup className="mb-3">
-          <InputGroup.Text>
+          <InputGroupText>
             <FontAwesomeIcon icon={faEnvelope} fixedWidth />
-          </InputGroup.Text>
-          <Form.Control
+          </InputGroupText>
+          <FormControl
             type="email"
             name="email"
             required
@@ -76,8 +77,8 @@ export default function Register() {
         </InputGroup>
 
         <InputGroup className="mb-3">
-          <InputGroup.Text><FontAwesomeIcon icon={faLock} fixedWidth /></InputGroup.Text>
-          <Form.Control
+          <InputGroupText><FontAwesomeIcon icon={faLock} fixedWidth /></InputGroupText>
+          <FormControl
             type="password"
             name="password"
             required
@@ -88,8 +89,8 @@ export default function Register() {
         </InputGroup>
 
         <InputGroup className="mb-3">
-          <InputGroup.Text><FontAwesomeIcon icon={faLock} fixedWidth /></InputGroup.Text>
-          <Form.Control
+          <InputGroupText><FontAwesomeIcon icon={faLock} fixedWidth /></InputGroupText>
+          <FormControl
             type="password"
             name="password_repeat"
             required

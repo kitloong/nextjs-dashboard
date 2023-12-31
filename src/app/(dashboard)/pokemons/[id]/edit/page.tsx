@@ -1,6 +1,11 @@
 import { Pokemon } from '@/models/pokemon'
 import { notFound } from 'next/navigation'
-import Edit, { Props } from '@/app/(dashboard)/pokemons/[id]/edit/edit'
+import { Card, CardBody, CardHeader } from 'react-bootstrap'
+import PokemonForm from '@/components/Pokemon/PokemonForm'
+
+type Props = {
+  pokemon: Pokemon;
+}
 
 const fetchPokemon = async (params: { id: string }): Promise<Props> => {
   const idQuery = params.id
@@ -36,6 +41,11 @@ export default async function Page({ params }: { params: { id: string } }) {
   const { pokemon } = await fetchPokemon(params)
 
   return (
-    <Edit pokemon={pokemon} />
+    <Card>
+      <CardHeader>Add new Pokémon</CardHeader>
+      <CardBody>
+        <PokemonForm pokemon={pokemon} />
+      </CardBody>
+    </Card>
   )
 }

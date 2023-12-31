@@ -1,6 +1,6 @@
-'use client'
-
-import { Dropdown, Table } from 'react-bootstrap'
+import {
+  Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Table,
+} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
@@ -65,27 +65,27 @@ export default function PokemonList(props: Props) {
             <td className="text-end">{pokemon.total}</td>
             <td>
               <Dropdown align="end">
-                <Dropdown.Toggle
+                <DropdownToggle
                   as="button"
                   bsPrefix="btn"
                   className="btn-link rounded-0 text-black-50 shadow-none p-0"
                   id={`action-${pokemon.id}`}
                 >
                   <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />
-                </Dropdown.Toggle>
+                </DropdownToggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Info</Dropdown.Item>
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">Info</DropdownItem>
                   <Link href={`pokemons/${pokemon.id}/edit`} passHref legacyBehavior>
-                    <Dropdown.Item>Edit</Dropdown.Item>
+                    <DropdownItem>Edit</DropdownItem>
                   </Link>
-                  <Dropdown.Item
+                  <DropdownItem
                     className="text-danger"
                     href="#/action-3"
                   >
                     Delete
-                  </Dropdown.Item>
-                </Dropdown.Menu>
+                  </DropdownItem>
+                </DropdownMenu>
               </Dropdown>
             </td>
           </tr>

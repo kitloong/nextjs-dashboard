@@ -1,8 +1,7 @@
 'use client'
 
 import {
-  Alert,
-  Button, Col, Form, InputGroup, Row,
+  Alert, Button, Col, Form, FormControl, InputGroup, Row,
 } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
@@ -12,6 +11,7 @@ import { SyntheticEvent, useState } from 'react'
 import { deleteCookie, getCookie } from 'cookies-next'
 import axios from 'axios'
 import Link from 'next/link'
+import InputGroupText from 'react-bootstrap/InputGroupText'
 
 export default function Login() {
   const router = useRouter()
@@ -50,16 +50,23 @@ export default function Login() {
 
   return (
     <>
-      <Alert variant="danger" show={error !== ''} onClose={() => setError('')} dismissible>{error}</Alert>
+      <Alert
+        variant="danger"
+        show={error !== ''}
+        onClose={() => setError('')}
+        dismissible
+      >
+        {error}
+      </Alert>
       <Form onSubmit={login}>
         <InputGroup className="mb-3">
-          <InputGroup.Text>
+          <InputGroupText>
             <FontAwesomeIcon
               icon={faUser}
               fixedWidth
             />
-          </InputGroup.Text>
-          <Form.Control
+          </InputGroupText>
+          <FormControl
             name="username"
             required
             disabled={submitting}
@@ -70,13 +77,13 @@ export default function Login() {
         </InputGroup>
 
         <InputGroup className="mb-3">
-          <InputGroup.Text>
+          <InputGroupText>
             <FontAwesomeIcon
               icon={faLock}
               fixedWidth
             />
-          </InputGroup.Text>
-          <Form.Control
+          </InputGroupText>
+          <FormControl
             type="password"
             name="password"
             required

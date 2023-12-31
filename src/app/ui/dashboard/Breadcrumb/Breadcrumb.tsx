@@ -1,23 +1,21 @@
-'use client'
-
-import { Breadcrumb as BSBreadcrumb } from 'react-bootstrap'
+import { Breadcrumb as BSBreadcrumb, BreadcrumbItem } from 'react-bootstrap'
 
 export default function Breadcrumb() {
   return (
     <BSBreadcrumb listProps={{ className: 'mb-0 align-items-center' }}>
-      <BSBreadcrumb.Item
+      <BreadcrumbItem
         linkProps={{ className: 'text-decoration-none' }}
         href="/"
       >
         Home
-      </BSBreadcrumb.Item>
-      <BSBreadcrumb.Item
+      </BreadcrumbItem>
+      <BreadcrumbItem
         linkProps={{ className: 'text-decoration-none' }}
         href="/"
       >
         Library
-      </BSBreadcrumb.Item>
-      <BSBreadcrumb.Item active>Data</BSBreadcrumb.Item>
+      </BreadcrumbItem>
+      <BreadcrumbItem active>Data</BreadcrumbItem>
     </BSBreadcrumb>
   )
 }
