@@ -1,7 +1,13 @@
-'use client'
-
 import {
-  Badge, Dropdown, Nav, NavItem,
+  Badge,
+  Dropdown,
+  DropdownDivider,
+  DropdownHeader,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
+  NavItem,
 } from 'react-bootstrap'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,8 +25,7 @@ import {
   faGear, faListCheck, faLock, faPowerOff,
 } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
-import axios from 'axios'
-import { useRouter } from 'next/navigation'
+import HeaderLogout from '@/app/ui/dashboard/Header/HeaderLogout'
 
 type ItemWithIconProps = {
   icon: IconDefinition;
@@ -38,19 +43,10 @@ const ItemWithIcon = (props: ItemWithIconProps) => {
 }
 
 export default function HeaderProfileNav() {
-  const router = useRouter()
-
-  const logout = async () => {
-    const res = await axios.post('/api/mock/logout')
-    if (res.status === 200) {
-      router.push('/login')
-    }
-  }
-
   return (
     <Nav>
       <Dropdown as={NavItem}>
-        <Dropdown.Toggle variant="link" bsPrefix="hide-caret" className="py-0 px-2 rounded-0" id="dropdown-profile">
+        <DropdownToggle variant="link" bsPrefix="hide-caret" className="py-0 px-2 rounded-0" id="dropdown-profile">
           <div className="avatar position-relative">
             <Image
               fill
@@ -60,76 +56,78 @@ export default function HeaderProfileNav() {
               alt="user@email.com"
             />
           </div>
-        </Dropdown.Toggle>
-        <Dropdown.Menu className="pt-0">
-          <Dropdown.Header className="bg-light fw-bold rounded-top">Account</Dropdown.Header>
+        </DropdownToggle>
+        <DropdownMenu className="pt-0">
+          <DropdownHeader className="bg-light fw-bold rounded-top">Account</DropdownHeader>
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faBell}>
                 Updates
                 <Badge bg="info" className="ms-2">42</Badge>
               </ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faEnvelopeOpen}>
                 Updates
                 <Badge bg="success" className="ms-2">42</Badge>
               </ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faListCheck}>
                 Tasks
                 <Badge bg="danger" className="ms-2">42</Badge>
               </ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faMessage}>
                 Messages
                 <Badge bg="warning" className="ms-2">42</Badge>
               </ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
 
-          <Dropdown.Header className="bg-light fw-bold">Settings</Dropdown.Header>
+          <DropdownHeader className="bg-light fw-bold">Settings</DropdownHeader>
 
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faUser}>Profile</ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faGear}>Settings</ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faCreditCard}>Payments</ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faFile}>Projects</ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
 
-          <Dropdown.Divider />
+          <DropdownDivider />
 
           <Link href="#" passHref legacyBehavior>
-            <Dropdown.Item>
+            <DropdownItem>
               <ItemWithIcon icon={faLock}>Lock Account</ItemWithIcon>
-            </Dropdown.Item>
+            </DropdownItem>
           </Link>
-          <Dropdown.Item onClick={logout}>
-            <ItemWithIcon icon={faPowerOff}>Logout</ItemWithIcon>
-          </Dropdown.Item>
-        </Dropdown.Menu>
+          <HeaderLogout>
+            <DropdownItem>
+              <ItemWithIcon icon={faPowerOff}>Logout</ItemWithIcon>
+            </DropdownItem>
+          </HeaderLogout>
+        </DropdownMenu>
       </Dropdown>
     </Nav>
   )

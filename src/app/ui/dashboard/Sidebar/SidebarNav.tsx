@@ -1,12 +1,5 @@
-'use client'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faAddressCard,
-  faBell,
-  faFileLines,
-  faStar,
-  IconDefinition,
+  faAddressCard, faBell, faFileLines, faStar,
 } from '@fortawesome/free-regular-svg-icons'
 import {
   faBug,
@@ -21,40 +14,10 @@ import {
   faPuzzlePiece,
   faRightToBracket,
 } from '@fortawesome/free-solid-svg-icons'
-import React, { PropsWithChildren, useContext } from 'react'
-import { Badge, Nav } from 'react-bootstrap'
-import Link from 'next/link'
+import React, { PropsWithChildren } from 'react'
+import { Badge } from 'react-bootstrap'
 import SidebarNavGroup from '@/app/ui/dashboard/Sidebar/SidebarNavGroup'
-import { SidebarContext } from '@/app/ui/dashboard/sidebar-provider'
-
-type SidebarNavItemProps = {
-  href: string;
-  icon?: IconDefinition;
-} & PropsWithChildren
-
-const SidebarNavItem = (props: SidebarNavItemProps) => {
-  const {
-    icon,
-    children,
-    href,
-  } = props
-
-  const {
-    showSidebarState: [, setIsShowSidebar],
-  } = useContext(SidebarContext)
-
-  return (
-    <Nav.Item>
-      <Link href={href} passHref legacyBehavior>
-        <Nav.Link className="px-3 py-2 d-flex align-items-center" onClick={() => setIsShowSidebar(false)}>
-          {icon ? <FontAwesomeIcon className="nav-icon ms-n3" icon={icon} />
-            : <span className="nav-icon ms-n3" />}
-          {children}
-        </Nav.Link>
-      </Link>
-    </Nav.Item>
-  )
-}
+import SidebarNavItem from '@/app/ui/dashboard/Sidebar/SidebarNavItem'
 
 const SidebarNavTitle = (props: PropsWithChildren) => {
   const { children } = props

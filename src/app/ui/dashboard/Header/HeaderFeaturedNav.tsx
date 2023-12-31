@@ -1,26 +1,24 @@
-'use client'
-
 import Link from 'next/link'
-import { Nav } from 'react-bootstrap'
+import { Nav, NavItem, NavLink } from 'react-bootstrap'
 
 export default function HeaderFeaturedNav() {
   return (
     <Nav>
-      <Nav.Item>
+      <NavItem>
         <Link href="/" passHref legacyBehavior>
-          <Nav.Link className="p-2">Dashboard</Nav.Link>
+          <NavLink className="p-2">Dashboard</NavLink>
         </Link>
-      </Nav.Item>
-      <Nav.Item>
+      </NavItem>
+      <NavItem>
         <Link href="#" passHref legacyBehavior>
-          <Nav.Link className="p-2">Users</Nav.Link>
+          <NavLink className="p-2">Users</NavLink>
         </Link>
-      </Nav.Item>
-      <Nav.Item>
+      </NavItem>
+      <NavItem>
         <Link href="#" passHref legacyBehavior>
-          <Nav.Link className="p-2">Settings</Nav.Link>
+          <NavLink className="p-2">Settings</NavLink>
         </Link>
-      </Nav.Item>
+      </NavItem>
     </Nav>
   )
 }
