@@ -1,8 +1,19 @@
 import { Col, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import LoginForm from '@/app/(authentication)/login/login'
+import { SearchParams } from '@/types/next'
 
-export default function Page() {
+export default function Page({ searchParams }: { searchParams: SearchParams }) {
+  const { callbackUrl } = searchParams
+
+  const getCallbackUrl = () => {
+    if (!callbackUrl) {
+      return ''
+    }
+
+    return callbackUrl.toString()
+  }
+
   return (
     <Row className="justify-content-center align-items-center px-3">
       <Col lg={8}>
@@ -12,7 +23,7 @@ export default function Page() {
               <h1>Login</h1>
               <p className="text-black-50">Sign In to your account</p>
 
-              <LoginForm />
+              <LoginForm callbackUrl={getCallbackUrl()} />
             </div>
           </Col>
           <Col

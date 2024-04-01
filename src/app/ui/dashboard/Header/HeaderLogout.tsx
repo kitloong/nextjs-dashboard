@@ -1,16 +1,10 @@
 'use client'
 
-import axios from 'axios'
-import { useRouter } from 'next/navigation'
+import { signOut } from 'next-auth/react'
 
 export default function HeaderLogout({ children }: { children: React.ReactNode }) {
-  const router = useRouter()
-
   const logout = async () => {
-    const res = await axios.post('/api/mock/logout')
-    if (res.status === 200) {
-      router.push('/login')
-    }
+    await signOut({ callbackUrl: '/login' })
   }
 
   return (

@@ -6,39 +6,24 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
-import { useRouter } from 'next/navigation'
-import { SyntheticEvent, useState } from 'react'
-import { deleteCookie, getCookie } from 'cookies-next'
-import axios from 'axios'
+import { useState } from 'react'
 import Link from 'next/link'
 import InputGroupText from 'react-bootstrap/InputGroupText'
+import { signIn } from 'next-auth/react'
 
-export default function Login() {
-  const router = useRouter()
+export default function Login({ callbackUrl }: { callbackUrl: string }) {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
 
-  const getRedirect = () => {
-    const redirect = getCookie('redirect')
-    if (redirect) {
-      deleteCookie('redirect')
-      return redirect.toString()
-    }
-
-    return '/'
-  }
-
-  const login = async (e: SyntheticEvent) => {
-    e.stopPropagation()
-    e.preventDefault()
-
+  const login = async (formData: FormData) => {
     setSubmitting(true)
 
     try {
-      const res = await axios.post('api/mock/login')
-      if (res.status === 200) {
-        router.push(getRedirect())
-      }
+      await signIn('credentials', {
+        username: formData.get('username'),
+        password: formData.get('password'),
+        callbackUrl,
+      })
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)
@@ -58,7 +43,7 @@ export default function Login() {
       >
         {error}
       </Alert>
-      <Form onSubmit={login}>
+      <Form action={login}>
         <InputGroup className="mb-3">
           <InputGroupText>
             <FontAwesomeIcon
