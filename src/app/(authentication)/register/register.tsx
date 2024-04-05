@@ -11,7 +11,7 @@ import { useState } from 'react'
 import InputGroupText from 'react-bootstrap/InputGroupText'
 import { signIn } from 'next-auth/react'
 
-export default function Register({ callbackUrl }: { callbackUrl: string }) {
+export default function Register() {
   const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -24,7 +24,7 @@ export default function Register({ callbackUrl }: { callbackUrl: string }) {
         username: 'Username',
         password: 'Password',
         redirect: false,
-        callbackUrl,
+        callbackUrl: '/',
       })
 
       if (!res) {
