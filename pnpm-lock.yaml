@@ -59,12 +59,9 @@ dependencies:
   next-auth:
     specifier: ^4.24.7
     version: 4.24.7(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
-  nextjs-progressloader:
-    specifier: ^1.1.0
-    version: 1.1.0(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
-  nprogress:
-    specifier: ^0.2.0
-    version: 0.2.0
+  next-nprogress-bar:
+    specifier: ^2.3.11
+    version: 2.3.11
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2621,6 +2618,12 @@ packages:
       uuid: 8.3.2
     dev: false
 
+  /next-nprogress-bar@2.3.11:
+    resolution: {integrity: sha512-OjSvsQwgSWa2qBMYO478QreGG9Jt82tr4wTQptmiyzNqqjzHCyKZNkhANnzPrjuFAoelIvmruJuakODofSnvTQ==}
+    dependencies:
+      nprogress: 0.2.0
+    dev: false
+
   /next@14.0.4(react-dom@18.2.0)(react@18.2.0)(sass@1.69.6):
     resolution: {integrity: sha512-qbwypnM7327SadwFtxXnQdGiKpkuhaRLE2uq62/nRul9cj9KhQ5LhHmlziTNqUidZotw/Q1I9OjirBROdUJNgA==}
     engines: {node: '>=18.17.0'}
@@ -2660,20 +2663,6 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    dev: false
-
-  /nextjs-progressloader@1.1.0(next@14.0.4)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Yb7nh6tenP6t3P69LqEU0AXAGYyVKJBbf9fyEadBZsifVa/ankd2PFEwDNgvr1Znd7Jpu1p3w4F8ZqFlwud0SQ==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      next: '>= 6.0.0'
-      react: '>= 16.0.0'
-      react-dom: '>= 16.0.0'
-    dependencies:
-      next: 14.0.4(react-dom@18.2.0)(react@18.2.0)(sass@1.69.6)
-      nprogress: 0.2.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /normalize-path@3.0.0:
