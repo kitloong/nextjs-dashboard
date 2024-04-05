@@ -1,0 +1,13 @@
+{
+  "login": {
+    "title": "サインイン",
+    "form": {
+      "username": "ユーザー名"
+    }
+  },
+  "dashboard": {
+    "traffic": {
+      "title": "トラフィック"
+    }
+  }
+}

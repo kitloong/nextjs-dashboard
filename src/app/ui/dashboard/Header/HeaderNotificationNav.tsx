@@ -23,6 +23,7 @@ import {
 import Link from 'next/link'
 import React, { PropsWithChildren } from 'react'
 import Image from 'next/image'
+import HeaderLocale from '@/app/ui/dashboard/Header/HeaderLocale'
 
 type ItemWithIconProps = {
   icon: IconDefinition;
@@ -42,6 +43,9 @@ const ItemWithIcon = (props: ItemWithIconProps) => {
 export default function HeaderNotificationNav() {
   return (
     <Nav>
+      <NavItem>
+        <HeaderLocale />
+      </NavItem>
       <NavItem>
         <Dropdown>
           <DropdownToggle as={NavLink} bsPrefix="hide-caret" id="dropdown-notification">

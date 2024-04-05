@@ -2,9 +2,11 @@ import { Col, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import LoginForm from '@/app/(authentication)/login/login'
 import { SearchParams } from '@/types/next'
+import { getDictionary } from '@/locales/dictionary'
 
-export default function Page({ searchParams }: { searchParams: SearchParams }) {
+export default async function Page({ searchParams }: { searchParams: SearchParams }) {
   const { callbackUrl } = searchParams
+  const dict = await getDictionary()
 
   const getCallbackUrl = () => {
     if (!callbackUrl) {
@@ -20,7 +22,7 @@ export default function Page({ searchParams }: { searchParams: SearchParams }) {
         <Row>
           <Col md={7} className="bg-white border p-5">
             <div>
-              <h1>Login</h1>
+              <h1>{dict.login.title}</h1>
               <p className="text-black-50">Sign In to your account</p>
 
               <LoginForm callbackUrl={getCallbackUrl()} />

@@ -39,8 +39,11 @@ import IncomeChart from '@/components/Dashboard/IncomeChart'
 import ConversionChart from '@/components/Dashboard/ConversionChart'
 import SessionChart from '@/components/Dashboard/SessionChart'
 import TrafficChart from '@/components/Dashboard/TrafficChart'
+import { getDictionary } from '@/locales/dictionary'
 
-export default function Page() {
+export default async function Page() {
+  const dict = await getDictionary()
+
   return (
     <>
       <div className="row">
@@ -197,7 +200,7 @@ export default function Page() {
         <CardBody>
           <div className="d-flex justify-content-between">
             <div>
-              <h4 className="mb-0">Traffic</h4>
+              <h4 className="mb-0">{dict.dashboard.traffic.title}</h4>
               <div className="small text-black-50">January - July 2021</div>
             </div>
             <div className="d-none d-md-block">

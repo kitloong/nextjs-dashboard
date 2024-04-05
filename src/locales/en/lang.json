@@ -1,0 +1,13 @@
+{
+  "login": {
+    "title": "Login",
+    "form": {
+      "username": "Username"
+    }
+  },
+  "dashboard": {
+    "traffic": {
+      "title": "Traffic"
+    }
+  }
+}

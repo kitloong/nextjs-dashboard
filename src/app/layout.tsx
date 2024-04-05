@@ -4,6 +4,8 @@ import '@/styles/globals.scss'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import ProgressBar from '@/components/ProgressBar/ProgressBar'
+import DictionaryProvider from '@/locales/dictionary-provider'
+import { getDictionary } from '@/locales/dictionary'
 
 // You change this configuration value to false so that the Font Awesome core SVG library
 // will not try and insert <style> elements into the <head> of the page.
@@ -11,16 +13,20 @@ import ProgressBar from '@/components/ProgressBar/ProgressBar'
 // See https://fontawesome.com/v6/docs/web/use-with/react/use-with#next-js
 config.autoAddCss = false
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const dictionary = await getDictionary()
+
   return (
     <html lang="en">
       <body>
         <ProgressBar />
-        {children}
+        <DictionaryProvider dictionary={dictionary}>
+          {children}
+        </DictionaryProvider>
       </body>
     </html>
   )
