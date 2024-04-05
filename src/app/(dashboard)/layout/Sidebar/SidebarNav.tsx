@@ -16,8 +16,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React, { PropsWithChildren } from 'react'
 import { Badge } from 'react-bootstrap'
-import SidebarNavGroup from '@/app/ui/dashboard/Sidebar/SidebarNavGroup'
-import SidebarNavItem from '@/app/ui/dashboard/Sidebar/SidebarNavItem'
+import SidebarNavGroup from '@/app/(dashboard)/layout/Sidebar/SidebarNavGroup'
+import SidebarNavItem from '@/app/(dashboard)/layout/Sidebar/SidebarNavItem'
 import { getDictionary } from '@/locales/dictionary'
 
 const SidebarNavTitle = (props: PropsWithChildren) => {

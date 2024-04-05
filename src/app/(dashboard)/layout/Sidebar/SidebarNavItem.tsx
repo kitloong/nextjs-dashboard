@@ -2,7 +2,7 @@
 
 import { IconDefinition } from '@fortawesome/free-regular-svg-icons'
 import React, { PropsWithChildren, useContext } from 'react'
-import { SidebarContext } from '@/app/ui/dashboard/sidebar-provider'
+import { SidebarContext } from '@/app/(dashboard)/layout/sidebar-provider'
 import { NavItem, NavLink } from 'react-bootstrap'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

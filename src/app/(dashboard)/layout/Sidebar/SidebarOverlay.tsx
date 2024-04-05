@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useContext } from 'react'
-import { SidebarContext } from '@/app/ui/dashboard/sidebar-provider'
+import { SidebarContext } from '@/app/(dashboard)/layout/sidebar-provider'
 import classNames from 'classnames'
 
 export default function SidebarOverlay() {

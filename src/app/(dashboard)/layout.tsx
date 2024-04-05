@@ -1,11 +1,11 @@
 import { Container } from 'react-bootstrap'
 import React from 'react'
-import SidebarProvider from '@/app/ui/dashboard/sidebar-provider'
-import SidebarOverlay from '@/app/ui/dashboard/Sidebar/SidebarOverlay'
-import Sidebar from '@/app/ui/dashboard/Sidebar/Sidebar'
-import SidebarNav from '@/app/ui/dashboard/Sidebar/SidebarNav'
-import Header from '@/app/ui/dashboard/Header/Header'
-import Footer from '@/app/ui/dashboard/Footer/Footer'
+import SidebarProvider from '@/app/(dashboard)/layout/sidebar-provider'
+import SidebarOverlay from '@/app/(dashboard)/layout/Sidebar/SidebarOverlay'
+import Sidebar from '@/app/(dashboard)/layout/Sidebar/Sidebar'
+import SidebarNav from '@/app/(dashboard)/layout/Sidebar/SidebarNav'
+import Header from '@/app/(dashboard)/layout/Header/Header'
+import Footer from '@/app/(dashboard)/layout/Footer/Footer'
 
 export default function Layout({
   children,
