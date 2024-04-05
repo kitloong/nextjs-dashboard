@@ -7,36 +7,45 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/navigation'
-import { SyntheticEvent, useState } from 'react'
-import { deleteCookie, getCookie } from 'cookies-next'
-import axios from 'axios'
+import { useState } from 'react'
 import InputGroupText from 'react-bootstrap/InputGroupText'
+import { signIn } from 'next-auth/react'
 
-export default function Register() {
+export default function Register({ callbackUrl }: { callbackUrl: string }) {
   const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
 
-  const getRedirect = () => {
-    const redirect = getCookie('redirect')
-    if (redirect) {
-      deleteCookie('redirect')
-      return redirect.toString()
-    }
-
-    return '/'
-  }
-
-  const register = async (e: SyntheticEvent) => {
-    e.stopPropagation()
-    e.preventDefault()
-
+  const register = async () => {
     setSubmitting(true)
 
     try {
-      const res = await axios.post('api/mock/login')
-      if (res.status === 200) {
-        router.push(getRedirect())
+      const res = await signIn('credentials', {
+        username: 'Username',
+        password: 'Password',
+        redirect: false,
+        callbackUrl,
+      })
+
+      if (!res) {
+        setError('Register failed')
+        return
+      }
+
+      const { ok, url, error: err } = res
+
+      if (!ok) {
+        if (err) {
+          setError(err)
+          return
+        }
+
+        setError('Register failed')
+        return
+      }
+
+      if (url) {
+        router.push(url)
       }
     } catch (err) {
       if (err instanceof Error) {

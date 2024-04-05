@@ -42,6 +42,9 @@ export default function Login({ callbackUrl }: { callbackUrl: string }) {
           setError(err)
           return
         }
+
+        setError('Login failed')
+        return
       }
 
       if (url) {
