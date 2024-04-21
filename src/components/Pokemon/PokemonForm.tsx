@@ -80,6 +80,7 @@ export default function PokemonForm(props: Props) {
         <Form.Control
           type="text"
           name="name"
+          defaultValue={pokemon?.name}
           isInvalid={!!state.errors?.name}
           required
         />
@@ -97,6 +98,7 @@ export default function PokemonForm(props: Props) {
                     type="checkbox"
                     name="types"
                     value={type}
+                    defaultChecked={pokemon?.types.includes(type)}
                   />
                   <Form.Check.Label>
                     <span className="position-relative" style={{ top: '-.1rem' }}>
@@ -123,6 +125,7 @@ export default function PokemonForm(props: Props) {
                   name="eggGroups"
                   value={eggGroup}
                   label={eggGroup}
+                  defaultChecked={pokemon?.egg_groups.includes(eggGroup)}
                 />
               </Col>
             ))}
@@ -138,6 +141,7 @@ export default function PokemonForm(props: Props) {
           type="text"
           name="hp"
           required
+          defaultValue={pokemon?.hp}
           isInvalid={!!state.errors?.hp}
         />
         <FormError messages={state.errors?.hp} />
@@ -150,6 +154,7 @@ export default function PokemonForm(props: Props) {
           type="number"
           name="attack"
           required
+          defaultValue={pokemon?.attack}
           isInvalid={!!state.errors?.attack}
         />
         <FormError messages={state.errors?.attack} />
@@ -162,6 +167,7 @@ export default function PokemonForm(props: Props) {
           type="number"
           name="defense"
           required
+          defaultValue={pokemon?.defense}
           isInvalid={!!state.errors?.defense}
         />
         <FormError messages={state.errors?.defense} />
@@ -174,6 +180,7 @@ export default function PokemonForm(props: Props) {
           type="number"
           name="special_attack"
           required
+          defaultValue={pokemon?.special_attack}
           isInvalid={!!state.errors?.special_attack}
         />
         <FormError messages={state.errors?.special_attack} />
@@ -186,6 +193,7 @@ export default function PokemonForm(props: Props) {
           type="number"
           name="special_defense"
           required
+          defaultValue={pokemon?.special_defense}
           isInvalid={!!state.errors?.special_defense}
         />
         <FormError messages={state.errors?.special_defense} />
@@ -198,13 +206,14 @@ export default function PokemonForm(props: Props) {
           type="number"
           name="speed"
           required
+          defaultValue={pokemon?.speed}
           isInvalid={!!state.errors?.speed}
         />
         <FormError messages={state.errors?.speed} />
       </Form.Group>
 
       <SubmitButton validated={state.validated} success={state.success} />
-      <Button type="button" variant="secondary">Reset</Button>
+      <Button type="reset" variant="secondary">Reset</Button>
     </Form>
   )
 }
