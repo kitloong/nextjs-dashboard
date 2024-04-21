@@ -10,7 +10,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
 
   const getCallbackUrl = () => {
     if (!callbackUrl) {
-      return ''
+      return '/' // Default redirect to home page
     }
 
     return callbackUrl.toString()
