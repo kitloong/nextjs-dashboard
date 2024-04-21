@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap'
 import React from 'react'
-import SidebarProvider from '@/app/(dashboard)/layout/sidebar-provider'
+import SidebarProvider from '@/app/(dashboard)/layout/SidebarProvider'
 import SidebarOverlay from '@/app/(dashboard)/layout/Sidebar/SidebarOverlay'
 import Sidebar from '@/app/(dashboard)/layout/Sidebar/Sidebar'
 import SidebarNav from '@/app/(dashboard)/layout/Sidebar/SidebarNav'

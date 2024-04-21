@@ -2,6 +2,7 @@ import { Pokemon } from '@/models/pokemon'
 import { notFound } from 'next/navigation'
 import { Card, CardBody, CardHeader } from 'react-bootstrap'
 import PokemonForm from '@/components/Pokemon/PokemonForm'
+import serverFetch from '@/utils/server-fetch'
 
 type Props = {
   pokemon: Pokemon;
@@ -19,7 +20,7 @@ const fetchPokemon = async (params: { id: string }): Promise<Props> => {
   const pokemonURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons/${id}` || ''
 
   try {
-    const res = await fetch(pokemonURL, {
+    const res = await serverFetch(pokemonURL, {
       method: 'GET',
     })
 

@@ -3,6 +3,7 @@ import { newResource, Resource } from '@/models/resource'
 import { Pokemon } from '@/models/pokemon'
 import { SearchParams } from '@/types/next'
 import Index, { Props } from '@/app/(dashboard)/pokemons/index'
+import serverFetch from '@/utils/server-fetch'
 
 const fetchPokemons = async (searchParams: SearchParams): Promise<Props['props']> => {
   const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
@@ -32,7 +33,7 @@ const fetchPokemons = async (searchParams: SearchParams): Promise<Props['props']
   url.searchParams.set('_sort', sort)
   url.searchParams.set('_order', order)
 
-  const res = await fetch(url, {
+  const res = await serverFetch(url, {
     method: 'GET',
   })
   const pokemons: Pokemon[] = await res.json()

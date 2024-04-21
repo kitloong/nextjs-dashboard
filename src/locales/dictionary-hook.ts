@@ -1,7 +1,7 @@
 'use client'
 
 import { useContext } from 'react'
-import { DictionaryContext } from '@/locales/dictionary-provider'
+import { DictionaryContext } from '@/locales/DictionaryProvider'
 
 export default function useDictionary() {
   const dictionary = useContext(DictionaryContext)

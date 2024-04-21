@@ -1,6 +1,7 @@
 {
   "extends": [
     "eslint:recommended",
+    "plugin:eslint-comments/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -68,6 +69,7 @@
     "semi": [
       2,
       "never"
-    ]
+    ],
+    "eslint-comments/no-unused-disable": 2
   }
 }

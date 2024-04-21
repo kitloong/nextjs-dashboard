@@ -1,7 +1,7 @@
 'use client'
 
 import { useContext } from 'react'
-import { SidebarContext } from '@/app/(dashboard)/layout/sidebar-provider'
+import { SidebarContext } from '@/app/(dashboard)/layout/SidebarProvider'
 import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'

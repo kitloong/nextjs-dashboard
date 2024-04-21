@@ -4,7 +4,7 @@ import '@/styles/globals.scss'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import ProgressBar from '@/components/ProgressBar/ProgressBar'
-import DictionaryProvider from '@/locales/dictionary-provider'
+import DictionaryProvider from '@/locales/DictionaryProvider'
 import { getDictionary } from '@/locales/dictionary'
 
 // You change this configuration value to false so that the Font Awesome core SVG library

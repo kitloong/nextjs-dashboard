@@ -26,7 +26,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import HeaderLogout from '@/app/(dashboard)/layout/Header/HeaderLogout'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/api/auth/option'
 import { getServerSession } from 'next-auth'
 
 type ItemWithIconProps = {
