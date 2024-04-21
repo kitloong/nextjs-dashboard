@@ -1,113 +1,60 @@
 'use client'
 
+import { useFormState, useFormStatus } from 'react-dom'
 import {
   Alert, Button, Col, Form, Row,
 } from 'react-bootstrap'
-import { Controller, SubmitHandler, useForm } from 'react-hook-form'
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import classNames from 'classnames'
 import Image from 'next/image'
 import {
   Pokemon,
-  PokemonEggGroup,
   pokemonEggGroups,
-  PokemonType,
   pokemonTypes,
 } from '@/models/pokemon'
 import FormError from '@/components/Form/FormError'
 import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
-
-type Inputs = {
-  name: string;
-  types: PokemonType[];
-  eggGroups: PokemonEggGroup[];
-  hp: number | null;
-  attack: number | null;
-  defense: number | null;
-  special_attack: number | null;
-  special_defense: number | null;
-  speed: number | null;
-}
+import create from '@/app/(dashboard)/pokemons/create/action'
 
 type Props = {
   pokemon?: Pokemon;
 }
 
-export default function PokemonForm(props: Props) {
-  const { pokemon } = props
+const SubmitButton = ({ validated, success }: { validated: boolean; success: boolean }) => {
+  const { pending } = useFormStatus()
 
-  const defaultValues = (): Inputs => {
-    if (pokemon) {
-      return {
-        name: pokemon.name,
-        types: pokemon.types,
-        eggGroups: pokemon.egg_groups,
-        hp: pokemon.hp,
-        attack: pokemon.attack,
-        defense: pokemon.defense,
-        special_attack: pokemon.special_attack,
-        special_defense: pokemon.special_defense,
-        speed: pokemon.speed,
-      }
+  useEffect(() => {
+    if (validated) {
+      window.scrollTo(0, 0)
     }
+  }, [validated, pending])
 
-    return {
-      name: '',
-      types: [],
-      eggGroups: [],
-      hp: null,
-      attack: null,
-      defense: null,
-      special_attack: null,
-      special_defense: null,
-      speed: null,
+  useEffect(() => {
+    if (success) {
+      // Reset form
     }
-  }
-
-  const {
-    register,
-    control,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-    reset,
-  } = useForm<Inputs>({
-    defaultValues: defaultValues(),
-  })
-
-  const [submitting, setSubmitting] = useState(false)
-  const [notificationMessage, setNotificationMessage] = useState('')
-
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    setSubmitting(true)
-
-    // Change to your real submit here
-    const fakeSubmit = () => new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(data)
-      }, 1500)
-    })
-
-    const res = await fakeSubmit()
-
-    setSubmitting(false)
-    window.scrollTo(0, 0)
-
-    if (res) {
-      setNotificationMessage('Record saved successfully.')
-      return
-    }
-
-    setNotificationMessage('Unexpected error occurred, please try again.')
-  }
+  }, [success, pending])
 
   return (
-    <Form
-      noValidate
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <Alert variant="success" show={notificationMessage !== ''} onClose={() => setNotificationMessage('')} dismissible>
-        {notificationMessage}
+    <Button aria-disabled={pending} className="me-3" type="submit" variant="success">
+      {pending ? 'Submitting...' : 'Submit'}
+    </Button>
+  )
+}
+
+export default function PokemonForm(props: Props) {
+  const { pokemon } = props
+  const [state, formAction] = useFormState(create, {
+    success: false, validated: false, message: '', formKey: 0,
+  })
+
+  return (
+    <Form noValidate key={state.formKey} action={formAction}>
+      <Alert
+        variant={state.success ? 'success' : 'danger'}
+        show={state.errors === undefined && state.message !== ''}
+      >
+        {state.message}
       </Alert>
 
       {pokemon && (
@@ -132,23 +79,23 @@ export default function PokemonForm(props: Props) {
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
-          {...register('name', { required: 'This field is required' })}
-          isInvalid={!!errors.name}
+          name="name"
+          isInvalid={!!state.errors?.name}
+          required
         />
-        <FormError message={errors.name?.message} />
+        <FormError messages={state.errors?.name} />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Types</Form.Label>
-        <div className={classNames({ 'is-invalid': !!errors.types })}>
+        <div className={classNames({ 'is-invalid': !!state.errors?.types })}>
           <Row>
             {pokemonTypes.map((type) => (
               <Col xs={6} sm={4} md={3} lg={2} key={type}>
                 <Form.Check id={`type-${type}`}>
                   <Form.Check.Input
                     type="checkbox"
-                    // eslint-disable-next-line react/jsx-props-no-spreading
-                    {...register('types', { required: 'This field is required' })}
+                    name="types"
                     value={type}
                   />
                   <Form.Check.Label>
@@ -161,19 +108,19 @@ export default function PokemonForm(props: Props) {
             ))}
           </Row>
         </div>
-        <FormError message={errors.types?.message} />
+        <FormError messages={state.errors?.types} />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Egg groups</Form.Label>
-        <div className={classNames({ 'is-invalid': !!errors.eggGroups })}>
+        <div className={classNames({ 'is-invalid': !!state.errors?.eggGroups })}>
           <Row>
             {pokemonEggGroups.map((eggGroup) => (
               <Col xs={6} sm={4} md={3} lg={2} key={eggGroup}>
                 <Form.Check
                   id={`eg-${eggGroup}`}
                   type="checkbox"
-                  {...register('eggGroups', { required: 'This field is required' })}
+                  name="eggGroups"
                   value={eggGroup}
                   label={eggGroup}
                 />
@@ -181,29 +128,19 @@ export default function PokemonForm(props: Props) {
             ))}
           </Row>
         </div>
-        <FormError message={errors.eggGroups?.message} />
+        <FormError messages={state.errors?.eggGroups} />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Hp</Form.Label>
         <Form.Control
           className="w-auto"
-          type="number"
-          {...register('hp', {
-            required: 'This field is required',
-            min: {
-              value: 0,
-              message: 'This input must be at least 0',
-            },
-            max: {
-              value: 255,
-              message: 'This input must be at most 255',
-            },
-            valueAsNumber: true,
-          })}
-          isInvalid={!!errors.hp}
+          type="text"
+          name="hp"
+          required
+          isInvalid={!!state.errors?.hp}
         />
-        <FormError message={errors.hp?.message} />
+        <FormError messages={state.errors?.hp} />
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -211,21 +148,11 @@ export default function PokemonForm(props: Props) {
         <Form.Control
           className="w-auto"
           type="number"
-          {...register('attack', {
-            required: 'This field is required',
-            min: {
-              value: 0,
-              message: 'This input must be at least 0',
-            },
-            max: {
-              value: 255,
-              message: 'This input must be at most 255',
-            },
-            valueAsNumber: true,
-          })}
-          isInvalid={!!errors.attack}
+          name="attack"
+          required
+          isInvalid={!!state.errors?.attack}
         />
-        <FormError message={errors.attack?.message} />
+        <FormError messages={state.errors?.attack} />
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -233,21 +160,11 @@ export default function PokemonForm(props: Props) {
         <Form.Control
           className="w-auto"
           type="number"
-          {...register('defense', {
-            required: 'This field is required',
-            min: {
-              value: 0,
-              message: 'This input must be at least 0',
-            },
-            max: {
-              value: 255,
-              message: 'This input must be at most 255',
-            },
-            valueAsNumber: true,
-          })}
-          isInvalid={!!errors.defense}
+          name="defense"
+          required
+          isInvalid={!!state.errors?.defense}
         />
-        <FormError message={errors.defense?.message} />
+        <FormError messages={state.errors?.defense} />
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -255,21 +172,11 @@ export default function PokemonForm(props: Props) {
         <Form.Control
           className="w-auto"
           type="number"
-          {...register('special_attack', {
-            required: 'This field is required',
-            min: {
-              value: 0,
-              message: 'This input must be at least 0',
-            },
-            max: {
-              value: 255,
-              message: 'This input must be at most 255',
-            },
-            valueAsNumber: true,
-          })}
-          isInvalid={!!errors.special_attack}
+          name="special_attack"
+          required
+          isInvalid={!!state.errors?.special_attack}
         />
-        <FormError message={errors.special_attack?.message} />
+        <FormError messages={state.errors?.special_attack} />
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -277,61 +184,27 @@ export default function PokemonForm(props: Props) {
         <Form.Control
           className="w-auto"
           type="number"
-          {...register('special_defense', {
-            required: 'This field is required',
-            min: {
-              value: 0,
-              message: 'This input must be at least 0',
-            },
-            max: {
-              value: 255,
-              message: 'This input must be at most 255',
-            },
-            valueAsNumber: true,
-          })}
-          isInvalid={!!errors.special_defense}
+          name="special_defense"
+          required
+          isInvalid={!!state.errors?.special_defense}
         />
-        <FormError message={errors.special_defense?.message} />
+        <FormError messages={state.errors?.special_defense} />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Speed</Form.Label>
-        <Controller
-          control={control}
+        <Form.Control
+          className="w-auto"
+          type="number"
           name="speed"
-          rules={{
-            required: 'This field is required',
-            min: {
-              value: 0,
-              message: 'This input must be at least 0',
-            },
-            max: {
-              value: 255,
-              message: 'This input must be at most 255',
-            },
-          }}
-          render={({ field }) => (
-            <Form.Control
-              className="w-auto"
-              type="number"
-              {...field}
-              isInvalid={!!errors.speed}
-              value={field.value ?? ''}
-              onChange={(e) => {
-                if (e.target.value === '') {
-                  setValue('speed', null)
-                  return
-                }
-                setValue('speed', Number(e.target.value))
-              }}
-            />
-          )}
+          required
+          isInvalid={!!state.errors?.speed}
         />
-        <FormError message={errors.speed?.message} />
+        <FormError messages={state.errors?.speed} />
       </Form.Group>
 
-      <Button className="me-3" type="submit" variant="success" disabled={submitting}>Submit</Button>
-      <Button type="button" variant="secondary" onClick={() => reset()}>Reset</Button>
+      <SubmitButton validated={state.validated} success={state.success} />
+      <Button type="button" variant="secondary">Reset</Button>
     </Form>
   )
 }

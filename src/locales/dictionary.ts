@@ -11,7 +11,7 @@ type Locale = keyof typeof dictionaries
 
 export const getLocales = () => Object.keys(dictionaries) as Array<Locale>
 
-const getLocale = (): Locale => {
+export const getLocale = (): Locale => {
   const localeCookies = cookies().get('locale')?.value ?? defaultLocale
 
   if (!getLocales().includes(localeCookies as Locale)) {
