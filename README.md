@@ -67,23 +67,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Installed Packages
 
-1. [Redux](https://redux.js.org/tutorials/fundamentals/part-1-overview)
-   1. [React redux](https://react-redux.js.org/introduction/getting-started)
-   2. [Redux toolkit](https://redux-toolkit.js.org/tutorials/quick-start)
-2. [Axios](https://github.com/axios/axios)
-3. [React-bootstrap](https://react-bootstrap.github.io/)
-4. [Immer](https://github.com/immerjs/immer)
-5. [react-fontawesome](https://fontawesome.com/docs/web/use-with/react/)
+1. [Axios](https://github.com/axios/axios)
+2. [React-bootstrap](https://react-bootstrap.github.io/)
+3. [react-fontawesome](https://fontawesome.com/docs/web/use-with/react/)
    1. https://fontawesome.com/docs/web/use-with/react/use-with#next-js
    2. https://fontawesome.com/docs/web/use-with/react/add-icons#dynamic-icon-importing
-6. [SWR](https://swr.vercel.app/)
-7. [Eslint](https://eslint.org/)
+4. [SWR](https://swr.vercel.app/)
+5. [Eslint](https://eslint.org/)
    1. https://github.com/typescript-eslint/typescript-eslint
    2. https://github.com/jsx-eslint/eslint-plugin-react
    3. https://reactjs.org/docs/hooks-rules.html#eslint-plugin
    4. https://www.npmjs.com/package/eslint-config-airbnb
    5. https://www.npmjs.com/package/eslint-config-airbnb-typescript
-   6. https://github.com/prettier/eslint-config-prettier
 
 ## Reference
 
