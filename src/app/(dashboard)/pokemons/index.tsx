@@ -10,6 +10,7 @@ import PokemonList from '@/components/Pokemon/PokemonList'
 import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import useSWR from 'swr'
 
 export type Props = {
   props: {
@@ -36,25 +37,32 @@ export default function Index(props: Props) {
 
   const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
 
-  // swr: data -> axios: data -> resource: data
-  const { data: { data: resource } } = useSWRAxios<Resource<Pokemon>>({
-    url: pokemonListURL,
-    params: {
-      _page: page,
-      _limit: perPage,
-      _sort: sort,
-      _order: order,
-    },
-    transformResponse: transformResponseWrapper((d: Pokemon[], h) => {
-      const total = h ? parseInt(h['x-total-count'], 10) : 0
-      return newResource(d, total, page, perPage)
-    }),
-  }, {
-    data: pokemonResource,
-    headers: {
-      'x-total-count': pokemonResource.meta.total.toString(),
-    },
+  const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json())
+  const { data, error, isLoading } = useSWR(pokemonListURL, fetcher, {
+    fallbackData: pokemonResource,
   })
+
+  console.log(data)
+
+  // // swr: data -> axios: data -> resource: data
+  // const { data: { data: resource } } = useSWRAxios<Resource<Pokemon>>({
+  //   url: pokemonListURL,
+  //   params: {
+  //     _page: page,
+  //     _limit: perPage,
+  //     _sort: sort,
+  //     _order: order,
+  //   },
+  //   transformResponse: transformResponseWrapper((d: Pokemon[], h) => {
+  //     const total = h ? parseInt(h['x-total-count'], 10) : 0
+  //     return newResource(d, total, page, perPage)
+  //   }),
+  // }, {
+  //   data: pokemonResource,
+  //   headers: {
+  //     'x-total-count': pokemonResource.meta.total.toString(),
+  //   },
+  // })
 
   return (
     <Card>
@@ -66,9 +74,9 @@ export default function Index(props: Props) {
             Add new
           </Button>
         </div>
-        <Pagination meta={resource.meta} />
-        <PokemonList pokemons={resource.data} />
-        <Pagination meta={resource.meta} />
+        <Pagination meta={pokemonResource.meta} />
+        <PokemonList pokemons={pokemonResource.data} />
+        <Pagination meta={pokemonResource.meta} />
       </Card.Body>
     </Card>
   )

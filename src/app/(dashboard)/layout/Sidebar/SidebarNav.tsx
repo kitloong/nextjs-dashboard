@@ -40,10 +40,10 @@ export default async function SidebarNav() {
         {dict.sidebar.items.sample}
         <small className="ms-auto"><Badge bg="danger" className="ms-auto">DEMO</Badge></small>
       </SidebarNavItem>
-      <SidebarNavTitle>Theme</SidebarNavTitle>
+      <SidebarNavTitle>{dict.sidebar.items.theme}</SidebarNavTitle>
       <SidebarNavItem icon={faDroplet} href="#">{dict.sidebar.items.colors}</SidebarNavItem>
       <SidebarNavItem icon={faPencil} href="#">{dict.sidebar.items.typography}</SidebarNavItem>
-      <SidebarNavTitle>Components</SidebarNavTitle>
+      <SidebarNavTitle>{dict.sidebar.items.components}</SidebarNavTitle>
 
       <SidebarNavGroup toggleIcon={faPuzzlePiece} toggleText={dict.sidebar.items.base}>
         <SidebarNavItem href="#">{dict.sidebar.items.accordion}</SidebarNavItem>
@@ -51,7 +51,7 @@ export default async function SidebarNav() {
         <SidebarNavItem href="#">{dict.sidebar.items.cards}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.carousel}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.collapse}</SidebarNavItem>
-        <SidebarNavItem href="#">{dict.sidebar.items.listGroup}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.list_group}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.navs}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.pagination}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.popovers}</SidebarNavItem>
@@ -65,27 +65,27 @@ export default async function SidebarNav() {
 
       <SidebarNavGroup toggleIcon={faLocationArrow} toggleText={dict.sidebar.items.buttons}>
         <SidebarNavItem href="#">{dict.sidebar.items.buttons}</SidebarNavItem>
-        <SidebarNavItem href="#">{dict.sidebar.items.buttonsGroup}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.buttons_group}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.dropdowns}</SidebarNavItem>
       </SidebarNavGroup>
 
       <SidebarNavItem icon={faChartPie} href="#">{dict.sidebar.items.charts}</SidebarNavItem>
 
       <SidebarNavGroup toggleIcon={faFileLines} toggleText={dict.sidebar.items.forms}>
-        <SidebarNavItem href="#">{dict.sidebar.items.formControl}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.form_control}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.select}</SidebarNavItem>
-        <SidebarNavItem href="#">{dict.sidebar.items.checksAndRadios}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.checks_and_radios}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.range}</SidebarNavItem>
-        <SidebarNavItem href="#">{dict.sidebar.items.inputGroup}</SidebarNavItem>
-        <SidebarNavItem href="#">{dict.sidebar.items.floatingLabels}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.input_group}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.floating_labels}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.layout}</SidebarNavItem>
         <SidebarNavItem href="#">{dict.sidebar.items.validation}</SidebarNavItem>
       </SidebarNavGroup>
 
       <SidebarNavGroup toggleIcon={faStar} toggleText={dict.sidebar.items.icons}>
-        <SidebarNavItem href="#">{dict.sidebar.items.coreUIIcons}</SidebarNavItem>
-        <SidebarNavItem href="#">{dict.sidebar.items.coreUIIconsBrand}</SidebarNavItem>
-        <SidebarNavItem href="#">{dict.sidebar.items.coreUIIconsFlag}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.core_ui_icons}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.core_ui_icons_brand}</SidebarNavItem>
+        <SidebarNavItem href="#">{dict.sidebar.items.core_ui_icons_flag}</SidebarNavItem>
       </SidebarNavGroup>
 
       <SidebarNavGroup toggleIcon={faBell} toggleText={dict.sidebar.items.notifications}>
@@ -110,7 +110,7 @@ export default async function SidebarNav() {
       </SidebarNavGroup>
 
       <SidebarNavItem icon={faFileLines} href="#">{dict.sidebar.items.docs}</SidebarNavItem>
-      <SidebarNavItem icon={faLayerGroup} href="https://coreui.io/pro/">{dict.sidebar.items.tryCoreUIPRO}</SidebarNavItem>
+      <SidebarNavItem icon={faLayerGroup} href="https://coreui.io/pro/">{dict.sidebar.items.try_core_ui_pro}</SidebarNavItem>
     </ul>
   )
 }

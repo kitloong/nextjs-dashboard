@@ -10,18 +10,107 @@
       "title": "トラフィック"
     }
   },
+  "featuredNav": {
+    "dashboard": "ダッシュボード",
+    "users": "ユーザー",
+    "settings": "設定"
+  },
+  "notification": {
+    "message": "{{total}}件の通知があります",
+    "items": {
+      "new_user": "新しいユーザーが登録されました",
+      "deleted_user": "ユーザーが削除されました",
+      "sales_report": "販売レポートが準備できました",
+      "new_client": "新しいクライアント",
+      "server_overloaded": "サーバーが過負荷です"
+    },
+    "server": {
+      "title": "サーバー",
+      "processes": "プロセス",
+      "cores": "コア",
+      "items": {
+        "cpu": "CPU使用率",
+        "memory": "メモリ使用率",
+        "ssd1": "SSD 1使用率"
+      }
+    }
+  },
+  "task": {
+    "message": "{{total}}件の未完了のタスクがあります",
+    "items": {
+      "task1": "Next.JSをアップグレードする",
+      "task2": "ポケモンを訓練する",
+      "task3": "ポケデックスを完成させる",
+      "task4": "すべての色違いを捕まえる",
+      "task5": "すべてのジムを倒す"
+    },
+    "viewAll": "すべてのタスクを見る"
+  },
+  "messages": {
+    "message": "{{total}}件のメッセージがあります",
+    "items": {
+      "item1": {
+        "user": "ジョン・ドウ",
+        "time": "たった今",
+        "title": "ピカチュウをペットにする",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      },
+      "item2": {
+        "user": "ジョン・ドウ",
+        "time": "5分前",
+        "title": "イーブイをドレスアップする",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      },
+      "item3": {
+        "user": "ジョン・ドウ",
+        "time": "午後1時52分",
+        "title": "チームアップトレーニング",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      },
+      "item4": {
+        "user": "ジョン・ドウ",
+        "time": "午後4時03分",
+        "title": "サファリゾーンに行く",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      }
+    }
+  },
+  "profile": {
+    "account": {
+      "title": "アカウント",
+      "items": {
+        "updates": "アップデート",
+        "messages": "メッセージ",
+        "tasks": "タスク",
+        "comments": "コメント"
+      }
+    },
+    "settings": {
+      "title": "設定",
+      "items": {
+        "profile": "プロフィール",
+        "settings": "設定",
+        "payments": "支払い",
+        "projects": "プロジェクト"
+      }
+    },
+    "lock_account": "アカウントをロックする",
+    "logout": "ログアウト"
+  },
   "sidebar": {
     "items": {
       "dashboard": "ダッシュボード",
       "sample": "サンプル",
+      "theme": "テーマ",
       "colors": "色",
       "typography": "タイポグラフィ",
+      "components": "コンポーネント",
       "accordion": "アコーディオン",
       "breadcrumb": "パンくずリスト",
       "cards": "カード",
       "carousel": "カルーセル",
       "collapse": "折り畳み",
-      "listGroup": "リストグループ",
+      "list_group": "リストグループ",
       "navs": "ナビゲーション",
       "pagination": "ページネーション",
       "popovers": "ポップオーバー",
@@ -32,20 +121,20 @@
       "tabs": "タブ",
       "tooltips": "ツールチップ",
       "buttons": "ボタン",
-      "buttonsGroup": "ボタングループ",
+      "buttons_group": "ボタングループ",
       "dropdowns": "ドロップダウン",
       "charts": "チャート",
-      "formControl": "フォームコントロール",
+      "form_control": "フォームコントロール",
       "select": "選択",
-      "checksAndRadios": "チェックボックスとラジオボタン",
+      "checks_and_radios": "チェックボックスとラジオボタン",
       "range": "範囲",
-      "inputGroup": "入力グループ",
-      "floatingLabels": "フローティングラベル",
+      "input_group": "入力グループ",
+      "floating_labels": "フローティングラベル",
       "layout": "レイアウト",
       "validation": "検証",
-      "coreUIIcons": "CoreUI アイコン",
-      "coreUIIconsBrand": "CoreUI アイコン - ブランド",
-      "coreUIIconsFlag": "CoreUI アイコン - フラグ",
+      "core_ui_icons": "CoreUI アイコン",
+      "core_ui_icons_brand": "CoreUI アイコン - ブランド",
+      "core_ui_icons_flag": "CoreUI アイコン - フラグ",
       "alerts": "アラート",
       "badge": "バッジ",
       "modals": "モーダル",
@@ -56,7 +145,7 @@
       "error404": "エラー 404",
       "error500": "エラー 500",
       "docs": "ドキュメント",
-      "tryCoreUIPRO": "CoreUI PRO を試す",
+      "try_core_ui_pro": "CoreUI PRO を試す",
       "base": "ベース",
       "forms": "フォーム",
       "icons": "アイコン",

@@ -28,6 +28,7 @@ import Link from 'next/link'
 import HeaderLogout from '@/app/(dashboard)/layout/Header/HeaderLogout'
 import { authOptions } from '@/app/api/auth/option'
 import { getServerSession } from 'next-auth'
+import { getDictionary } from '@/locales/dictionary'
 
 type ItemWithIconProps = {
   icon: IconDefinition;
@@ -46,6 +47,7 @@ const ItemWithIcon = (props: ItemWithIconProps) => {
 
 export default async function HeaderProfileNav() {
   const session = await getServerSession(authOptions)
+  const dict = await getDictionary()
 
   return (
     <Nav>
@@ -64,11 +66,11 @@ export default async function HeaderProfileNav() {
           </div>
         </DropdownToggle>
         <DropdownMenu className="pt-0">
-          <DropdownHeader className="bg-light fw-bold rounded-top">Account</DropdownHeader>
+          <DropdownHeader className="bg-light fw-bold rounded-top">{dict.profile.account.title}</DropdownHeader>
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
               <ItemWithIcon icon={faBell}>
-                Updates
+                {dict.profile.account.items.updates}
                 <Badge bg="info" className="ms-2">42</Badge>
               </ItemWithIcon>
             </DropdownItem>
@@ -76,7 +78,7 @@ export default async function HeaderProfileNav() {
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
               <ItemWithIcon icon={faEnvelopeOpen}>
-                Updates
+                {dict.profile.account.items.messages}
                 <Badge bg="success" className="ms-2">42</Badge>
               </ItemWithIcon>
             </DropdownItem>
@@ -84,7 +86,7 @@ export default async function HeaderProfileNav() {
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
               <ItemWithIcon icon={faListCheck}>
-                Tasks
+                {dict.profile.account.items.tasks}
                 <Badge bg="danger" className="ms-2">42</Badge>
               </ItemWithIcon>
             </DropdownItem>
@@ -92,32 +94,34 @@ export default async function HeaderProfileNav() {
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
               <ItemWithIcon icon={faMessage}>
-                Messages
+                {dict.profile.account.items.comments}
                 <Badge bg="warning" className="ms-2">42</Badge>
               </ItemWithIcon>
             </DropdownItem>
           </Link>
 
-          <DropdownHeader className="bg-light fw-bold">Settings</DropdownHeader>
+          <DropdownHeader className="bg-light fw-bold">{dict.profile.settings.title}</DropdownHeader>
 
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
-              <ItemWithIcon icon={faUser}>Profile</ItemWithIcon>
+              <ItemWithIcon icon={faUser}>{dict.profile.settings.items.profile}</ItemWithIcon>
             </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
-              <ItemWithIcon icon={faGear}>Settings</ItemWithIcon>
+              <ItemWithIcon icon={faGear}>{dict.profile.settings.items.settings}</ItemWithIcon>
             </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
-              <ItemWithIcon icon={faCreditCard}>Payments</ItemWithIcon>
+              <ItemWithIcon icon={faCreditCard}>
+                {dict.profile.settings.items.payments}
+              </ItemWithIcon>
             </DropdownItem>
           </Link>
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
-              <ItemWithIcon icon={faFile}>Projects</ItemWithIcon>
+              <ItemWithIcon icon={faFile}>{dict.profile.settings.items.profile}</ItemWithIcon>
             </DropdownItem>
           </Link>
 
@@ -125,12 +129,12 @@ export default async function HeaderProfileNav() {
 
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
-              <ItemWithIcon icon={faLock}>Lock Account</ItemWithIcon>
+              <ItemWithIcon icon={faLock}>{dict.profile.lock_account}</ItemWithIcon>
             </DropdownItem>
           </Link>
           <HeaderLogout>
             <DropdownItem>
-              <ItemWithIcon icon={faPowerOff}>Logout</ItemWithIcon>
+              <ItemWithIcon icon={faPowerOff}>{dict.profile.logout}</ItemWithIcon>
             </DropdownItem>
           </HeaderLogout>
         </DropdownMenu>

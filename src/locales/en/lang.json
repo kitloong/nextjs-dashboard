@@ -10,18 +10,107 @@
       "title": "Traffic"
     }
   },
+  "featuredNav": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "notification": {
+    "message": "You have {{total}} notifications",
+    "items": {
+      "new_user": "New user registered",
+      "deleted_user": "User deleted",
+      "sales_report": "Sales report is ready",
+      "new_client": "New client",
+      "server_overloaded": "Server overloaded"
+    },
+    "server": {
+      "title": "server",
+      "processes": "Processes",
+      "cores": "Cores",
+      "items": {
+        "cpu": "CPU usage",
+        "memory": "Memory usage",
+        "ssd1": "SSD 1 usage"
+      }
+    }
+  },
+  "task": {
+    "message": "You have {{total}} pending tasks",
+    "items": {
+      "task1": "Upgrade Next.JS",
+      "task2": "Train Pokemons",
+      "task3": "Complete Pokedex",
+      "task4": "Catch all shiny",
+      "task5": "Beat all gyms"
+    },
+    "viewAll": "View all tasks"
+  },
+  "messages": {
+    "message": "You have {{total}} messages",
+    "items": {
+      "item1": {
+        "user": "John Doe",
+        "time": "Just now",
+        "title": "Pet Pikachu",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      },
+      "item2": {
+        "user": "John Doe",
+        "time": "5 mins ago",
+        "title": "Dress Eevee",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      },
+      "item3": {
+        "user": "John Doe",
+        "time": "1:52 PM",
+        "title": "Team up training",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      },
+      "item4": {
+        "user": "John Doe",
+        "time": "4:03 PM",
+        "title": "Go to Safari Zone",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      }
+    }
+  },
+  "profile": {
+    "account": {
+      "title": "Account",
+      "items": {
+        "updates": "Updates",
+        "messages": "Messages",
+        "tasks": "Tasks",
+        "comments": "Comments"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "items": {
+        "profile": "Profile",
+        "settings": "Settings",
+        "payments": "Payments",
+        "projects": "Projects"
+      }
+    },
+    "lock_account": "Lock account",
+    "logout": "Logout"
+  },
   "sidebar": {
     "items": {
       "dashboard": "Dashboard",
       "sample": "Sample",
+      "theme": "Theme",
       "colors": "Colors",
       "typography": "Typography",
+      "components": "Components",
       "accordion": "Accordion",
       "breadcrumb": "Breadcrumb",
       "cards": "Cards",
       "carousel": "Carousel",
       "collapse": "Collapse",
-      "listGroup": "List group",
+      "list_group": "List group",
       "navs": "Navs",
       "pagination": "Pagination",
       "popovers": "Popovers",
@@ -32,20 +121,20 @@
       "tabs": "Tabs",
       "tooltips": "Tooltips",
       "buttons": "Buttons",
-      "buttonsGroup": "Buttons Group",
+      "buttons_group": "Buttons Group",
       "dropdowns": "Dropdowns",
       "charts": "Charts",
-      "formControl": "Form Control",
+      "form_control": "Form Control",
       "select": "Select",
-      "checksAndRadios": "Checks and radios",
+      "checks_and_radios": "Checks and radios",
       "range": "Range",
-      "inputGroup": "Input group",
-      "floatingLabels": "Floating labels",
+      "input_group": "Input group",
+      "floating_labels": "Floating labels",
       "layout": "Layout",
       "validation": "Validation",
-      "coreUIIcons": "CoreUI Icons",
-      "coreUIIconsBrand": "CoreUI Icons - Brand",
-      "coreUIIconsFlag": "CoreUI Icons - Flag",
+      "core_ui_icons": "CoreUI Icons",
+      "core_ui_icons_brand": "CoreUI Icons - Brand",
+      "core_ui_icons_flag": "CoreUI Icons - Flag",
       "alerts": "Alerts",
       "badge": "Badge",
       "modals": "Modals",
@@ -56,7 +145,7 @@
       "error404": "Error 404",
       "error500": "Error 500",
       "docs": "Docs",
-      "tryCoreUIPRO": "Try CoreUI PRO",
+      "try_core_ui_pro": "Try CoreUI PRO",
       "base": "Base",
       "forms": "Forms",
       "icons": "Icons",
