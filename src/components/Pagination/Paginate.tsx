@@ -7,11 +7,10 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 type Props = {
   currentPage: number;
   lastPage: number;
-  setPage?: (page: number) => void;
 }
 
 export default function Paginate(props: Props) {
-  const { currentPage, lastPage, setPage } = props
+  const { currentPage, lastPage } = props
   const [pageIndex, setPageIndex] = useState(currentPage - 1)
   const router = useRouter()
   const pathname = usePathname()
@@ -43,10 +42,6 @@ export default function Paginate(props: Props) {
         disabledClassName="disabled"
         onPageChange={(selectedItem) => {
           const page = selectedItem.selected + 1
-
-          if (setPage) {
-            setPage(page)
-          }
 
           const newSearchParams = new URLSearchParams(searchParams)
           newSearchParams.set('page', page.toString())

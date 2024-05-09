@@ -6,11 +6,80 @@
     }
   },
   "dashboard": {
+    "featured": {
+      "user": "ユーザー",
+      "income": "収入",
+      "conversion_rate": "コンバージョン率",
+      "sessions": "セッション",
+      "action": {
+        "action1": "アクション",
+        "action2": "別のアクション",
+        "action3": "その他"
+      }
+    },
     "traffic": {
-      "title": "トラフィック"
+      "title": "トラフィック",
+      "duration": "2021年1月 - 7月",
+      "option": {
+        "day": "日",
+        "month": "月",
+        "year": "年"
+      },
+      "chart": {
+        "xlabel1": "1月",
+        "xlabel2": "2月",
+        "xlabel3": "3月",
+        "xlabel4": "4月",
+        "xlabel5": "5月",
+        "xlabel6": "6月",
+        "xlabel7": "7月"
+      },
+      "users": "ユーザー数",
+      "views": "閲覧数",
+      "category1": "訪問数",
+      "category2": "ユニーク",
+      "category3": "ページビュー",
+      "category4": "新規ユーザー",
+      "category5": "直帰率"
+    },
+    "social": {
+      "facebook": {
+        "label1": "友達",
+        "label2": "フィード"
+      },
+      "twitter": {
+        "label1": "フォロワー",
+        "label2": "ツイート"
+      },
+      "instagram": {
+        "label1": "コンタクト",
+        "label2": "フィード"
+      }
+    },
+    "sales": {
+      "title": "トラフィックと販売",
+      "stats": {
+        "stat1": "新規クライアント",
+        "stat2": "リピートクライアント",
+        "stat3": "ページビュー",
+        "stat4": "オーガニック"
+      },
+      "monday": "月曜日",
+      "tuesday": "火曜日",
+      "wednesday": "水曜日",
+      "thursday": "木曜日",
+      "friday": "金曜日",
+      "saturday": "土曜日",
+      "sunday": "日曜日",
+      "male": "男性",
+      "female": "女性",
+      "organic": "オーガニックサーチ",
+      "facebook": "フェイスブック",
+      "twitter": "ツイッター",
+      "linkedin": "リンクトイン"
     }
   },
-  "featuredNav": {
+  "featured_nav": {
     "dashboard": "ダッシュボード",
     "users": "ユーザー",
     "settings": "設定"
@@ -96,6 +165,11 @@
     },
     "lock_account": "アカウントをロックする",
     "logout": "ログアウト"
+  },
+  "breadcrumb": {
+    "home": "ホーム",
+    "library": "ライブラリー",
+    "data": "データ"
   },
   "sidebar": {
     "items": {

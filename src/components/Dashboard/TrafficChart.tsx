@@ -12,16 +12,27 @@ import {
   PointElement,
   Tooltip,
 } from 'chart.js'
+import useDictionary from '@/locales/dictionary-hook'
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
 
 const random = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
 
 export default function TrafficChart() {
+  const dict = useDictionary()
+
   return (
     <Line
       data={{
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: [
+          dict.dashboard.traffic.chart.xlabel1,
+          dict.dashboard.traffic.chart.xlabel2,
+          dict.dashboard.traffic.chart.xlabel3,
+          dict.dashboard.traffic.chart.xlabel4,
+          dict.dashboard.traffic.chart.xlabel5,
+          dict.dashboard.traffic.chart.xlabel6,
+          dict.dashboard.traffic.chart.xlabel7,
+        ],
         datasets: [{
           label: 'My First dataset',
           backgroundColor: 'rgba(0, 0, 0, 0.2)',

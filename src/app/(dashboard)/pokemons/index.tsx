@@ -4,7 +4,6 @@ import { Button, Card } from 'react-bootstrap'
 import React from 'react'
 import { newResource, Resource } from '@/models/resource'
 import { Pokemon } from '@/models/pokemon'
-import useSWRAxios, { transformResponseWrapper } from '@/hooks/useSWRAxios'
 import Pagination from '@/components/Pagination/Pagination'
 import PokemonList from '@/components/Pokemon/PokemonList'
 import { useRouter } from 'next/navigation'
@@ -12,9 +11,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import useSWR from 'swr'
 
-export type Props = {
+type Props = {
   props: {
-    pokemonResource: Resource<Pokemon>;
+    pokemonResourceFallback: Resource<Pokemon>;
     page: number;
     perPage: number;
     sort: string;
@@ -25,7 +24,7 @@ export type Props = {
 export default function Index(props: Props) {
   const {
     props: {
-      pokemonResource,
+      pokemonResourceFallback,
       page,
       perPage,
       sort,
@@ -36,33 +35,21 @@ export default function Index(props: Props) {
   const router = useRouter()
 
   const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
+  const url = new URL(pokemonListURL)
+  url.searchParams.set('_page', page.toString())
+  url.searchParams.set('_limit', perPage.toString())
+  url.searchParams.set('_sort', sort)
+  url.searchParams.set('_order', order)
 
-  const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then((res) => res.json())
-  const { data, error, isLoading } = useSWR(pokemonListURL, fetcher, {
-    fallbackData: pokemonResource,
+  const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then(async (res) => {
+    const pokemons: Pokemon[] = await res.json()
+    const total = Number(res.headers.get('x-total-count')) ?? 0
+    return newResource(pokemons, total, page, perPage)
   })
 
-  console.log(data)
-
-  // // swr: data -> axios: data -> resource: data
-  // const { data: { data: resource } } = useSWRAxios<Resource<Pokemon>>({
-  //   url: pokemonListURL,
-  //   params: {
-  //     _page: page,
-  //     _limit: perPage,
-  //     _sort: sort,
-  //     _order: order,
-  //   },
-  //   transformResponse: transformResponseWrapper((d: Pokemon[], h) => {
-  //     const total = h ? parseInt(h['x-total-count'], 10) : 0
-  //     return newResource(d, total, page, perPage)
-  //   }),
-  // }, {
-  //   data: pokemonResource,
-  //   headers: {
-  //     'x-total-count': pokemonResource.meta.total.toString(),
-  //   },
-  // })
+  const { data: pokemonResource } = useSWR(url, fetcher, {
+    fallbackData: pokemonResourceFallback,
+  })
 
   return (
     <Card>

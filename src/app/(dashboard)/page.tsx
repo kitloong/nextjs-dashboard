@@ -59,7 +59,7 @@ export default async function Page() {
                     )
                   </span>
                 </div>
-                <div>Users</div>
+                <div>{dict.dashboard.featured.user}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -72,9 +72,9 @@ export default async function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -96,7 +96,7 @@ export default async function Page() {
                     )
                   </span>
                 </div>
-                <div>Income</div>
+                <div>{dict.dashboard.featured.income}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -109,9 +109,9 @@ export default async function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -133,7 +133,7 @@ export default async function Page() {
                     )
                   </span>
                 </div>
-                <div>Conversion Rate</div>
+                <div>{dict.dashboard.featured.conversion_rate}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -146,9 +146,9 @@ export default async function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -170,7 +170,7 @@ export default async function Page() {
                     )
                   </span>
                 </div>
-                <div>Sessions</div>
+                <div>{dict.dashboard.featured.sessions}</div>
               </div>
               <Dropdown align="end">
                 <DropdownToggle
@@ -183,9 +183,9 @@ export default async function Page() {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Action</DropdownItem>
-                  <DropdownItem href="#/action-2">Another action</DropdownItem>
-                  <DropdownItem href="#/action-3">Something else</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </CardBody>
@@ -201,7 +201,7 @@ export default async function Page() {
           <div className="d-flex justify-content-between">
             <div>
               <h4 className="mb-0">{dict.dashboard.traffic.title}</h4>
-              <div className="small text-black-50">January - July 2021</div>
+              <div className="small text-black-50">{dict.dashboard.traffic.duration}</div>
             </div>
             <div className="d-none d-md-block">
               <ButtonGroup aria-label="Toolbar with buttons" className="mx-3">
@@ -212,7 +212,12 @@ export default async function Page() {
                   name="options"
                   autoComplete="off"
                 />
-                <label className="btn btn-outline-secondary" htmlFor="option1">Day</label>
+                <label
+                  className="btn btn-outline-secondary"
+                  htmlFor="option1"
+                >
+                  {dict.dashboard.traffic.option.day}
+                </label>
                 <input
                   className="btn-check"
                   id="option2"
@@ -225,7 +230,7 @@ export default async function Page() {
                   className="btn btn-outline-secondary active"
                   htmlFor="option2"
                 >
-                  Month
+                  {dict.dashboard.traffic.option.month}
                 </label>
                 <input
                   className="btn-check"
@@ -234,7 +239,12 @@ export default async function Page() {
                   name="options"
                   autoComplete="off"
                 />
-                <label className="btn btn-outline-secondary" htmlFor="option3">Year</label>
+                <label
+                  className="btn btn-outline-secondary"
+                  htmlFor="option3"
+                >
+                  {dict.dashboard.traffic.option.year}
+                </label>
               </ButtonGroup>
               <Button variant="primary">
                 <FontAwesomeIcon icon={faDownload} fixedWidth />
@@ -253,8 +263,13 @@ export default async function Page() {
         <CardFooter>
           <div className="row row-cols-1 row-cols-md-5 text-center">
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Visits</div>
-              <div className="fw-semibold">29.703 Users (40%)</div>
+              <div className="text-black-50">{dict.dashboard.traffic.category1}</div>
+              <div className="fw-semibold">
+                29.703
+                {dict.dashboard.traffic.users}
+                {' '}
+                (40%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="success"
@@ -262,8 +277,13 @@ export default async function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Unique</div>
-              <div className="fw-semibold">24.093 Users (20%)</div>
+              <div className="text-black-50">{dict.dashboard.traffic.category2}</div>
+              <div className="fw-semibold">
+                24.093
+                {dict.dashboard.traffic.users}
+                {' '}
+                (20%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="info"
@@ -271,8 +291,13 @@ export default async function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Page views</div>
-              <div className="fw-semibold">78.706 Views (60%)</div>
+              <div className="text-black-50">{dict.dashboard.traffic.category3}</div>
+              <div className="fw-semibold">
+                78.706
+                {dict.dashboard.traffic.views}
+                {' '}
+                (60%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="warning"
@@ -280,8 +305,13 @@ export default async function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">New Users</div>
-              <div className="fw-semibold">22.123 Users (80%)</div>
+              <div className="text-black-50">{dict.dashboard.traffic.category4}</div>
+              <div className="fw-semibold">
+                22.123
+                {dict.dashboard.traffic.users}
+                {' '}
+                (80%)
+              </div>
               <ProgressBar
                 className="progress-thin mt-2"
                 variant="danger"
@@ -289,7 +319,7 @@ export default async function Page() {
               />
             </div>
             <div className="col mb-sm-2 mb-0">
-              <div className="text-black-50">Bounce Rate</div>
+              <div className="text-black-50">{dict.dashboard.traffic.category5}</div>
               <div className="fw-semibold">40.15%</div>
               <ProgressBar
                 className="progress-thin mt-2"
@@ -319,12 +349,16 @@ export default async function Page() {
               <div className="row text-center">
                 <div className="col">
                   <div className="fs-5 fw-semibold">89k</div>
-                  <div className="text-uppercase text-black-50 small">friends</div>
+                  <div className="text-uppercase text-black-50 small">
+                    {dict.dashboard.social.facebook.label1}
+                  </div>
                 </div>
                 <div className="vr p-0" />
                 <div className="col">
                   <div className="fs-5 fw-semibold">459</div>
-                  <div className="text-uppercase text-black-50 small">feeds</div>
+                  <div className="text-uppercase text-black-50 small">
+                    {dict.dashboard.social.facebook.label2}
+                  </div>
                 </div>
               </div>
             </CardBody>
@@ -348,12 +382,16 @@ export default async function Page() {
               <div className="row text-center">
                 <div className="col">
                   <div className="fs-5 fw-semibold">973k</div>
-                  <div className="text-uppercase text-black-50 small">followers</div>
+                  <div className="text-uppercase text-black-50 small">
+                    {dict.dashboard.social.twitter.label1}
+                  </div>
                 </div>
                 <div className="vr p-0" />
                 <div className="col">
                   <div className="fs-5 fw-semibold">1.792</div>
-                  <div className="text-uppercase text-black-50 small">tweets</div>
+                  <div className="text-uppercase text-black-50 small">
+                    {dict.dashboard.social.twitter.label2}
+                  </div>
                 </div>
               </div>
             </CardBody>
@@ -377,12 +415,16 @@ export default async function Page() {
               <div className="row text-center">
                 <div className="col">
                   <div className="fs-5 fw-semibold">500+</div>
-                  <div className="text-uppercase text-black-50 small">contacts</div>
+                  <div className="text-uppercase text-black-50 small">
+                    {dict.dashboard.social.instagram.label1}
+                  </div>
                 </div>
                 <div className="vr p-0" />
                 <div className="col">
                   <div className="fs-5 fw-semibold">292</div>
-                  <div className="text-uppercase text-black-50 small">feeds</div>
+                  <div className="text-uppercase text-black-50 small">
+                    {dict.dashboard.social.instagram.label2}
+                  </div>
                 </div>
               </div>
             </CardBody>
@@ -395,7 +437,7 @@ export default async function Page() {
         <div className="col-md-12">
           <Card>
             <CardHeader>
-              Traffic &amp; Sales
+              {dict.dashboard.sales.title}
             </CardHeader>
             <CardBody>
               <div className="row">
@@ -404,7 +446,7 @@ export default async function Page() {
                     <div className="col-6">
                       <div className="border-start border-4 border-info px-3 mb-3">
                         <small className="text-black-50">
-                          New Clients
+                          {dict.dashboard.sales.stats.stat1}
                         </small>
                         <div className="fs-5 fw-semibold">9,123</div>
                       </div>
@@ -413,7 +455,7 @@ export default async function Page() {
                     <div className="col-6">
                       <div className="border-start border-4 border-danger px-3 mb-3">
                         <small className="text-black-50">
-                          Recurring Clients
+                          {dict.dashboard.sales.stats.stat2}
                         </small>
                         <div className="fs-5 fw-semibold">22,643</div>
                       </div>
@@ -426,7 +468,7 @@ export default async function Page() {
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 small">
-                        Monday
+                        {dict.dashboard.sales.monday}
                       </span>
                     </div>
                     <div className="col">
@@ -446,7 +488,7 @@ export default async function Page() {
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 small">
-                        Tuesday
+                        {dict.dashboard.sales.tuesday}
                       </span>
                     </div>
                     <div className="col">
@@ -466,7 +508,7 @@ export default async function Page() {
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 small">
-                        Wednesday
+                        {dict.dashboard.sales.wednesday}
                       </span>
                     </div>
                     <div className="col">
@@ -486,7 +528,7 @@ export default async function Page() {
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 small">
-                        Thursday
+                        {dict.dashboard.sales.thursday}
                       </span>
                     </div>
                     <div className="col">
@@ -506,7 +548,7 @@ export default async function Page() {
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 small">
-                        Friday
+                        {dict.dashboard.sales.friday}
                       </span>
                     </div>
                     <div className="col">
@@ -526,7 +568,7 @@ export default async function Page() {
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 small">
-                        Saturday
+                        {dict.dashboard.sales.saturday}
                       </span>
                     </div>
                     <div className="col">
@@ -546,7 +588,7 @@ export default async function Page() {
                   <div className="row mb-4 align-items-center">
                     <div className="col-3">
                       <span className="text-black-50 small">
-                        Sunday
+                        {dict.dashboard.sales.sunday}
                       </span>
                     </div>
                     <div className="col">
@@ -569,7 +611,7 @@ export default async function Page() {
                     <div className="col-6">
                       <div className="border-start border-4 border-warning px-3 mb-3">
                         <small className="text-black-50">
-                          Pageviews
+                          {dict.dashboard.sales.stats.stat3}
                         </small>
                         <div className="fs-5 fw-semibold">78,623</div>
                       </div>
@@ -578,7 +620,7 @@ export default async function Page() {
                     <div className="col-6">
                       <div className="border-start border-4 border-success px-3 mb-3">
                         <small className="text-black-50">
-                          Organic
+                          {dict.dashboard.sales.stats.stat4}
                         </small>
                         <div className="fs-5 fw-semibold">49,123</div>
                       </div>
@@ -593,7 +635,7 @@ export default async function Page() {
                       <div className="d-flex mb-1">
                         <div>
                           <FontAwesomeIcon className="me-2" icon={faMars} fixedWidth />
-                          Male
+                          {dict.dashboard.sales.male}
                         </div>
                         <div className="ms-auto fw-semibold">43%</div>
                       </div>
@@ -608,7 +650,7 @@ export default async function Page() {
                       <div className="d-flex mb-1">
                         <div>
                           <FontAwesomeIcon className="me-2" icon={faVenus} fixedWidth />
-                          Female
+                          {dict.dashboard.sales.female}
                         </div>
                         <div className="ms-auto fw-semibold">37%</div>
                       </div>
@@ -624,7 +666,7 @@ export default async function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faSearch} fixedWidth />
-                        Organic Search
+                        {dict.dashboard.sales.organic}
                       </div>
                       <div className="ms-auto fw-semibold me-2">191.235</div>
                       <div className="text-black-50 small">(56%)</div>
@@ -640,7 +682,7 @@ export default async function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faFacebookF} fixedWidth />
-                        Facebook
+                        {dict.dashboard.sales.facebook}
                       </div>
                       <div className="ms-auto fw-semibold me-2">51.223</div>
                       <div className="text-black-50 small">(15%)</div>
@@ -656,7 +698,7 @@ export default async function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faTwitter} fixedWidth />
-                        Twitter
+                        {dict.dashboard.sales.twitter}
                       </div>
                       <div className="ms-auto fw-semibold me-2">37.564</div>
                       <div className="text-black-50 small">(11%)</div>
@@ -672,7 +714,7 @@ export default async function Page() {
                     <div className="d-flex mb-1">
                       <div>
                         <FontAwesomeIcon className="me-2" icon={faLinkedinIn} fixedWidth />
-                        LinkedIn
+                        {dict.dashboard.sales.linkedin}
                       </div>
                       <div className="ms-auto fw-semibold me-2">27.319</div>
                       <div className="text-black-50 small">(8%)</div>

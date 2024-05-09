@@ -6,9 +6,7 @@ import Summary from '@/components/Pagination/Summary'
 
 type Props = {
   meta: Resource<unknown>['meta'];
-  setPerPage?: (perPage: number) => void;
-} & Pick<Parameters<typeof Paginate>[0], 'setPage'>
-& Pick<Parameters<typeof RowsPerPage>[0], 'setPerPage'>
+}
 
 export default function Pagination(props: Props) {
   const {
@@ -20,15 +18,13 @@ export default function Pagination(props: Props) {
       last_page: lastPage,
       current_page: currentPage,
     },
-    setPerPage,
-    setPage,
   } = props
 
   return (
     <div className="row align-items-center justify-content-center">
       <Summary from={from} to={to} total={total} />
-      <RowsPerPage perPage={perPage} setPerPage={setPerPage} />
-      <Paginate currentPage={currentPage} lastPage={lastPage} setPage={setPage} />
+      <RowsPerPage perPage={perPage} />
+      <Paginate currentPage={currentPage} lastPage={lastPage} />
     </div>
   )
 }

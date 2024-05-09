@@ -2,10 +2,10 @@ import React from 'react'
 import { newResource, Resource } from '@/models/resource'
 import { Pokemon } from '@/models/pokemon'
 import { SearchParams } from '@/types/next'
-import Index, { Props } from '@/app/(dashboard)/pokemons/index'
+import Index from '@/app/(dashboard)/pokemons/index'
 import serverFetch from '@/utils/server-fetch'
 
-const fetchPokemons = async (searchParams: SearchParams): Promise<Props['props']> => {
+const fetchPokemons = async (searchParams: SearchParams) => {
   const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
   let page = 1
   if (searchParams?.page) {
@@ -38,11 +38,11 @@ const fetchPokemons = async (searchParams: SearchParams): Promise<Props['props']
   })
   const pokemons: Pokemon[] = await res.json()
 
-  const total = parseInt(res.headers.get('x-total-count') ?? '0', 10)
+  const total = Number(res.headers.get('x-total-count')) ?? 0
   const pokemonResource: Resource<Pokemon> = newResource(pokemons, total, page, perPage)
 
   return {
-    pokemonResource,
+    pokemonResourceFallback: pokemonResource,
     page,
     perPage,
     sort,

@@ -12,27 +12,27 @@ import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
 
 type Props = {
   pokemons: Pokemon[];
-} & Pick<Parameters<typeof THSort>[0], 'setSort' | 'setOrder'>
+}
 
 export default function PokemonList(props: Props) {
-  const { pokemons, setSort, setOrder } = props
+  const { pokemons } = props
 
   return (
     <Table responsive bordered hover>
       <thead className="bg-light">
         <tr>
-          <th><THSort name="id" setSort={setSort} setOrder={setOrder}>#</THSort></th>
+          <th><THSort name="id">#</THSort></th>
           <th aria-label="Photo" />
-          <th><THSort name="name" setSort={setSort} setOrder={setOrder}>Name</THSort></th>
+          <th><THSort name="name">Name</THSort></th>
           <th>Type</th>
           <th className="text-center">Egg group</th>
-          <th className="text-end"><THSort name="hp" setSort={setSort} setOrder={setOrder}>Hp</THSort></th>
-          <th className="text-end"><THSort name="attack" setSort={setSort} setOrder={setOrder}>Atk</THSort></th>
-          <th className="text-end"><THSort name="defense" setSort={setSort} setOrder={setOrder}>Def</THSort></th>
-          <th className="text-end"><THSort name="special_attack" setSort={setSort} setOrder={setOrder}>SpA</THSort></th>
-          <th className="text-end"><THSort name="special_defense" setSort={setSort} setOrder={setOrder}>SpD</THSort></th>
-          <th className="text-end"><THSort name="speed" setSort={setSort} setOrder={setOrder}>Spd</THSort></th>
-          <th className="text-end"><THSort name="total" setSort={setSort} setOrder={setOrder}>Total</THSort></th>
+          <th className="text-end"><THSort name="hp">Hp</THSort></th>
+          <th className="text-end"><THSort name="attack">Atk</THSort></th>
+          <th className="text-end"><THSort name="defense">Def</THSort></th>
+          <th className="text-end"><THSort name="special_attack">SpA</THSort></th>
+          <th className="text-end"><THSort name="special_defense">SpD</THSort></th>
+          <th className="text-end"><THSort name="speed">Spd</THSort></th>
+          <th className="text-end"><THSort name="total">Total</THSort></th>
           <th aria-label="Action" />
         </tr>
       </thead>
