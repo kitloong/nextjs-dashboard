@@ -1,5 +1,6 @@
 import { NextAuthOptions, User } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import { getDictionary } from '@/locales/dictionary'
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
@@ -29,8 +30,10 @@ export const authOptions: NextAuthOptions = {
         // Replace with real authentication here
         const ok = username === 'Username' && password === 'Password'
 
+        const dict = await getDictionary()
+
         if (!ok) {
-          return null
+          throw new Error(dict.login.message.auth_failed)
         }
 
         return {
