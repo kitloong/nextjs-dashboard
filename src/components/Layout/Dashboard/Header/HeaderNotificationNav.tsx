@@ -50,9 +50,9 @@ export default async function HeaderNotificationNav() {
       </NavItem>
       <NavItem>
         <Dropdown>
-          <DropdownToggle as={NavLink} bsPrefix="hide-caret" id="dropdown-notification">
+          <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-notification">
             <FontAwesomeIcon icon={faBell} size="lg" />
-            <Badge pill bg="danger" className="position-absolute top-0 right-0">
+            <Badge pill bg="danger" className="position-absolute top-0 right-0 px-1 px-sm-2">
               5
             </Badge>
           </DropdownToggle>
@@ -146,9 +146,9 @@ export default async function HeaderNotificationNav() {
       </NavItem>
       <NavItem>
         <Dropdown>
-          <DropdownToggle as={NavLink} bsPrefix="hide-caret" id="dropdown-task">
+          <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-task">
             <FontAwesomeIcon icon={faList} size="lg" />
-            <Badge pill bg="warning" className="position-absolute top-0 right-0">
+            <Badge pill bg="warning" className="position-absolute top-0 right-0 px-1 px-sm-2">
               5
             </Badge>
           </DropdownToggle>
@@ -232,9 +232,9 @@ export default async function HeaderNotificationNav() {
       </NavItem>
       <NavItem>
         <Dropdown>
-          <DropdownToggle as={NavLink} bsPrefix="hide-caret" id="dropdown-mail">
+          <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-mail">
             <FontAwesomeIcon icon={faEnvelope} size="lg" />
-            <Badge pill bg="primary" className="position-absolute top-0 right-0">
+            <Badge pill bg="primary" className="position-absolute top-0 right-0 px-1 px-sm-2">
               7
             </Badge>
           </DropdownToggle>

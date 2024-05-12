@@ -26,7 +26,7 @@ export default function HeaderLocale() {
 
   return (
     <Dropdown>
-      <DropdownToggle as={NavLink} bsPrefix="hide-caret" id="dropdown-locale">
+      <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-locale">
         <FontAwesomeIcon icon={faGlobe} size="lg" />
       </DropdownToggle>
       <DropdownMenu className="pt-0" align="end">
