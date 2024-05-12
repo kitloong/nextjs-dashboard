@@ -34,11 +34,11 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import React from 'react'
-import UserChart from '@/components/Dashboard/UserChart'
-import IncomeChart from '@/components/Dashboard/IncomeChart'
-import ConversionChart from '@/components/Dashboard/ConversionChart'
-import SessionChart from '@/components/Dashboard/SessionChart'
-import TrafficChart from '@/components/Dashboard/TrafficChart'
+import UserChart from '@/components/Page/Dashboard/UserChart'
+import IncomeChart from '@/components/Page/Dashboard/IncomeChart'
+import ConversionChart from '@/components/Page/Dashboard/ConversionChart'
+import SessionChart from '@/components/Page/Dashboard/SessionChart'
+import TrafficChart from '@/components/Page/Dashboard/TrafficChart'
 import { getDictionary } from '@/locales/dictionary'
 
 export default async function Page() {

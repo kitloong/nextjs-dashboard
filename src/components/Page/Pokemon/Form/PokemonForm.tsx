@@ -1,4 +1,4 @@
-import Form from '@/components/Pokemon/Form/Form'
+import Form from '@/components/Page/Pokemon/Form/Form'
 import { Pokemon } from '@/models/pokemon'
 import { Resource } from '@/models/resource'
 import { Type } from '@/models/type'

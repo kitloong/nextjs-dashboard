@@ -1,7 +1,7 @@
 import { Pokemon } from '@/models/pokemon'
 import { notFound } from 'next/navigation'
 import { Card, CardBody, CardHeader } from 'react-bootstrap'
-import PokemonForm from '@/components/Pokemon/Form/PokemonForm'
+import PokemonForm from '@/components/Page/Pokemon/Form/PokemonForm'
 import serverFetch from '@/utils/server-fetch'
 import { getLocale } from '@/locales/dictionary'
 import { Resource } from '@/models/resource'

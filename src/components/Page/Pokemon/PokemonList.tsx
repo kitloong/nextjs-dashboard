@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Pokemon } from '@/models/pokemon'
 import THSort from '@/components/TableSort/THSort'
-import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
+import PokemonTypeLabel from '@/components/Page/Pokemon/PokemonTypeLabel'
 import useDictionary from '@/locales/dictionary-hook'
 
 type Props = {

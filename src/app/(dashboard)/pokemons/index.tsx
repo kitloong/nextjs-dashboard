@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import useSWR from 'swr'
-import PokemonList from '@/components/Pokemon/PokemonList'
+import PokemonList from '@/components/Page/Pokemon/PokemonList'
 import Cookies from 'js-cookie'
 import useDictionary from '@/locales/dictionary-hook'
 
