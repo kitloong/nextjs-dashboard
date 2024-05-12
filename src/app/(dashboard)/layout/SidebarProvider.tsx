@@ -1,7 +1,7 @@
 'use client'
 
 import {
-  createContext, Dispatch, SetStateAction, useMemo, useState,
+  createContext, Dispatch, SetStateAction, useContext, useMemo, useState,
 } from 'react'
 
 type SidebarContextType = {
@@ -29,4 +29,13 @@ export default function SidebarProvider({ children }: {
   }), [isShowSidebar, isShowSidebarMd])
 
   return <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>
+}
+
+export const useSidebar = () => {
+  const sidebar = useContext(SidebarContext)
+  if (sidebar === null) {
+    throw new Error('useSidebar hook must be used within SidebarProvider')
+  }
+
+  return sidebar
 }

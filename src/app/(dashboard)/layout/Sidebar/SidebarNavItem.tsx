@@ -1,8 +1,8 @@
 'use client'
 
 import { IconDefinition } from '@fortawesome/free-regular-svg-icons'
-import React, { PropsWithChildren, useContext } from 'react'
-import { SidebarContext } from '@/app/(dashboard)/layout/SidebarProvider'
+import React, { PropsWithChildren } from 'react'
+import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
 import { NavItem, NavLink } from 'react-bootstrap'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -21,7 +21,7 @@ export default function SidebarNavItem(props: Props) {
 
   const {
     showSidebarState: [, setIsShowSidebar],
-  } = useContext(SidebarContext)
+  } = useSidebar()
 
   return (
     <NavItem>

@@ -1,7 +1,6 @@
 'use client'
 
-import { useContext } from 'react'
-import { SidebarContext } from '@/app/(dashboard)/layout/SidebarProvider'
+import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
 import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
@@ -10,7 +9,7 @@ export default function HeaderSidebarToggler() {
   const {
     showSidebarState: [isShowSidebar, setIsShowSidebar],
     showSidebarMdState: [isShowSidebarMd, setIsShowSidebarMd],
-  } = useContext(SidebarContext)
+  } = useSidebar()
 
   const toggleSidebar = () => {
     setIsShowSidebar(!isShowSidebar)

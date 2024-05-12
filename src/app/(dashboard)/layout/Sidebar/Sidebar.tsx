@@ -2,10 +2,10 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Button } from 'react-bootstrap'
-import { SidebarContext } from '@/app/(dashboard)/layout/SidebarProvider'
+import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
   const [isNarrow, setIsNarrow] = useState(false)
@@ -13,7 +13,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
   const {
     showSidebarState: [isShowSidebar],
     showSidebarMdState: [isShowSidebarMd, setIsShowSidebarMd],
-  } = useContext(SidebarContext)
+  } = useSidebar()
 
   const toggleIsNarrow = () => {
     const newValue = !isNarrow

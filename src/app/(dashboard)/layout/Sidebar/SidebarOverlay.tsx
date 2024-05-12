@@ -1,13 +1,13 @@
 'use client'
 
-import React, { useContext } from 'react'
-import { SidebarContext } from '@/app/(dashboard)/layout/SidebarProvider'
+import React from 'react'
+import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
 import classNames from 'classnames'
 
 export default function SidebarOverlay() {
   const {
     showSidebarState: [isShowSidebar, setIsShowSidebar],
-  } = useContext(SidebarContext)
+  } = useSidebar()
 
   const hideSidebar = () => {
     setIsShowSidebar(false)
