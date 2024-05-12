@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
+import { useSidebar } from '@/components/Layout/Dashboard/SidebarProvider'
 import classNames from 'classnames'
 
 export default function SidebarOverlay() {

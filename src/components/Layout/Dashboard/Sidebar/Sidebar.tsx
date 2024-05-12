@@ -5,7 +5,7 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Button } from 'react-bootstrap'
-import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
+import { useSidebar } from '@/components/Layout/Dashboard/SidebarProvider'
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
   const [isNarrow, setIsNarrow] = useState(false)

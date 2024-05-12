@@ -1,6 +1,6 @@
 'use client'
 
-import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
+import { useSidebar } from '@/components/Layout/Dashboard/SidebarProvider'
 import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'

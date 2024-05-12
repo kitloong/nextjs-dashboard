@@ -2,7 +2,7 @@
 
 import { IconDefinition } from '@fortawesome/free-regular-svg-icons'
 import React, { PropsWithChildren } from 'react'
-import { useSidebar } from '@/app/(dashboard)/layout/SidebarProvider'
+import { useSidebar } from '@/components/Layout/Dashboard/SidebarProvider'
 import { NavItem, NavLink } from 'react-bootstrap'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

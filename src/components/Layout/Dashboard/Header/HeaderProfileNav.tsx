@@ -25,7 +25,7 @@ import {
   faGear, faListCheck, faLock, faPowerOff,
 } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
-import HeaderLogout from '@/app/(dashboard)/layout/Header/HeaderLogout'
+import HeaderLogout from '@/components/Layout/Dashboard/Header/HeaderLogout'
 import { authOptions } from '@/app/api/auth/option'
 import { getServerSession } from 'next-auth'
 import { getDictionary } from '@/locales/dictionary'

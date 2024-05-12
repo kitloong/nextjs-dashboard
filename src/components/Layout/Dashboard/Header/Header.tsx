@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { Container } from 'react-bootstrap'
-import HeaderSidebarToggler from '@/app/(dashboard)/layout/Header/HeaderSidebarToggler'
-import HeaderFeaturedNav from '@/app/(dashboard)/layout/Header/HeaderFeaturedNav'
-import HeaderNotificationNav from '@/app/(dashboard)/layout/Header/HeaderNotificationNav'
-import HeaderProfileNav from '@/app/(dashboard)/layout/Header/HeaderProfileNav'
-import Breadcrumb from '@/app/(dashboard)/layout/Breadcrumb/Breadcrumb'
+import HeaderSidebarToggler from '@/components/Layout/Dashboard/Header/HeaderSidebarToggler'
+import HeaderFeaturedNav from '@/components/Layout/Dashboard/Header/HeaderFeaturedNav'
+import HeaderNotificationNav from '@/components/Layout/Dashboard/Header/HeaderNotificationNav'
+import HeaderProfileNav from '@/components/Layout/Dashboard/Header/HeaderProfileNav'
+import Breadcrumb from '@/components/Layout/Dashboard/Breadcrumb/Breadcrumb'
 
 export default function Header() {
   return (

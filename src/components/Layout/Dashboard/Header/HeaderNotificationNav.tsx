@@ -23,7 +23,7 @@ import {
 import Link from 'next/link'
 import React, { PropsWithChildren } from 'react'
 import Image from 'next/image'
-import HeaderLocale from '@/app/(dashboard)/layout/Header/HeaderLocale'
+import HeaderLocale from '@/components/Layout/Dashboard/Header/HeaderLocale'
 import { getDictionary } from '@/locales/dictionary'
 
 type ItemWithIconProps = {
