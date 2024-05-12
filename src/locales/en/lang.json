@@ -1,9 +1,41 @@
 {
   "login": {
     "title": "Login",
+    "description": "Sign in to your account",
     "form": {
-      "username": "Username"
+      "username": "Username",
+      "password": "Password",
+      "submit": "Login"
+    },
+    "forgot_password": "Forgot password?",
+    "signup": {
+      "title": "Sign up",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua."
     }
+  },
+  "pagination": {
+    "summary": "Showing {{from}} to {{to}} of {{total}} results",
+    "rows_per_page": "Rows per page"
+  },
+  "signup": {
+    "title": "Register",
+    "description": "Create your account",
+    "register_now": "Register Now!",
+    "form": {
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "submit": "Create Account"
+    }
+  },
+  "action": {
+    "info": "Info",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "reset": "Reset"
   },
   "dashboard": {
     "featured": {
@@ -90,7 +122,51 @@
         "recurring": "Recurring"
       },
       "registered": "Registered",
-      "last_login": "Last login"
+      "last_login": "Last login",
+      "usage_duration": "Jun 11, 2020 - Jul 10, 2020",
+      "registered_at": "Jan 1, 2020",
+      "items": {
+        "item1": {
+          "name": "Yiorgos Avraamu",
+          "login_at": "10 sec ago"
+        },
+        "item2": {
+          "name": "Avram Tarasios",
+          "login_at": "5 minutes ago"
+        },
+        "item3": {
+          "name": "Quintin Ed",
+          "login_at": "1 hour ago"
+        },
+        "item4": {
+          "name": "Enéas Kwadwo",
+          "login_at": "Last month"
+        },
+        "item5": {
+          "name": "Agapetus Tadeáš",
+          "login_at": "Last week"
+        },
+        "item6": {
+          "name": "Friderik Dávid",
+          "login_at": "Yesterday"
+        }
+      }
+    }
+  },
+  "pokemons": {
+    "title": "Pokémon",
+    "add_new": "Add new",
+    "attribute": {
+      "name": "Name",
+      "type": "Type",
+      "egg_group": "Egg Group",
+      "hp": "Hp",
+      "attack": "Atk",
+      "defense": "Def",
+      "sp_attack": "SpA",
+      "sp_defense": "SpD",
+      "speed": "Spd",
+      "total": "Total"
     }
   },
   "featured_nav": {
@@ -127,7 +203,7 @@
       "task4": "Catch all shiny",
       "task5": "Beat all gyms"
     },
-    "viewAll": "View all tasks"
+    "view_all": "View all tasks"
   },
   "messages": {
     "message": "You have {{total}} messages",

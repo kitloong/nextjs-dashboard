@@ -1,9 +1,41 @@
 {
   "login": {
     "title": "サインイン",
+    "description": "アカウントにログイン",
     "form": {
-      "username": "ユーザー名"
+      "username": "ユーザー名",
+      "password": "パスワード",
+      "submit": "ログイン"
+    },
+    "forgot_password": "パスワードを忘れましたか？",
+    "signup": {
+      "title": "サインアップ",
+      "description": "いろはにほへとちりぬるをわかよたれそつねならむ\nうゐのおくやまけふこえてあさきゆめみしゑひもせす"
     }
+  },
+  "pagination": {
+    "summary": "表示中 1 から 20 までの 151 の結果",
+    "rows_per_page": "行数"
+  },
+  "signup": {
+    "title": "サインアップ",
+    "description": "アカウントを作成",
+    "register_now": "今すぐ登録！",
+    "form": {
+      "username": "ユーザー名",
+      "email": "メール",
+      "password": "パスワード",
+      "confirm_password": "パスワードの確認",
+      "submit": "登録"
+    }
+  },
+  "action": {
+    "info": "情報",
+    "edit": "編集",
+    "delete": "削除",
+    "submit": "送信",
+    "submitting": "送信中...",
+    "reset": "リセット"
   },
   "dashboard": {
     "featured": {
@@ -77,6 +109,64 @@
       "facebook": "フェイスブック",
       "twitter": "ツイッター",
       "linkedin": "リンクトイン"
+    },
+    "listing": {
+      "headers": {
+        "header1": "ユーザー",
+        "header2": "使用状況",
+        "header3": "支払い方法",
+        "header4": "アクティビティ"
+      },
+      "user_status": {
+        "new": "新規",
+        "recurring": "再発"
+      },
+      "registered": "登録済み",
+      "last_login": "最終ログイン",
+      "usage_duration": "2020年6月11日 - 2020年7月10日",
+      "registered_at": "2020年1月1日",
+      "items": {
+        "item1": {
+          "name": "ヨルゴス・アブラム",
+          "login_at": "10秒前"
+        },
+        "item2": {
+          "name": "アブラム・タラシオス",
+          "login_at": "5分前"
+        },
+        "item3": {
+          "name": "クインティン・エド",
+          "login_at": "1時間前"
+        },
+        "item4": {
+          "name": "エネアス・クワドウォ",
+          "login_at": "先月"
+        },
+        "item5": {
+          "name": "アガペトゥス・タデアシ",
+          "login_at": "先週"
+        },
+        "item6": {
+          "name": "フリデリク・ダヴィド",
+          "login_at": "昨日"
+        }
+      }
+    }
+  },
+  "pokemons": {
+    "title": "ポケモン",
+    "add_new": "新しいポケモンを追加",
+    "attribute": {
+      "name": "名前",
+      "type": "タイプ",
+      "egg_group": "タマゴグループ",
+      "hp": "Hp",
+      "attack": "攻撃",
+      "defense": "防御",
+      "sp_attack": "特攻",
+      "sp_defense": "特防",
+      "speed": "速度",
+      "total": "合計"
     }
   },
   "featured_nav": {
@@ -113,7 +203,7 @@
       "task4": "すべての色違いを捕まえる",
       "task5": "すべてのジムを倒す"
     },
-    "viewAll": "すべてのタスクを見る"
+    "view_all": "すべてのタスクを見る"
   },
   "messages": {
     "message": "{{total}}件のメッセージがあります",

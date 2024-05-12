@@ -2,26 +2,41 @@
 
 import { useFormState, useFormStatus } from 'react-dom'
 import {
-  Alert, Button, Col, Form, Row,
+  Alert,
+  Button,
+  Col,
+  Form as BSForm,
+  FormCheck,
+  FormControl,
+  FormGroup,
+  FormLabel,
+  Row,
 } from 'react-bootstrap'
 import React, { useEffect } from 'react'
 import classNames from 'classnames'
 import Image from 'next/image'
-import {
-  Pokemon,
-  pokemonEggGroups,
-  pokemonTypes,
-} from '@/models/pokemon'
+import { Pokemon } from '@/models/pokemon'
 import FormError from '@/components/Form/FormError'
 import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
 import create from '@/app/(dashboard)/pokemons/create/action'
+import useDictionary from '@/locales/dictionary-hook'
+import { Type } from '@/models/type'
+import { EggGroup } from '@/models/egg_group'
+import FormCheckInput from 'react-bootstrap/FormCheckInput'
+import FormCheckLabel from 'react-bootstrap/FormCheckLabel'
 
 type Props = {
+  types: Type[];
+  eggGroups: EggGroup[];
   pokemon?: Pokemon;
 }
 
-const SubmitButton = ({ validated, success }: { validated: boolean; success: boolean }) => {
+const SubmitButton = ({
+  validated,
+  success,
+}: { validated: boolean; success: boolean }) => {
   const { pending } = useFormStatus()
+  const dict = useDictionary()
 
   useEffect(() => {
     if (validated) {
@@ -37,19 +52,27 @@ const SubmitButton = ({ validated, success }: { validated: boolean; success: boo
 
   return (
     <Button aria-disabled={pending} className="me-3" type="submit" variant="success">
-      {pending ? 'Submitting...' : 'Submit'}
+      {pending ? dict.action.submitting : dict.action.submit}
     </Button>
   )
 }
 
-export default function PokemonForm(props: Props) {
-  const { pokemon } = props
+export default function Form(props: Props) {
+  const {
+    pokemon,
+    types,
+    eggGroups,
+  } = props
+  const dict = useDictionary()
   const [state, formAction] = useFormState(create, {
-    success: false, validated: false, message: '', formKey: 0,
+    success: false,
+    validated: false,
+    message: '',
+    formKey: 0,
   })
 
   return (
-    <Form noValidate key={state.formKey} action={formAction}>
+    <BSForm noValidate key={state.formKey} action={formAction}>
       <Alert
         variant={state.success ? 'success' : 'danger'}
         show={state.errors === undefined && state.message !== ''}
@@ -75,9 +98,9 @@ export default function PokemonForm(props: Props) {
         </div>
       )}
 
-      <Form.Group className="mb-3">
-        <Form.Label>Name</Form.Label>
-        <Form.Control
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.name}</FormLabel>
+        <FormControl
           type="text"
           name="name"
           defaultValue={pokemon?.name}
@@ -85,58 +108,58 @@ export default function PokemonForm(props: Props) {
           required
         />
         <FormError messages={state.errors?.name} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Types</Form.Label>
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.type}</FormLabel>
         <div className={classNames({ 'is-invalid': !!state.errors?.types })}>
           <Row>
-            {pokemonTypes.map((type) => (
-              <Col xs={6} sm={4} md={3} lg={2} key={type}>
-                <Form.Check id={`type-${type}`}>
-                  <Form.Check.Input
+            {types.map((type) => (
+              <Col xs={6} sm={4} md={3} lg={2} key={type.id}>
+                <FormCheck id={`type-${type.id}`}>
+                  <FormCheckInput
                     type="checkbox"
                     name="types"
-                    value={type}
-                    defaultChecked={pokemon?.types.includes(type)}
+                    value={type.id}
+                    defaultChecked={pokemon?.types.some((t) => t.id)}
                   />
-                  <Form.Check.Label>
+                  <FormCheckLabel>
                     <span className="position-relative" style={{ top: '-.1rem' }}>
                       <PokemonTypeLabel type={type} />
                     </span>
-                  </Form.Check.Label>
-                </Form.Check>
+                  </FormCheckLabel>
+                </FormCheck>
               </Col>
             ))}
           </Row>
         </div>
         <FormError messages={state.errors?.types} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Egg groups</Form.Label>
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.egg_group}</FormLabel>
         <div className={classNames({ 'is-invalid': !!state.errors?.eggGroups })}>
           <Row>
-            {pokemonEggGroups.map((eggGroup) => (
-              <Col xs={6} sm={4} md={3} lg={2} key={eggGroup}>
-                <Form.Check
-                  id={`eg-${eggGroup}`}
+            {eggGroups.map((eggGroup) => (
+              <Col xs={6} sm={4} md={3} lg={2} key={eggGroup.id}>
+                <FormCheck
+                  id={`eg-${eggGroup.id}`}
                   type="checkbox"
                   name="eggGroups"
-                  value={eggGroup}
-                  label={eggGroup}
-                  defaultChecked={pokemon?.egg_groups.includes(eggGroup)}
+                  value={eggGroup.id}
+                  label={eggGroup.name}
+                  defaultChecked={pokemon?.egg_groups.some((eg) => eg.id === eggGroup.id)}
                 />
               </Col>
             ))}
           </Row>
         </div>
         <FormError messages={state.errors?.eggGroups} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Hp</Form.Label>
-        <Form.Control
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.hp}</FormLabel>
+        <FormControl
           className="w-auto"
           type="text"
           name="hp"
@@ -145,11 +168,11 @@ export default function PokemonForm(props: Props) {
           isInvalid={!!state.errors?.hp}
         />
         <FormError messages={state.errors?.hp} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Attack</Form.Label>
-        <Form.Control
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.attack}</FormLabel>
+        <FormControl
           className="w-auto"
           type="number"
           name="attack"
@@ -158,11 +181,11 @@ export default function PokemonForm(props: Props) {
           isInvalid={!!state.errors?.attack}
         />
         <FormError messages={state.errors?.attack} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Defense</Form.Label>
-        <Form.Control
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.defense}</FormLabel>
+        <FormControl
           className="w-auto"
           type="number"
           name="defense"
@@ -171,11 +194,11 @@ export default function PokemonForm(props: Props) {
           isInvalid={!!state.errors?.defense}
         />
         <FormError messages={state.errors?.defense} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Special attack</Form.Label>
-        <Form.Control
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.sp_attack}</FormLabel>
+        <FormControl
           className="w-auto"
           type="number"
           name="special_attack"
@@ -184,11 +207,11 @@ export default function PokemonForm(props: Props) {
           isInvalid={!!state.errors?.special_attack}
         />
         <FormError messages={state.errors?.special_attack} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Special defense</Form.Label>
-        <Form.Control
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.sp_defense}</FormLabel>
+        <FormControl
           className="w-auto"
           type="number"
           name="special_defense"
@@ -197,11 +220,11 @@ export default function PokemonForm(props: Props) {
           isInvalid={!!state.errors?.special_defense}
         />
         <FormError messages={state.errors?.special_defense} />
-      </Form.Group>
+      </FormGroup>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Speed</Form.Label>
-        <Form.Control
+      <FormGroup className="mb-3">
+        <FormLabel>{dict.pokemons.attribute.speed}</FormLabel>
+        <FormControl
           className="w-auto"
           type="number"
           name="speed"
@@ -210,10 +233,10 @@ export default function PokemonForm(props: Props) {
           isInvalid={!!state.errors?.speed}
         />
         <FormError messages={state.errors?.speed} />
-      </Form.Group>
+      </FormGroup>
 
       <SubmitButton validated={state.validated} success={state.success} />
-      <Button type="reset" variant="secondary">Reset</Button>
-    </Form>
+      <Button type="reset" variant="secondary">{dict.action.reset}</Button>
+    </BSForm>
   )
 }

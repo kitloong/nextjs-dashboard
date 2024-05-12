@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { Pokemon } from '@/models/pokemon'
 import THSort from '@/components/TableSort/THSort'
 import PokemonTypeLabel from '@/components/Pokemon/PokemonTypeLabel'
+import useDictionary from '@/locales/dictionary-hook'
 
 type Props = {
   pokemons: Pokemon[];
@@ -16,6 +17,7 @@ type Props = {
 
 export default function PokemonList(props: Props) {
   const { pokemons } = props
+  const dict = useDictionary()
 
   return (
     <Table responsive bordered hover>
@@ -23,16 +25,16 @@ export default function PokemonList(props: Props) {
         <tr>
           <th><THSort name="id">#</THSort></th>
           <th aria-label="Photo" />
-          <th><THSort name="name">Name</THSort></th>
-          <th>Type</th>
-          <th className="text-center">Egg group</th>
-          <th className="text-end"><THSort name="hp">Hp</THSort></th>
-          <th className="text-end"><THSort name="attack">Atk</THSort></th>
-          <th className="text-end"><THSort name="defense">Def</THSort></th>
-          <th className="text-end"><THSort name="special_attack">SpA</THSort></th>
-          <th className="text-end"><THSort name="special_defense">SpD</THSort></th>
-          <th className="text-end"><THSort name="speed">Spd</THSort></th>
-          <th className="text-end"><THSort name="total">Total</THSort></th>
+          <th><THSort name="name">{dict.pokemons.attribute.name}</THSort></th>
+          <th>{dict.pokemons.attribute.type}</th>
+          <th className="text-center">{dict.pokemons.attribute.egg_group}</th>
+          <th className="text-end"><THSort name="hp">{dict.pokemons.attribute.hp}</THSort></th>
+          <th className="text-end"><THSort name="attack">{dict.pokemons.attribute.attack}</THSort></th>
+          <th className="text-end"><THSort name="defense">{dict.pokemons.attribute.defense}</THSort></th>
+          <th className="text-end"><THSort name="special_attack">{dict.pokemons.attribute.sp_attack}</THSort></th>
+          <th className="text-end"><THSort name="special_defense">{dict.pokemons.attribute.sp_defense}</THSort></th>
+          <th className="text-end"><THSort name="speed">{dict.pokemons.attribute.speed}</THSort></th>
+          <th className="text-end"><THSort name="total">{dict.pokemons.attribute.total}</THSort></th>
           <th aria-label="Action" />
         </tr>
       </thead>
@@ -53,9 +55,13 @@ export default function PokemonList(props: Props) {
             </td>
             <td>{pokemon.name}</td>
             <td>
-              {pokemon.types.map((type) => <span key={type} className="me-2"><PokemonTypeLabel type={type} /></span>)}
+              {pokemon.types.map((type) => (
+                <span key={type.id} className="me-2"><PokemonTypeLabel type={type} /></span>
+              ))}
             </td>
-            <td className="text-center" style={{ whiteSpace: 'pre' }}>{pokemon.egg_groups.join('\n')}</td>
+            <td className="text-center" style={{ whiteSpace: 'pre' }}>
+              {pokemon.egg_groups.map((eggGroup) => eggGroup.name).join('\n')}
+            </td>
             <td className="text-end">{pokemon.hp}</td>
             <td className="text-end">{pokemon.attack}</td>
             <td className="text-end">{pokemon.defense}</td>
@@ -75,15 +81,15 @@ export default function PokemonList(props: Props) {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem href="#/action-1">Info</DropdownItem>
+                  <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
                   <Link href={`pokemons/${pokemon.id}/edit`} passHref legacyBehavior>
-                    <DropdownItem>Edit</DropdownItem>
+                    <DropdownItem>{dict.action.edit}</DropdownItem>
                   </Link>
                   <DropdownItem
                     className="text-danger"
                     href="#/action-3"
                   >
-                    Delete
+                    {dict.action.delete}
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>

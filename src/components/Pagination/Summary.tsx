@@ -1,4 +1,5 @@
 import React from 'react'
+import useDictionary from '@/locales/dictionary-hook'
 
 type Props = {
   total: number;
@@ -9,21 +10,14 @@ type Props = {
 export default function Summary(props: Props) {
   const { total, from, to } = props
 
+  const dict = useDictionary()
+
   return (
     <div className="col-12 text-center text-sm-start col-sm-auto col-lg mb-3">
-      Showing
-      {' '}
-      <span className="fw-semibold">{from}</span>
-      {' '}
-      to
-      {' '}
-      <span className="fw-semibold">{to}</span>
-      {' '}
-      of
-      {' '}
-      <span className="fw-semibold">{total}</span>
-      {' '}
-      results
+      {dict.pagination.summary
+        .replace('{{from}}', from.toString())
+        .replace('{{to}}', to.toString())
+        .replace('{{total}}', total.toString())}
     </div>
   )
 }

@@ -23,7 +23,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
           <Col md={7} className="bg-white border p-5">
             <div>
               <h1>{dict.login.title}</h1>
-              <p className="text-black-50">Sign In to your account</p>
+              <p className="text-black-50">{dict.login.description}</p>
 
               <LoginForm callbackUrl={getCallbackUrl()} />
             </div>
@@ -33,13 +33,10 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             className="bg-primary text-white d-flex align-items-center justify-content-center p-5"
           >
             <div className="text-center">
-              <h2>Sign up</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              <h2>{dict.login.signup.title}</h2>
+              <p>{dict.login.signup.description}</p>
               <Link className="btn btn-lg btn-outline-light mt-3" href="/register">
-                Register Now!
+                {dict.signup.register_now}
               </Link>
             </div>
           </Col>

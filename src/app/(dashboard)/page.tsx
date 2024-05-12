@@ -737,10 +737,10 @@ export default async function Page() {
                       <th className="text-center" aria-label="icon">
                         <FontAwesomeIcon icon={faUsers} fixedWidth />
                       </th>
-                      <th>User</th>
-                      <th>Usage</th>
-                      <th className="text-center">Payment Method</th>
-                      <th>Activity</th>
+                      <th>{dict.dashboard.listing.headers.header1}</th>
+                      <th>{dict.dashboard.listing.headers.header2}</th>
+                      <th className="text-center">{dict.dashboard.listing.headers.header3}</th>
+                      <th>{dict.dashboard.listing.headers.header4}</th>
                       <th aria-label="Action" />
                     </tr>
                   </thead>
@@ -761,11 +761,16 @@ export default async function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Yiorgos Avraamu</div>
+                        <div>{dict.dashboard.listing.items.item1.name}</div>
                         <div className="small text-black-50">
-                          <span>New</span>
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -775,7 +780,7 @@ export default async function Page() {
                           </div>
                           <div className="float-end">
                             <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -785,8 +790,8 @@ export default async function Page() {
                         <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">10 sec ago</div>
+                        <div className="small text-black-50">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item1.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
@@ -800,13 +805,13 @@ export default async function Page() {
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -828,11 +833,16 @@ export default async function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Avram Tarasios</div>
+                        <div>{dict.dashboard.listing.items.item2.name}</div>
                         <div className="small text-black-50">
-                          <span>Recurring</span>
+                          <span>{dict.dashboard.listing.user_status.recurring}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -842,7 +852,7 @@ export default async function Page() {
                           </div>
                           <div className="float-end">
                             <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -852,8 +862,8 @@ export default async function Page() {
                         <FontAwesomeIcon icon={faCcVisa} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">5 minutes ago</div>
+                        <div className="small text-black-50">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item2.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
@@ -867,13 +877,13 @@ export default async function Page() {
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -895,11 +905,16 @@ export default async function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Quintin Ed</div>
+                        <div>{dict.dashboard.listing.items.item3.name}</div>
                         <div className="small text-black-50">
-                          <span>New</span>
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -909,7 +924,7 @@ export default async function Page() {
                           </div>
                           <div className="float-end">
                             <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -919,8 +934,8 @@ export default async function Page() {
                         <FontAwesomeIcon icon={faCcStripe} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">1 hour ago</div>
+                        <div className="small text-black-50">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item3.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
@@ -934,13 +949,13 @@ export default async function Page() {
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -962,11 +977,16 @@ export default async function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Enéas Kwadwo</div>
+                        <div>{dict.dashboard.listing.items.item4.name}</div>
                         <div className="small text-black-50">
-                          <span>New</span>
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -976,7 +996,7 @@ export default async function Page() {
                           </div>
                           <div className="float-end">
                             <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -986,8 +1006,8 @@ export default async function Page() {
                         <FontAwesomeIcon icon={faCcPaypal} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">Last month</div>
+                        <div className="small text-black-50">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item4.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
@@ -1001,13 +1021,13 @@ export default async function Page() {
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -1029,11 +1049,16 @@ export default async function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Agapetus Tadeáš</div>
+                        <div>{dict.dashboard.listing.items.item5.name}</div>
                         <div className="small text-black-50">
-                          <span>New</span>
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -1043,7 +1068,7 @@ export default async function Page() {
                           </div>
                           <div className="float-end">
                             <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -1053,8 +1078,8 @@ export default async function Page() {
                         <FontAwesomeIcon icon={faCcApplePay} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">Last week</div>
+                        <div className="small text-black-50">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item5.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
@@ -1068,13 +1093,13 @@ export default async function Page() {
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>
@@ -1096,11 +1121,16 @@ export default async function Page() {
                         </div>
                       </td>
                       <td>
-                        <div>Friderik Dávid</div>
+                        <div>{dict.dashboard.listing.items.item6.name}</div>
                         <div className="small text-black-50">
-                          <span>New</span>
+                          <span>{dict.dashboard.listing.user_status.new}</span>
                           {' '}
-                          | Registered: Jan 1, 2020
+                          |
+                          {' '}
+                          {dict.dashboard.listing.registered}
+                          :
+                          {' '}
+                          {dict.dashboard.listing.registered_at}
                         </div>
                       </td>
                       <td>
@@ -1110,7 +1140,7 @@ export default async function Page() {
                           </div>
                           <div className="float-end">
                             <small className="text-black-50">
-                              Jun 11, 2020 - Jul 10, 2020
+                              {dict.dashboard.listing.usage_duration}
                             </small>
                           </div>
                         </div>
@@ -1120,8 +1150,8 @@ export default async function Page() {
                         <FontAwesomeIcon icon={faCcAmex} size="lg" fixedWidth />
                       </td>
                       <td>
-                        <div className="small text-black-50">Last login</div>
-                        <div className="fw-semibold">Yesterday</div>
+                        <div className="small text-black-50">{dict.dashboard.listing.last_login}</div>
+                        <div className="fw-semibold">{dict.dashboard.listing.items.item6.login_at}</div>
                       </td>
                       <td>
                         <Dropdown align="end">
@@ -1135,13 +1165,13 @@ export default async function Page() {
                           </DropdownToggle>
 
                           <DropdownMenu>
-                            <DropdownItem href="#/action-1">Info</DropdownItem>
-                            <DropdownItem href="#/action-2">Edit</DropdownItem>
+                            <DropdownItem href="#/action-1">{dict.action.info}</DropdownItem>
+                            <DropdownItem href="#/action-2">{dict.action.edit}</DropdownItem>
                             <DropdownItem
                               className="text-danger"
                               href="#/action-3"
                             >
-                              Delete
+                              {dict.action.delete}
                             </DropdownItem>
                           </DropdownMenu>
                         </Dropdown>

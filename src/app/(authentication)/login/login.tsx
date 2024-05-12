@@ -99,7 +99,7 @@ export default function Login({ callbackUrl }: { callbackUrl: string }) {
             name="password"
             required
             disabled={submitting}
-            placeholder="Password"
+            placeholder={dict.login.form.password}
             aria-label="Password"
             defaultValue="Password"
           />
@@ -113,13 +113,12 @@ export default function Login({ callbackUrl }: { callbackUrl: string }) {
               type="submit"
               disabled={submitting}
             >
-              Login
+              {dict.login.form.submit}
             </Button>
           </Col>
           <Col xs={6} className="text-end">
             <Link className="px-0" href="#">
-              Forgot
-              password?
+              {dict.login.forgot_password}
             </Link>
           </Col>
         </Row>

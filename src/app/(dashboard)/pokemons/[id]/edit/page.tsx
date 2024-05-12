@@ -1,26 +1,18 @@
 import { Pokemon } from '@/models/pokemon'
 import { notFound } from 'next/navigation'
 import { Card, CardBody, CardHeader } from 'react-bootstrap'
-import PokemonForm from '@/components/Pokemon/PokemonForm'
+import PokemonForm from '@/components/Pokemon/Form/PokemonForm'
 import serverFetch from '@/utils/server-fetch'
+import { getLocale } from '@/locales/dictionary'
+import { Resource } from '@/models/resource'
 
-type Props = {
-  pokemon: Pokemon;
-}
+const fetchPokemon = async (id: number): Promise<Resource<Pokemon>> => {
+  const locale = getLocale()
 
-const fetchPokemon = async (params: { id: string }): Promise<Props> => {
-  const idQuery = params.id
-
-  if (!idQuery) {
-    return notFound()
-  }
-
-  const id = Number(idQuery)
-
-  const pokemonURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons/${id}` || ''
+  const url = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}${locale}_pokemons/${id}` || ''
 
   try {
-    const res = await serverFetch(pokemonURL, {
+    const res = await serverFetch(url, {
       method: 'GET',
     })
 
@@ -31,7 +23,7 @@ const fetchPokemon = async (params: { id: string }): Promise<Props> => {
     const pokemon: Pokemon = await res.json()
 
     return {
-      pokemon,
+      data: pokemon,
     }
   } catch (error) {
     return notFound()
@@ -39,11 +31,11 @@ const fetchPokemon = async (params: { id: string }): Promise<Props> => {
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const { pokemon } = await fetchPokemon(params)
+  const { data: pokemon } = await fetchPokemon(Number(params.id))
 
   return (
     <Card>
-      <CardHeader>Add new Pokémon</CardHeader>
+      <CardHeader>{pokemon.name}</CardHeader>
       <CardBody>
         <PokemonForm pokemon={pokemon} />
       </CardBody>

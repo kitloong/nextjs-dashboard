@@ -224,7 +224,7 @@ export default async function HeaderNotificationNav() {
             <DropdownDivider />
 
             <Link href="#" passHref legacyBehavior>
-              <DropdownItem className="text-center fw-bold">{dict.task.viewAll}</DropdownItem>
+              <DropdownItem className="text-center fw-bold">{dict.task.view_all}</DropdownItem>
             </Link>
 
           </DropdownMenu>

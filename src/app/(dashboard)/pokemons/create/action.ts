@@ -29,7 +29,7 @@ const schema = z.object({
   speed: ZodAttribute,
 })
 
-export type FormState = {
+type FormState = {
   success: boolean;
   message: string;
   validated: boolean;

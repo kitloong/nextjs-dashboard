@@ -1,12 +1,15 @@
 import React from 'react'
-import { newResource, Resource } from '@/models/resource'
+import { newResource, ResourceCollection } from '@/models/resource'
 import { Pokemon } from '@/models/pokemon'
 import { SearchParams } from '@/types/next'
 import Index from '@/app/(dashboard)/pokemons/index'
 import serverFetch from '@/utils/server-fetch'
+import { getLocale } from '@/locales/dictionary'
 
 const fetchPokemons = async (searchParams: SearchParams) => {
-  const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}pokemons` || ''
+  const locale = getLocale()
+
+  const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}${locale}_pokemons` || ''
   let page = 1
   if (searchParams?.page) {
     page = parseInt(searchParams.page.toString(), 10)
@@ -39,10 +42,10 @@ const fetchPokemons = async (searchParams: SearchParams) => {
   const pokemons: Pokemon[] = await res.json()
 
   const total = Number(res.headers.get('x-total-count')) ?? 0
-  const pokemonResource: Resource<Pokemon> = newResource(pokemons, total, page, perPage)
+  const pokemonResource: ResourceCollection<Pokemon> = newResource(pokemons, total, page, perPage)
 
   return {
-    pokemonResourceFallback: pokemonResource,
+    pokemonResource,
     page,
     perPage,
     sort,

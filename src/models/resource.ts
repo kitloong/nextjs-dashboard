@@ -1,4 +1,8 @@
 export interface Resource<T> {
+  data: T;
+}
+
+export interface ResourceCollection<T> {
   data: T[];
   meta: {
     current_page: number;
@@ -31,7 +35,7 @@ export const newResource = <T>(
   total: number,
   page: number,
   perPage: number,
-): Resource<T> => ({
+): ResourceCollection<T> => ({
     data,
     meta: {
       current_page: page,
