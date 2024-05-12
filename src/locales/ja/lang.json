@@ -11,6 +11,9 @@
     "signup": {
       "title": "サインアップ",
       "description": "いろはにほへとちりぬるをわかよたれそつねならむ\nうゐのおくやまけふこえてあさきゆめみしゑひもせす"
+    },
+    "message": {
+      "auth_failed": "認証に失敗しました"
     }
   },
   "pagination": {
