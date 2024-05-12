@@ -1,7 +1,7 @@
 'use client'
 
-import { ProgressLoader } from 'nextjs-progressloader'
+import { AppProgressBar } from 'next-nprogress-bar'
 
 export default function ProgressBar() {
-  return <ProgressLoader />
+  return <AppProgressBar color="#29d" />
 }

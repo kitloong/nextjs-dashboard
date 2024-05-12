@@ -6,38 +6,49 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
-import { useRouter } from 'next/navigation'
-import { SyntheticEvent, useState } from 'react'
-import { deleteCookie, getCookie } from 'cookies-next'
-import axios from 'axios'
+import { useState } from 'react'
 import Link from 'next/link'
 import InputGroupText from 'react-bootstrap/InputGroupText'
+import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import useDictionary from '@/locales/dictionary-hook'
 
-export default function Login() {
-  const router = useRouter()
+export default function Login({ callbackUrl }: { callbackUrl: string }) {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
+  const router = useRouter()
+  const dict = useDictionary()
 
-  const getRedirect = () => {
-    const redirect = getCookie('redirect')
-    if (redirect) {
-      deleteCookie('redirect')
-      return redirect.toString()
-    }
-
-    return '/'
-  }
-
-  const login = async (e: SyntheticEvent) => {
-    e.stopPropagation()
-    e.preventDefault()
-
+  const login = async (formData: FormData) => {
     setSubmitting(true)
 
     try {
-      const res = await axios.post('api/mock/login')
-      if (res.status === 200) {
-        router.push(getRedirect())
+      const res = await signIn('credentials', {
+        username: formData.get('username'),
+        password: formData.get('password'),
+        redirect: false,
+        callbackUrl,
+      })
+
+      if (!res) {
+        setError('Login failed')
+        return
+      }
+
+      const { ok, url, error: err } = res
+
+      if (!ok) {
+        if (err) {
+          setError(err)
+          return
+        }
+
+        setError('Login failed')
+        return
+      }
+
+      if (url) {
+        router.push(url)
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -58,7 +69,7 @@ export default function Login() {
       >
         {error}
       </Alert>
-      <Form onSubmit={login}>
+      <Form action={login}>
         <InputGroup className="mb-3">
           <InputGroupText>
             <FontAwesomeIcon
@@ -70,7 +81,7 @@ export default function Login() {
             name="username"
             required
             disabled={submitting}
-            placeholder="Username"
+            placeholder={dict.login.form.username}
             aria-label="Username"
             defaultValue="Username"
           />
@@ -88,7 +99,7 @@ export default function Login() {
             name="password"
             required
             disabled={submitting}
-            placeholder="Password"
+            placeholder={dict.login.form.password}
             aria-label="Password"
             defaultValue="Password"
           />
@@ -102,13 +113,12 @@ export default function Login() {
               type="submit"
               disabled={submitting}
             >
-              Login
+              {dict.login.form.submit}
             </Button>
           </Col>
           <Col xs={6} className="text-end">
             <Link className="px-0" href="#">
-              Forgot
-              password?
+              {dict.login.forgot_password}
             </Link>
           </Col>
         </Row>

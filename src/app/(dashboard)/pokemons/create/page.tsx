@@ -1,10 +1,13 @@
 import { Card, CardBody, CardHeader } from 'react-bootstrap'
-import PokemonForm from '@/components/Pokemon/PokemonForm'
+import PokemonForm from '@/components/Page/Pokemon/Form/PokemonForm'
+import { getDictionary } from '@/locales/dictionary'
 
-export default function Page() {
+export default async function Page() {
+  const dict = await getDictionary()
+
   return (
     <Card>
-      <CardHeader>Add new Pokémon</CardHeader>
+      <CardHeader>{dict.pokemons.add_new}</CardHeader>
       <CardBody>
         <PokemonForm />
       </CardBody>

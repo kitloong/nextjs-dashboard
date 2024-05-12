@@ -6,11 +6,10 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 type Props = {
   perPage: number;
-  setPerPage?: (perPage: number) => void;
 }
 
 export default function RowPerPageSelect(props: Props) {
-  const { perPage, setPerPage } = props
+  const { perPage } = props
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -21,10 +20,6 @@ export default function RowPerPageSelect(props: Props) {
       className="d-inline-block w-auto"
       aria-label="Item per page"
       onChange={(event) => {
-        if (setPerPage) {
-          setPerPage(parseInt(event.target.value, 10))
-        }
-
         const newSearchParams = new URLSearchParams(searchParams)
         newSearchParams.set('page', '1') // Go back to first page
         newSearchParams.set('per_page', event.target.value)

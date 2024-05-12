@@ -7,36 +7,47 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/navigation'
-import { SyntheticEvent, useState } from 'react'
-import { deleteCookie, getCookie } from 'cookies-next'
-import axios from 'axios'
+import { useState } from 'react'
 import InputGroupText from 'react-bootstrap/InputGroupText'
+import { signIn } from 'next-auth/react'
+import useDictionary from '@/locales/dictionary-hook'
 
 export default function Register() {
   const router = useRouter()
+  const dict = useDictionary()
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
 
-  const getRedirect = () => {
-    const redirect = getCookie('redirect')
-    if (redirect) {
-      deleteCookie('redirect')
-      return redirect.toString()
-    }
-
-    return '/'
-  }
-
-  const register = async (e: SyntheticEvent) => {
-    e.stopPropagation()
-    e.preventDefault()
-
+  const register = async () => {
     setSubmitting(true)
 
     try {
-      const res = await axios.post('api/mock/login')
-      if (res.status === 200) {
-        router.push(getRedirect())
+      const res = await signIn('credentials', {
+        username: 'Username',
+        password: 'Password',
+        redirect: false,
+        callbackUrl: '/',
+      })
+
+      if (!res) {
+        setError('Register failed')
+        return
+      }
+
+      const { ok, url, error: err } = res
+
+      if (!ok) {
+        if (err) {
+          setError(err)
+          return
+        }
+
+        setError('Register failed')
+        return
+      }
+
+      if (url) {
+        router.push(url)
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -57,7 +68,7 @@ export default function Register() {
             name="username"
             required
             disabled={submitting}
-            placeholder="Username"
+            placeholder={dict.signup.form.username}
             aria-label="Username"
           />
         </InputGroup>
@@ -71,7 +82,7 @@ export default function Register() {
             name="email"
             required
             disabled={submitting}
-            placeholder="Email"
+            placeholder={dict.signup.form.email}
             aria-label="Email"
           />
         </InputGroup>
@@ -83,7 +94,7 @@ export default function Register() {
             name="password"
             required
             disabled={submitting}
-            placeholder="Password"
+            placeholder={dict.signup.form.password}
             aria-label="Password"
           />
         </InputGroup>
@@ -95,13 +106,13 @@ export default function Register() {
             name="password_repeat"
             required
             disabled={submitting}
-            placeholder="Repeat password"
-            aria-label="Repeat password"
+            placeholder={dict.signup.form.confirm_password}
+            aria-label="Confirm password"
           />
         </InputGroup>
 
         <Button type="submit" className="d-block w-100" disabled={submitting} variant="success">
-          Create Account
+          {dict.signup.form.submit}
         </Button>
       </Form>
     </>

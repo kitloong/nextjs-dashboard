@@ -1,49 +1,43 @@
-import type { NextRequest } from 'next/server'
-import { NextResponse } from 'next/server'
+import { NextRequestWithAuth, withAuth } from 'next-auth/middleware'
+import { type NextFetchEvent, NextRequest, NextResponse } from 'next/server'
+import { match } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
+import { NextMiddlewareResult } from 'next/dist/server/web/types'
+import { getLocales } from '@/locales/dictionary'
+import { defaultLocale } from '@/locales/config'
 
-type Middleware = (request: NextRequest) => NextResponse
+export default async function middleware(request: NextRequest, event: NextFetchEvent) {
+  const headers = { 'accept-language': request.headers.get('accept-language') ?? '' }
+  const languages = new Negotiator({ headers }).languages()
+  const locales = getLocales()
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const redirectIfAuthenticated: Middleware = (request) => {
-  const authSession = request.cookies.get('auth')?.value
-
-  if (authSession) {
-    return NextResponse.redirect(new URL('/', request.url))
+  const locale = match(languages, locales, defaultLocale)
+  const response = NextResponse.next()
+  if (!request.cookies.get('locale')) {
+    response.cookies.set('locale', locale)
   }
 
-  return NextResponse.next()
-}
-
-const authenticated: Middleware = (request) => {
-  const authSession = request.cookies.get('auth')?.value
-
-  if (!authSession) {
-    const response = NextResponse.redirect(new URL('/login', request.url))
-    response.cookies.set({
-      name: 'redirect',
-      value: request.url,
-    })
-    return response
-  }
-
-  return NextResponse.next()
-}
-
-export default function middleware(request: NextRequest) {
-  // Uncomment if you want to redirect if authenticated.
-  // if ([
-  //   '/login',
-  //   '/register',
-  // ].includes(request.nextUrl.pathname)) {
-  //   return redirectIfAuthenticated(request)
-  // }
-
-  if ([
-    '/',
-    '/pokemons',
+  /*
+   * Match all request paths except for the ones starting with:
+   * - login
+   * - register
+   */
+  if (![
+    '/login',
+    '/register',
   ].includes(request.nextUrl.pathname)) {
-    return authenticated(request)
+    const res: NextMiddlewareResult = await withAuth(
+      // Response with local cookies
+      () => response,
+      {
+      // Matches the pages config in `[...nextauth]`
+        pages: {
+          signIn: '/login',
+        },
+      },
+    )(request as NextRequestWithAuth, event)
+    return res
   }
 
-  return NextResponse.next()
+  return response
 }

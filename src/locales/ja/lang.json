@@ -1,0 +1,321 @@
+{
+  "login": {
+    "title": "サインイン",
+    "description": "アカウントにログイン",
+    "form": {
+      "username": "ユーザー名",
+      "password": "パスワード",
+      "submit": "ログイン"
+    },
+    "forgot_password": "パスワードを忘れましたか？",
+    "signup": {
+      "title": "サインアップ",
+      "description": "いろはにほへとちりぬるをわかよたれそつねならむ\nうゐのおくやまけふこえてあさきゆめみしゑひもせす"
+    }
+  },
+  "pagination": {
+    "summary": "表示中 1 から 20 までの 151 の結果",
+    "rows_per_page": "行数"
+  },
+  "signup": {
+    "title": "サインアップ",
+    "description": "アカウントを作成",
+    "register_now": "今すぐ登録！",
+    "form": {
+      "username": "ユーザー名",
+      "email": "メール",
+      "password": "パスワード",
+      "confirm_password": "パスワードの確認",
+      "submit": "登録"
+    }
+  },
+  "action": {
+    "info": "情報",
+    "edit": "編集",
+    "delete": "削除",
+    "submit": "送信",
+    "submitting": "送信中...",
+    "reset": "リセット"
+  },
+  "dashboard": {
+    "featured": {
+      "user": "ユーザー",
+      "income": "収入",
+      "conversion_rate": "コンバージョン率",
+      "sessions": "セッション",
+      "action": {
+        "action1": "アクション",
+        "action2": "別のアクション",
+        "action3": "その他"
+      }
+    },
+    "traffic": {
+      "title": "トラフィック",
+      "duration": "2021年1月 - 7月",
+      "option": {
+        "day": "日",
+        "month": "月",
+        "year": "年"
+      },
+      "chart": {
+        "xlabel1": "1月",
+        "xlabel2": "2月",
+        "xlabel3": "3月",
+        "xlabel4": "4月",
+        "xlabel5": "5月",
+        "xlabel6": "6月",
+        "xlabel7": "7月"
+      },
+      "users": "ユーザー数",
+      "views": "閲覧数",
+      "category1": "訪問数",
+      "category2": "ユニーク",
+      "category3": "ページビュー",
+      "category4": "新規ユーザー",
+      "category5": "直帰率"
+    },
+    "social": {
+      "facebook": {
+        "label1": "友達",
+        "label2": "フィード"
+      },
+      "twitter": {
+        "label1": "フォロワー",
+        "label2": "ツイート"
+      },
+      "instagram": {
+        "label1": "コンタクト",
+        "label2": "フィード"
+      }
+    },
+    "sales": {
+      "title": "トラフィックと販売",
+      "stats": {
+        "stat1": "新規クライアント",
+        "stat2": "リピートクライアント",
+        "stat3": "ページビュー",
+        "stat4": "オーガニック"
+      },
+      "monday": "月曜日",
+      "tuesday": "火曜日",
+      "wednesday": "水曜日",
+      "thursday": "木曜日",
+      "friday": "金曜日",
+      "saturday": "土曜日",
+      "sunday": "日曜日",
+      "male": "男性",
+      "female": "女性",
+      "organic": "オーガニックサーチ",
+      "facebook": "フェイスブック",
+      "twitter": "ツイッター",
+      "linkedin": "リンクトイン"
+    },
+    "listing": {
+      "headers": {
+        "header1": "ユーザー",
+        "header2": "使用状況",
+        "header3": "支払い方法",
+        "header4": "アクティビティ"
+      },
+      "user_status": {
+        "new": "新規",
+        "recurring": "再発"
+      },
+      "registered": "登録済み",
+      "last_login": "最終ログイン",
+      "usage_duration": "2020年6月11日 - 2020年7月10日",
+      "registered_at": "2020年1月1日",
+      "items": {
+        "item1": {
+          "name": "ヨルゴス・アブラム",
+          "login_at": "10秒前"
+        },
+        "item2": {
+          "name": "アブラム・タラシオス",
+          "login_at": "5分前"
+        },
+        "item3": {
+          "name": "クインティン・エド",
+          "login_at": "1時間前"
+        },
+        "item4": {
+          "name": "エネアス・クワドウォ",
+          "login_at": "先月"
+        },
+        "item5": {
+          "name": "アガペトゥス・タデアシ",
+          "login_at": "先週"
+        },
+        "item6": {
+          "name": "フリデリク・ダヴィド",
+          "login_at": "昨日"
+        }
+      }
+    }
+  },
+  "pokemons": {
+    "title": "ポケモン",
+    "add_new": "新しいポケモンを追加",
+    "attribute": {
+      "name": "名前",
+      "type": "タイプ",
+      "egg_group": "タマゴグループ",
+      "hp": "Hp",
+      "attack": "攻撃",
+      "defense": "防御",
+      "sp_attack": "特攻",
+      "sp_defense": "特防",
+      "speed": "速度",
+      "total": "合計"
+    }
+  },
+  "featured_nav": {
+    "dashboard": "ダッシュボード",
+    "users": "ユーザー",
+    "settings": "設定"
+  },
+  "notification": {
+    "message": "{{total}}件の通知があります",
+    "items": {
+      "new_user": "新しいユーザーが登録されました",
+      "deleted_user": "ユーザーが削除されました",
+      "sales_report": "販売レポートが準備できました",
+      "new_client": "新しいクライアント",
+      "server_overloaded": "サーバーが過負荷です"
+    },
+    "server": {
+      "title": "サーバー",
+      "processes": "プロセス",
+      "cores": "コア",
+      "items": {
+        "cpu": "CPU使用率",
+        "memory": "メモリ使用率",
+        "ssd1": "SSD 1使用率"
+      }
+    }
+  },
+  "task": {
+    "message": "{{total}}件の未完了のタスクがあります",
+    "items": {
+      "task1": "Next.JSをアップグレードする",
+      "task2": "ポケモンを訓練する",
+      "task3": "ポケデックスを完成させる",
+      "task4": "すべての色違いを捕まえる",
+      "task5": "すべてのジムを倒す"
+    },
+    "view_all": "すべてのタスクを見る"
+  },
+  "messages": {
+    "message": "{{total}}件のメッセージがあります",
+    "items": {
+      "item1": {
+        "user": "ジョン・ドウ",
+        "time": "たった今",
+        "title": "ピカチュウをペットにする",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      },
+      "item2": {
+        "user": "ジョン・ドウ",
+        "time": "5分前",
+        "title": "イーブイをドレスアップする",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      },
+      "item3": {
+        "user": "ジョン・ドウ",
+        "time": "午後1時52分",
+        "title": "チームアップトレーニング",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      },
+      "item4": {
+        "user": "ジョン・ドウ",
+        "time": "午後4時03分",
+        "title": "サファリゾーンに行く",
+        "description": "限立アハ省逆つれ権施公条ウキヌ芸京第げあよ国別ラモテ協上クリヘ徹1社ライ代返父ょゃもよ"
+      }
+    }
+  },
+  "profile": {
+    "account": {
+      "title": "アカウント",
+      "items": {
+        "updates": "アップデート",
+        "messages": "メッセージ",
+        "tasks": "タスク",
+        "comments": "コメント"
+      }
+    },
+    "settings": {
+      "title": "設定",
+      "items": {
+        "profile": "プロフィール",
+        "settings": "設定",
+        "payments": "支払い",
+        "projects": "プロジェクト"
+      }
+    },
+    "lock_account": "アカウントをロックする",
+    "logout": "ログアウト"
+  },
+  "breadcrumb": {
+    "home": "ホーム",
+    "library": "ライブラリー",
+    "data": "データ"
+  },
+  "sidebar": {
+    "items": {
+      "dashboard": "ダッシュボード",
+      "sample": "サンプル",
+      "theme": "テーマ",
+      "colors": "色",
+      "typography": "タイポグラフィ",
+      "components": "コンポーネント",
+      "accordion": "アコーディオン",
+      "breadcrumb": "パンくずリスト",
+      "cards": "カード",
+      "carousel": "カルーセル",
+      "collapse": "折り畳み",
+      "list_group": "リストグループ",
+      "navs": "ナビゲーション",
+      "pagination": "ページネーション",
+      "popovers": "ポップオーバー",
+      "progress": "プログレス",
+      "scrollspy": "スクロールスパイ",
+      "spinners": "スピナー",
+      "tables": "テーブル",
+      "tabs": "タブ",
+      "tooltips": "ツールチップ",
+      "buttons": "ボタン",
+      "buttons_group": "ボタングループ",
+      "dropdowns": "ドロップダウン",
+      "charts": "チャート",
+      "form_control": "フォームコントロール",
+      "select": "選択",
+      "checks_and_radios": "チェックボックスとラジオボタン",
+      "range": "範囲",
+      "input_group": "入力グループ",
+      "floating_labels": "フローティングラベル",
+      "layout": "レイアウト",
+      "validation": "検証",
+      "core_ui_icons": "CoreUI アイコン",
+      "core_ui_icons_brand": "CoreUI アイコン - ブランド",
+      "core_ui_icons_flag": "CoreUI アイコン - フラグ",
+      "alerts": "アラート",
+      "badge": "バッジ",
+      "modals": "モーダル",
+      "toasts": "トースト",
+      "widgets": "ウィジェット",
+      "login": "ログイン",
+      "register": "登録",
+      "error404": "エラー 404",
+      "error500": "エラー 500",
+      "docs": "ドキュメント",
+      "try_core_ui_pro": "CoreUI PRO を試す",
+      "base": "ベース",
+      "forms": "フォーム",
+      "icons": "アイコン",
+      "notifications": "通知",
+      "extras": "エクストラ",
+      "pages": "ページ"
+    }
+  }
+}
