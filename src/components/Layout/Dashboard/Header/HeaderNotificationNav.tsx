@@ -24,7 +24,9 @@ import Link from 'next/link'
 import React, { PropsWithChildren } from 'react'
 import Image from 'next/image'
 import HeaderLocale from '@/components/Layout/Dashboard/Header/HeaderLocale'
-import { getDictionary } from '@/locales/dictionary'
+import { getDictionary, getLocale } from '@/locales/dictionary'
+import HeaderTheme from '@/components/Layout/Dashboard/Header/HeaderTheme'
+import getTheme from '@/themes/theme'
 
 type ItemWithIconProps = {
   icon: IconDefinition;
@@ -46,7 +48,10 @@ export default async function HeaderNotificationNav() {
   return (
     <Nav>
       <NavItem>
-        <HeaderLocale />
+        <HeaderLocale currentLocale={getLocale()} />
+      </NavItem>
+      <NavItem>
+        <HeaderTheme currentTheme={getTheme()} />
       </NavItem>
       <NavItem>
         <Dropdown>
@@ -57,7 +62,7 @@ export default async function HeaderNotificationNav() {
             </Badge>
           </DropdownToggle>
           <DropdownMenu className="pt-0" align="end">
-            <DropdownHeader className="bg-light fw-bold rounded-top">{dict.notification.message.replace('{{total}}', '5')}</DropdownHeader>
+            <DropdownHeader className="fw-bold rounded-top">{dict.notification.message.replace('{{total}}', '5')}</DropdownHeader>
             <Link href="#" passHref legacyBehavior>
               <DropdownItem>
                 <ItemWithIcon icon={faUserPlus}>
@@ -94,7 +99,7 @@ export default async function HeaderNotificationNav() {
               </DropdownItem>
             </Link>
 
-            <DropdownHeader className="bg-light fw-bold">{dict.notification.server.title}</DropdownHeader>
+            <DropdownHeader className="fw-bold">{dict.notification.server.title}</DropdownHeader>
 
             <Link href="#" passHref legacyBehavior>
               <DropdownItem>
@@ -153,7 +158,7 @@ export default async function HeaderNotificationNav() {
             </Badge>
           </DropdownToggle>
           <DropdownMenu className="pt-0" align="end">
-            <DropdownHeader className="bg-light fw-bold rounded-top">{dict.task.message.replace('{{total}}', '5')}</DropdownHeader>
+            <DropdownHeader className="fw-bold rounded-top">{dict.task.message.replace('{{total}}', '5')}</DropdownHeader>
 
             <Link href="#" passHref legacyBehavior>
               <DropdownItem>
@@ -239,7 +244,7 @@ export default async function HeaderNotificationNav() {
             </Badge>
           </DropdownToggle>
           <DropdownMenu className="pt-0" align="end">
-            <DropdownHeader className="bg-light fw-bold rounded-top">{dict.messages.message.replace('{{total}}', '4')}</DropdownHeader>
+            <DropdownHeader className="fw-bold rounded-top">{dict.messages.message.replace('{{total}}', '4')}</DropdownHeader>
             <Link href="#" passHref legacyBehavior>
               <DropdownItem>
                 <div className="message">

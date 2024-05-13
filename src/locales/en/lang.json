@@ -40,6 +40,11 @@
     "submitting": "Submitting...",
     "reset": "Reset"
   },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "auto": "Auto"
+  },
   "dashboard": {
     "featured": {
       "user": "Users",

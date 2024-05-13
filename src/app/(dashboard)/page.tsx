@@ -45,7 +45,7 @@ export default async function Page() {
   const dict = await getDictionary()
 
   return (
-    <>
+    <div className="page-dashboard">
       <div className="row">
         <div className="col-sm-6 col-lg-3">
           <Card bg="primary" text="white" className="mb-4">
@@ -1184,6 +1184,6 @@ export default async function Page() {
           </Card>
         </div>
       </div>
-    </>
+    </div>
   )
 }

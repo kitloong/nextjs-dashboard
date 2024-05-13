@@ -1,10 +1,25 @@
 $header-background: #fff;
+$header-background-dark: #212529;
 $header-link-color: rgba(44, 56, 74, 0.681);
+$header-link-color-dark: --#{$prefix}body-color;
 $header-link-color-hover: rgba(44, 56, 74, 0.95);
+$header-link-color-hover-dark: #999;
 $header-brand-color: #4f5d73;
 
+:root {
+  --header-background: #{$header-background};
+  --header-link-color: #{$header-link-color};
+  --header-link-color-hover: #{$header-link-color-hover};
+}
+
+@include color-mode(dark) {
+  --header-background: #{$header-background-dark};
+  --header-link-color: #{$header-link-color-dark};
+  --header-link-color-hover: #{$header-link-color-hover-dark};
+}
+
 .header {
-  background: $header-background;
+  background: var(--header-background);
 
   .header-brand {
     color: $header-brand-color;
@@ -14,15 +29,15 @@ $header-brand-color: #4f5d73;
     min-height: 3rem;
 
     .header-toggler {
-      color: $header-link-color;
+      color: var(--header-link-color);
     }
 
     .header-nav {
       .nav-link {
-        color: $header-link-color;
+        color: var(--header-link-color);
 
         &:hover {
-          color: $header-link-color-hover;
+          color: var(--header-link-color-hover);
         }
       }
     }
@@ -33,10 +48,10 @@ $header-brand-color: #4f5d73;
 
     .breadcrumb-item {
       a {
-        color: $header-link-color;
+        color: var(--header-link-color);
 
         &:hover {
-          color: $header-link-color-hover;
+          color: var(--header-link-color-hover);
         }
       }
     }

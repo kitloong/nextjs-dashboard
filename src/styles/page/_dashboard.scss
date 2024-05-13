@@ -1,0 +1,7 @@
+@include color-mode(dark) {
+  .page-dashboard {
+    .text-black-50 {
+      color: #999 !important;
+    }
+  }
+}

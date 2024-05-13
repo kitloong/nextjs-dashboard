@@ -40,6 +40,11 @@
     "submitting": "送信中...",
     "reset": "リセット"
   },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク",
+    "auto": "自動"
+  },
   "dashboard": {
     "featured": {
       "user": "ユーザー",
