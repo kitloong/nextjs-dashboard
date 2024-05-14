@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import ProgressBar from '@/components/ProgressBar/ProgressBar'
 import DictionaryProvider from '@/locales/DictionaryProvider'
 import { getDictionary } from '@/locales/dictionary'
+import getTheme from '@/themes/theme'
 
 // You change this configuration value to false so that the Font Awesome core SVG library
 // will not try and insert <style> elements into the <head> of the page.
@@ -21,7 +22,7 @@ export default async function RootLayout({
   const dictionary = await getDictionary()
 
   return (
-    <html lang="en">
+    <html lang="en" data-bs-theme={getTheme()}>
       <body>
         <ProgressBar />
         <DictionaryProvider dictionary={dictionary}>

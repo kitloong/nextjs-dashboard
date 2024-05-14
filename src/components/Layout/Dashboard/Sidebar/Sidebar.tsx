@@ -37,7 +37,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className={classNames('sidebar d-flex flex-column position-fixed h-100', {
+      className={classNames('sidebar d-flex flex-column position-fixed h-100 border-end', {
         'sidebar-narrow': isNarrow,
         show: isShowSidebar,
         'md-hide': !isShowSidebarMd,
@@ -63,13 +63,13 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
         </svg>
       </div>
 
-      <div className="sidebar-nav flex-fill">
+      <div className="sidebar-nav flex-fill border-top">
         {children}
       </div>
 
       <Button
         variant="link"
-        className="sidebar-toggler d-none d-md-inline-block rounded-0 text-end pe-4 fw-bold shadow-none"
+        className="sidebar-toggler d-none d-md-inline-block rounded-0 text-end pe-4 fw-bold shadow-none border-top"
         onClick={toggleIsNarrow}
         type="button"
         aria-label="sidebar toggler"

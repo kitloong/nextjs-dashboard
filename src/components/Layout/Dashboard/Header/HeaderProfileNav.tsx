@@ -66,7 +66,7 @@ export default async function HeaderProfileNav() {
           </div>
         </DropdownToggle>
         <DropdownMenu className="pt-0">
-          <DropdownHeader className="bg-light fw-bold rounded-top">{dict.profile.account.title}</DropdownHeader>
+          <DropdownHeader className="fw-bold rounded-top">{dict.profile.account.title}</DropdownHeader>
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>
               <ItemWithIcon icon={faBell}>
@@ -100,7 +100,7 @@ export default async function HeaderProfileNav() {
             </DropdownItem>
           </Link>
 
-          <DropdownHeader className="bg-light fw-bold">{dict.profile.settings.title}</DropdownHeader>
+          <DropdownHeader className="fw-bold">{dict.profile.settings.title}</DropdownHeader>
 
           <Link href="#" passHref legacyBehavior>
             <DropdownItem>

@@ -13,6 +13,7 @@ import {
   Tooltip,
 } from 'chart.js'
 import useDictionary from '@/locales/dictionary-hook'
+import useComputedStyle from '@/hooks/use-computed-style'
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Filler)
 
@@ -20,6 +21,8 @@ const random = (min: number, max: number) => Math.floor(Math.random() * (max - m
 
 export default function TrafficChart() {
   const dict = useDictionary()
+  const borderColor = useComputedStyle('--bs-border-color')
+  const bodyColor = useComputedStyle('--bs-body-color')
 
   return (
     <Line
@@ -82,13 +85,24 @@ export default function TrafficChart() {
         scales: {
           x: {
             grid: {
+              color: borderColor,
               drawOnChartArea: false,
+            },
+            ticks: {
+              color: bodyColor,
             },
           },
           y: {
             beginAtZero: true,
+            border: {
+              color: borderColor,
+            },
+            grid: {
+              color: borderColor,
+            },
             max: 250,
             ticks: {
+              color: bodyColor,
               maxTicksLimit: 5,
               stepSize: Math.ceil(250 / 5),
             },

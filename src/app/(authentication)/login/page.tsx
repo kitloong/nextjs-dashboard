@@ -20,10 +20,10 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
     <Row className="justify-content-center align-items-center px-3">
       <Col lg={8}>
         <Row>
-          <Col md={7} className="bg-white border p-5">
+          <Col md={7} className="bg-white dark:bg-dark border p-5">
             <div>
               <h1>{dict.login.title}</h1>
-              <p className="text-black-50">{dict.login.description}</p>
+              <p className="text-black-50 dark:text-gray-500">{dict.login.description}</p>
 
               <LoginForm callbackUrl={getCallbackUrl()} />
             </div>

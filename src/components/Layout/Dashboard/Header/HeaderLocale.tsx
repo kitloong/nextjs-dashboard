@@ -1,17 +1,16 @@
 'use client'
 
 import Cookies from 'js-cookie'
-import React, { useEffect, useState } from 'react'
-import { defaultLocale } from '@/locales/config'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavLink,
 } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faLanguage } from '@fortawesome/free-solid-svg-icons'
 
-export default function HeaderLocale() {
-  const [locale, setLocale] = useState(defaultLocale)
+export default function HeaderLocale({ currentLocale }: { currentLocale: string }) {
+  const [locale, setLocale] = useState(currentLocale)
   const router = useRouter()
 
   const changeLocale = (loc: string) => {
@@ -20,14 +19,10 @@ export default function HeaderLocale() {
     router.refresh()
   }
 
-  useEffect(() => {
-    setLocale(Cookies.get('locale') ?? defaultLocale)
-  }, [])
-
   return (
     <Dropdown>
       <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-locale">
-        <FontAwesomeIcon icon={faGlobe} size="lg" />
+        <FontAwesomeIcon icon={faLanguage} size="lg" />
       </DropdownToggle>
       <DropdownMenu className="pt-0" align="end">
         <DropdownItem active={locale === 'en'} onClick={() => changeLocale('en')}>
