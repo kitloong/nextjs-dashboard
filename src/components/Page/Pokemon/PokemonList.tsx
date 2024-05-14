@@ -21,8 +21,8 @@ export default function PokemonList(props: Props) {
 
   return (
     <Table responsive bordered hover>
-      <thead className="bg-light">
-        <tr>
+      <thead>
+        <tr className="table-light dark:table-dark">
           <th><THSort name="id">#</THSort></th>
           <th aria-label="Photo" />
           <th><THSort name="name">{dict.pokemons.attribute.name}</THSort></th>
@@ -74,7 +74,7 @@ export default function PokemonList(props: Props) {
                 <DropdownToggle
                   as="button"
                   bsPrefix="btn"
-                  className="btn-link rounded-0 text-black-50 shadow-none p-0"
+                  className="btn-link rounded-0 text-black-50 dark:text-gray-500 shadow-none p-0"
                   id={`action-${pokemon.id}`}
                 >
                   <FontAwesomeIcon fixedWidth icon={faEllipsisVertical} />

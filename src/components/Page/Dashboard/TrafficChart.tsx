@@ -21,6 +21,17 @@ const random = (min: number, max: number) => Math.floor(Math.random() * (max - m
 export default function TrafficChart() {
   const dict = useDictionary()
 
+  const getStyle = (property: string) => {
+    if (typeof window === 'undefined') {
+      return ''
+    }
+    if (typeof document === 'undefined') {
+      return ''
+    }
+    const element = document.body
+    return window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
+  }
+
   return (
     <Line
       data={{
@@ -82,13 +93,24 @@ export default function TrafficChart() {
         scales: {
           x: {
             grid: {
+              color: getStyle('--bs-border-color'),
               drawOnChartArea: false,
+            },
+            ticks: {
+              color: getStyle('--bs-body-color'),
             },
           },
           y: {
             beginAtZero: true,
+            border: {
+              color: getStyle('--bs-border-color'),
+            },
+            grid: {
+              color: getStyle('--bs-border-color'),
+            },
             max: 250,
             ticks: {
+              color: getStyle('--bs-body-color'),
               maxTicksLimit: 5,
               stepSize: Math.ceil(250 / 5),
             },

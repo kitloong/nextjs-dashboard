@@ -7,7 +7,7 @@ export default function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center dark:bg-transparent">
+    <div className="bg-light dark:bg-dark min-vh-100 d-flex flex-row align-items-center">
       <Container>
         {children}
       </Container>

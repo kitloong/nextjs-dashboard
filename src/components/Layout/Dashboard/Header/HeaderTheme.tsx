@@ -1,7 +1,7 @@
 'use client'
 
 import Cookies from 'js-cookie'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavLink,
@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleHalfStroke, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { Theme } from '@/themes/enum'
 import useDictionary from '@/locales/dictionary-hook'
+import { useMediaQuery } from 'react-responsive'
 
 const CurrentTheme = ({ theme }: { theme: string }) => (
   <>
@@ -19,33 +20,70 @@ const CurrentTheme = ({ theme }: { theme: string }) => (
   </>
 )
 
-export default function HeaderTheme({ currentTheme }: { currentTheme: Theme }) {
+export default function HeaderTheme({ currentPreferredTheme }: { currentPreferredTheme: Theme }) {
   const dict = useDictionary()
-  const [theme, setTheme] = useState<Theme>(currentTheme)
+  const [preferredTheme, setPreferredTheme] = useState<Theme>(currentPreferredTheme)
   const router = useRouter()
 
-  const changeTheme = (t: Theme) => {
+  const changePreferredTheme = useCallback((t: Theme) => {
+    setPreferredTheme(t)
+    Cookies.set('preferred_theme', t)
+
+    if (t === Theme.Auto) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        Cookies.set('theme', Theme.Dark)
+        router.refresh()
+        return
+      }
+
+      Cookies.set('theme', Theme.Light)
+      router.refresh()
+      return
+    }
+
     Cookies.set('theme', t)
-    setTheme(t)
-    document.documentElement.setAttribute('data-bs-theme', t)
     router.refresh()
-  }
+  }, [router])
+
+  useMediaQuery(
+    {
+      query: '(prefers-color-scheme: dark)',
+    },
+    undefined,
+    (prefersDark) => {
+      if (preferredTheme !== Theme.Auto) {
+        return
+      }
+
+      Cookies.set('theme', prefersDark ? Theme.Dark : Theme.Light)
+      router.refresh()
+    },
+  )
 
   return (
     <Dropdown>
       <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-theme">
-        <CurrentTheme theme={theme} />
+        <CurrentTheme theme={preferredTheme} />
       </DropdownToggle>
       <DropdownMenu className="pt-0" align="end">
-        <DropdownItem active={theme === Theme.Light} onClick={() => changeTheme(Theme.Light)}>
+        <DropdownItem
+          active={preferredTheme === Theme.Light}
+          onClick={() => changePreferredTheme(Theme.Light)}
+        >
           <FontAwesomeIcon className="me-2" icon={faSun} fixedWidth />
           {dict.theme.light}
         </DropdownItem>
-        <DropdownItem active={theme === Theme.Dark} onClick={() => changeTheme(Theme.Dark)}>
+        <DropdownItem
+          active={preferredTheme === Theme.Dark}
+          onClick={() => changePreferredTheme(Theme.Dark)}
+        >
           <FontAwesomeIcon className="me-2" icon={faMoon} fixedWidth />
           {dict.theme.dark}
         </DropdownItem>
-        <DropdownItem active={theme === Theme.Auto} onClick={() => changeTheme(Theme.Auto)}>
+        <DropdownItem
+          active={preferredTheme === Theme.Auto}
+          onClick={() => changePreferredTheme(Theme.Auto)}
+        >
           <FontAwesomeIcon className="me-2" icon={faCircleHalfStroke} fixedWidth />
           {dict.theme.auto}
         </DropdownItem>

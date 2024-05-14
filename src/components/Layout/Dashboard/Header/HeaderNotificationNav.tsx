@@ -26,7 +26,7 @@ import Image from 'next/image'
 import HeaderLocale from '@/components/Layout/Dashboard/Header/HeaderLocale'
 import { getDictionary, getLocale } from '@/locales/dictionary'
 import HeaderTheme from '@/components/Layout/Dashboard/Header/HeaderTheme'
-import getTheme from '@/themes/theme'
+import { getPreferredTheme } from '@/themes/theme'
 
 type ItemWithIconProps = {
   icon: IconDefinition;
@@ -47,17 +47,11 @@ export default async function HeaderNotificationNav() {
   const dict = await getDictionary()
   return (
     <Nav>
-      <NavItem>
-        <HeaderLocale currentLocale={getLocale()} />
-      </NavItem>
-      <NavItem>
-        <HeaderTheme currentTheme={getTheme()} />
-      </NavItem>
-      <NavItem>
+      <NavItem className="d-none d-sm-block">
         <Dropdown>
           <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-notification">
             <FontAwesomeIcon icon={faBell} size="lg" />
-            <Badge pill bg="danger" className="position-absolute top-0 right-0 px-1 px-sm-2">
+            <Badge pill bg="danger" className="position-absolute top-0 end-0 px-1 px-sm-2">
               5
             </Badge>
           </DropdownToggle>
@@ -149,11 +143,11 @@ export default async function HeaderNotificationNav() {
           </DropdownMenu>
         </Dropdown>
       </NavItem>
-      <NavItem>
+      <NavItem className="d-none d-sm-block">
         <Dropdown>
           <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-task">
             <FontAwesomeIcon icon={faList} size="lg" />
-            <Badge pill bg="warning" className="position-absolute top-0 right-0 px-1 px-sm-2">
+            <Badge pill bg="warning" className="position-absolute top-0 end-0 px-1 px-sm-2">
               5
             </Badge>
           </DropdownToggle>
@@ -235,11 +229,11 @@ export default async function HeaderNotificationNav() {
           </DropdownMenu>
         </Dropdown>
       </NavItem>
-      <NavItem>
+      <NavItem className="d-none d-sm-block">
         <Dropdown>
           <DropdownToggle className="px-2 mx-1 px-sm-3 mx-sm-0" as={NavLink} bsPrefix="hide-caret" id="dropdown-mail">
             <FontAwesomeIcon icon={faEnvelope} size="lg" />
-            <Badge pill bg="primary" className="position-absolute top-0 right-0 px-1 px-sm-2">
+            <Badge pill bg="primary" className="position-absolute top-0 end-0 px-1 px-sm-2">
               7
             </Badge>
           </DropdownToggle>
@@ -365,6 +359,12 @@ export default async function HeaderNotificationNav() {
             </Link>
           </DropdownMenu>
         </Dropdown>
+      </NavItem>
+      <NavItem>
+        <HeaderLocale currentLocale={getLocale()} />
+      </NavItem>
+      <NavItem>
+        <HeaderTheme currentPreferredTheme={getPreferredTheme()} />
       </NavItem>
     </Nav>
   )

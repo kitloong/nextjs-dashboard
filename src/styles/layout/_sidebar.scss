@@ -1,13 +1,18 @@
 $sidebar-background: #3c4b64;
+$sidebar-background-dark: var(--#{$prefix}body-bg);
 $sidebar-text-color: rgba(255, 255, 255, 0.6);
 $sidebar-brand-height: 4rem;
 $sidebar-brand-background: rgba(0, 0, 21, 0.2);
+$sidebar-brand-background-dark: #1a1e26;
+$sidebar-border-color: #3c4b64;
+$sidebar-border-color-dark: var(--#{$prefix}border-color);
 $sidebar-nav-group-background: rgba(0, 0, 0, 0.2);
 $sidebar-link-color: rgba(255, 255, 255, 0.6);
 $sidebar-link-color-hover: rgba(255, 255, 255, 0.87);
 $sidebar-link-background-hover: rgba(255, 255, 255, 0.05);
 $sidebar-toggler-height: 3rem;
 $sidebar-toggler-background: rgba(0, 0, 21, 0.2);
+$sidebar-toggler-background-dark: #1a1e26;
 $sidebar-toggler-background-hover: rgba(0, 0, 0, 0.3);
 $sidebar-toggler-color: rgba(255, 255, 255, 0.6);
 $sidebar-toggler-color-hover: #ffffff;
@@ -16,12 +21,23 @@ $sidebar-overlay-z-index: 1025;
 
 :root {
   --sidebar-width: 16rem;
+  --sidebar-background: #{$sidebar-background};
+  --sidebar-brand-background: #{$sidebar-brand-background};
+  --sidebar-toggler-background: #{$sidebar-toggler-background};
+  --sidebar-border-color: #{$sidebar-border-color}
+}
+
+@include color-mode(dark) {
+  --sidebar-background: #{$sidebar-background-dark};
+  --sidebar-brand-background: #{$sidebar-brand-background-dark};
+  --sidebar-toggler-background: #{$sidebar-toggler-background-dark};
+  --sidebar-border-color: #{$sidebar-border-color-dark}
 }
 
 .sidebar {
   flex: 0 0 var(--sidebar-width);
   width: var(--sidebar-width);
-  background: $sidebar-background;
+  background: var(--sidebar-background);
   color: $sidebar-text-color;
   transition: margin-left 0.15s, margin-right 0.15s, box-shadow 0.075s, transform 0.15s, width 0.15s, z-index 0s ease 0.15s;
   z-index: $sidebar-z-index;
@@ -33,12 +49,13 @@ $sidebar-overlay-z-index: 1025;
 
   .sidebar-brand {
     flex: 0 0 $sidebar-brand-height;
-    background: $sidebar-brand-background;
+    background: var(--sidebar-brand-background);
   }
 
   .sidebar-nav {
     overflow-x: hidden;
     overflow-y: auto;
+    border-top-color: var(--sidebar-border-color) !important;
 
     .nav-title {
       font-size: 80%;
@@ -83,8 +100,9 @@ $sidebar-overlay-z-index: 1025;
 
   .sidebar-toggler {
     flex: 0 0 $sidebar-toggler-height;
-    background: $sidebar-toggler-background;
+    background: var(--sidebar-toggler-background);
     color: $sidebar-toggler-color;
+    border-top-color: var(--sidebar-border-color) !important;
 
     &:hover {
       background: $sidebar-toggler-background-hover;
@@ -133,6 +151,10 @@ $sidebar-overlay-z-index: 1025;
 
         & + .wrapper {
           --sidebar-width: 4rem;
+        }
+
+        .nav-link {
+          white-space: nowrap;
         }
       }
     }

@@ -1,0 +1,13 @@
+@include color-mode(dark) {
+  .dark\:text-gray-500 {
+    color: $gray-500 !important;
+  }
+
+  .dark\:table-dark {
+    @extend .table-dark;
+  }
+
+  .dark\:bg-dark {
+    @extend .bg-dark;
+  }
+}
