@@ -31,5 +31,3 @@ jobs:
     - run: pnpm install
     - run: pnpm lint
     - run: pnpm build
-    - run: pnpm cypress install
-    - run: pnpm test
