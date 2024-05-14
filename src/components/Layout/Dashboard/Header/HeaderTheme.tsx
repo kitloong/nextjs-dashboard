@@ -1,7 +1,7 @@
 'use client'
 
 import Cookies from 'js-cookie'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavLink,
@@ -45,20 +45,20 @@ export default function HeaderTheme({ currentPreferredTheme }: { currentPreferre
     router.refresh()
   }, [router])
 
-  useMediaQuery(
+  const isDarkMode = useMediaQuery(
     {
       query: '(prefers-color-scheme: dark)',
     },
-    undefined,
-    (prefersDark) => {
-      if (preferredTheme !== Theme.Auto) {
-        return
-      }
-
-      Cookies.set('theme', prefersDark ? Theme.Dark : Theme.Light)
-      router.refresh()
-    },
   )
+
+  useEffect(() => {
+    if (preferredTheme !== Theme.Auto) {
+      return
+    }
+
+    Cookies.set('theme', isDarkMode ? Theme.Dark : Theme.Light)
+    router.refresh()
+  }, [isDarkMode, preferredTheme, router])
 
   return (
     <Dropdown>
