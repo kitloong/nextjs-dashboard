@@ -37,7 +37,7 @@ export default function Index(props: Props) {
   const router = useRouter()
   const dict = useDictionary()
 
-  const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}${Cookies.get('locale')}pokemons` || ''
+  const pokemonListURL = `${process.env.NEXT_PUBLIC_POKEMON_LIST_API_BASE_URL}${Cookies.get('locale')}_pokemons` || ''
   const url = new URL(pokemonListURL)
   url.searchParams.set('_page', page.toString())
   url.searchParams.set('_limit', perPage.toString())
