@@ -43,7 +43,6 @@ $sidebar-overlay-z-index: 1025;
   z-index: $sidebar-z-index;
 
   & + .wrapper {
-    padding-left: var(--sidebar-width);
     transition: padding 0.15s;
   }
 
@@ -114,16 +113,40 @@ $sidebar-overlay-z-index: 1025;
     }
   }
 
-  @include media-breakpoint-down(md) {
-    &:not(.show) {
-      margin-left: calc(-1 * var(--sidebar-width));
+  & {
+    margin-left: calc(-1 * var(--sidebar-width));
+  }
+
+  &.show {
+    margin-left: 0;
+  }
+
+  & + .wrapper {
+    padding-left: calc(-1 * var(--sidebar-width));
+  }
+
+  // Push content to the right only for md and up
+  @include media-breakpoint-up(md) {
+    & {
+      margin-left: 0;
     }
 
     & + .wrapper {
-      padding-left: calc(-1 * var(--sidebar-width));
+      padding-left: var(--sidebar-width);
+    }
+
+    // .show is the opposite meaning for md and up
+    // it means the sidebar is collapsed
+    &.show {
+      margin-left: calc(-1 * var(--sidebar-width));
+
+        & + .wrapper {
+          padding-left: calc(-1 * var(--sidebar-width));
+        }
     }
   }
 
+  // Sidebar narrow styling, only for md and up
   @include media-breakpoint-up(md) {
     &.sidebar-narrow {
       .sidebar-toggler {
@@ -156,14 +179,6 @@ $sidebar-overlay-z-index: 1025;
         .nav-link {
           white-space: nowrap;
         }
-      }
-    }
-
-    &.md-hide {
-      margin-left: calc(-1 * var(--sidebar-width));
-
-      & + .wrapper {
-        padding-left: calc(-1 * var(--sidebar-width));
       }
     }
   }
