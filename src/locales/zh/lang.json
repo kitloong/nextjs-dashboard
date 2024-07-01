@@ -1,0 +1,329 @@
+{
+  "login": {
+    "title": "登录",
+    "description": "登录到你的账户",
+    "form": {
+      "username": "用户名",
+      "password": "密码",
+      "submit": "登录"
+    },
+    "forgot_password": "忘记密码?",
+    "signup": {
+      "title": "注册",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua."
+    },
+    "message": {
+      "auth_failed": "用户名或密码无效"
+    }
+  },
+  "pagination": {
+    "summary": "显示从 {{from}} 到 {{to}} 总共 {{total}} 条结果",
+    "rows_per_page": "每页行数"
+  },
+  "signup": {
+    "title": "注册页",
+    "description": "创建你的账户",
+    "register_now": "立刻注册!",
+    "form": {
+      "username": "用户名",
+      "email": "Email",
+      "password": "密码",
+      "confirm_password": "密码校验",
+      "submit": "创建账户"
+    }
+  },
+  "action": {
+    "info": "详情",
+    "edit": "编辑",
+    "delete": "删除",
+    "submit": "提交",
+    "submitting": "提交中...",
+    "reset": "重置"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "暗色",
+    "auto": "自动选择"
+  },
+  "dashboard": {
+    "featured": {
+      "user": "用户",
+      "income": "收入",
+      "conversion_rate": "转化率",
+      "sessions": "会话",
+      "action": {
+        "action1": "动作",
+        "action2": "另一个动作",
+        "action3": "其他动作"
+      }
+    },
+    "traffic": {
+      "title": "流量",
+      "duration": "2021年1月-7月",
+      "option": {
+        "day": "日",
+        "month": "月",
+        "year": "年"
+      },
+      "chart": {
+        "xlabel1": "一月",
+        "xlabel2": "二月",
+        "xlabel3": "三月",
+        "xlabel4": "四月",
+        "xlabel5": "五月",
+        "xlabel6": "六月",
+        "xlabel7": "七月"
+      },
+      "users": "用户",
+      "views": "显示",
+      "category1": "访问数",
+      "category2": "独立IP访客",
+      "category3": "页面访问数",
+      "category4": "新用户",
+      "category5": "跳失率"
+    },
+    "social": {
+      "facebook": {
+        "label1": "好友数量",
+        "label2": "信息流"
+      },
+      "twitter": {
+        "label1": "关注者",
+        "label2": "推文"
+      },
+      "instagram": {
+        "label1": "联系人",
+        "label2": "信息"
+      }
+    },
+    "sales": {
+      "title": "流量 & 销售",
+      "stats": {
+        "stat1": "新客户",
+        "stat2": "活跃客户",
+        "stat3": "页面访问量",
+        "stat4": "有机流量"
+      },
+      "monday": "星期一",
+      "tuesday": "星期二",
+      "wednesday": "星期三",
+      "thursday": "星期四",
+      "friday": "星期五",
+      "saturday": "星期六",
+      "sunday": "星期日",
+      "male": "男",
+      "female": "女",
+      "organic": "有机搜索",
+      "facebook": "脸书（Facebook）",
+      "twitter": "推特（Twitter）",
+      "linkedin": "领英（LinkedIn）"
+    },
+    "listing": {
+      "headers": {
+        "header1": "用户",
+        "header2": "使用量",
+        "header3": "付款方法",
+        "header4": "动态"
+      },
+      "user_status": {
+        "new": "新",
+        "recurring": "存量"
+      },
+      "registered": "已注册的",
+      "last_login": "最后登录",
+      "usage_duration": "2020年6月11日 - 2020年7月10日",
+      "registered_at": "2020年1月1日",
+      "items": {
+        "item1": {
+          "name": "Yiorgos Avraamu",
+          "login_at": "10秒前"
+        },
+        "item2": {
+          "name": "Avram Tarasios",
+          "login_at": "5分钟前"
+        },
+        "item3": {
+          "name": "Quintin Ed",
+          "login_at": "1小时前"
+        },
+        "item4": {
+          "name": "Enéas Kwadwo",
+          "login_at": "上个月"
+        },
+        "item5": {
+          "name": "Agapetus Tadeáš",
+          "login_at": "上个星期"
+        },
+        "item6": {
+          "name": "Friderik Dávid",
+          "login_at": "昨天"
+        }
+      }
+    }
+  },
+  "pokemons": {
+    "title": "宝可梦",
+    "add_new": "添加",
+    "attribute": {
+      "name": "名称",
+      "type": "类型",
+      "egg_group": "蛋群",
+      "hp": "血量",
+      "attack": "物理攻击",
+      "defense": "物理防御",
+      "sp_attack": "法术攻击",
+      "sp_defense": "发酥防御",
+      "speed": "速度",
+      "total": "总计"
+    }
+  },
+  "featured_nav": {
+    "dashboard": "面板",
+    "users": "用户",
+    "settings": "设置"
+  },
+  "notification": {
+    "message": "你有{{total}}条提醒",
+    "items": {
+      "new_user": "新用户注册",
+      "deleted_user": "用户删除",
+      "sales_report": "销售报告就绪",
+      "new_client": "新客户",
+      "server_overloaded": "服务器过载"
+    },
+    "server": {
+      "title": "服务器",
+      "processes": "处理器",
+      "cores": "核心",
+      "items": {
+        "cpu": "CPU使用量",
+        "memory": "内存使用量",
+        "ssd1": "固态硬盘1使用量"
+      }
+    }
+  },
+  "task": {
+    "message": "你有{{total}}个待处理任务",
+    "items": {
+      "task1": "升级Next.JS",
+      "task2": "训练宝可梦",
+      "task3": "完善Pokedex",
+      "task4": "捕捉所有的闪光点",
+      "task5": "打败所有的训练馆"
+    },
+    "view_all": "查看所有任务"
+  },
+  "messages": {
+    "message": "你有{{total}}条信息",
+    "items": {
+      "item1": {
+        "user": "John Doe",
+        "time": "刚刚",
+        "title": "宠物皮卡丘",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      },
+      "item2": {
+        "user": "John Doe",
+        "time": "5分钟之前",
+        "title": "打扮伊布",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      },
+      "item3": {
+        "user": "John Doe",
+        "time": "1:52 PM",
+        "title": "组队训练",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      },
+      "item4": {
+        "user": "John Doe",
+        "time": "4:03 PM",
+        "title": "去Safari区",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+      }
+    }
+  },
+  "profile": {
+    "account": {
+      "title": "账户",
+      "items": {
+        "updates": "更新",
+        "messages": "信息",
+        "tasks": "任务",
+        "comments": "评论"
+      }
+    },
+    "settings": {
+      "title": "设置",
+      "items": {
+        "profile": "个人信息",
+        "settings": "设置",
+        "payments": "付款",
+        "projects": "项目"
+      }
+    },
+    "lock_account": "锁定账户",
+    "logout": "登出"
+  },
+  "breadcrumb": {
+    "home": "首页",
+    "library": "库",
+    "data": "数据"
+  },
+  "sidebar": {
+    "items": {
+      "dashboard": "面板",
+      "sample": "样例",
+      "theme": "主题",
+      "colors": "颜色",
+      "typography": "排版",
+      "components": "组件",
+      "accordion": "手风琴",
+      "breadcrumb": "面包屑",
+      "cards": "卡片",
+      "carousel": "旋转木马",
+      "collapse": "异常页",
+      "list_group": "列表组",
+      "navs": "导航",
+      "pagination": "分页",
+      "popovers": "弹出框",
+      "progress": "进度条",
+      "scrollspy": "滚动条",
+      "spinners": "列表选择框",
+      "tables": "表格",
+      "tabs": "弹出框",
+      "tooltips": "提示信息",
+      "buttons": "按钮",
+      "buttons_group": "按钮组",
+      "dropdowns": "下拉",
+      "charts": "表格",
+      "form_control": "表单控制",
+      "select": "选择",
+      "checks_and_radios": "单选框和复选框",
+      "range": "范围",
+      "input_group": "输入框组",
+      "floating_labels": "浮动标签",
+      "layout": "布局",
+      "validation": "验证",
+      "core_ui_icons": "CoreUI 图标",
+      "core_ui_icons_brand": "CoreUI 图标 - 品牌",
+      "core_ui_icons_flag": "CoreUI 图标 - 标记",
+      "alerts": "警示",
+      "badge": "徽章",
+      "modals": "模态框",
+      "toasts": "Toasts",
+      "widgets": "小组件",
+      "login": "登录页",
+      "register": "注册页",
+      "error404": "404错误页面",
+      "error500": "500错误页面",
+      "docs": "文档",
+      "try_core_ui_pro": "试用 CoreUI PRO",
+      "base": "基础",
+      "forms": "表单",
+      "icons": "图标",
+      "notifications": "提醒",
+      "extras": "更多组件",
+      "pages": "页面"
+    }
+  }
+}
