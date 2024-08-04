@@ -32,17 +32,14 @@ const schema = z.object({
 type FormState = {
   success: boolean;
   message: string;
-  validated: boolean;
+  scrollTop: boolean;
   formKey: number;
   errors?: {
     [key in keyof typeof schema.shape]?: string[];
   };
 }
 
-// const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
-
 export default async function create(prevState: FormState, formData: FormData): Promise<FormState> {
-  // await sleep(5000)
   const validatedFields = schema.safeParse({
     name: formData.get('name'),
     types: formData.getAll('types'),
@@ -59,7 +56,7 @@ export default async function create(prevState: FormState, formData: FormData): 
   if (!validatedFields.success) {
     return {
       success: false,
-      validated: false,
+      scrollTop: false,
       formKey: prevState.formKey,
       message: 'Validation error',
       errors: validatedFields.error.flatten().fieldErrors,
@@ -70,7 +67,7 @@ export default async function create(prevState: FormState, formData: FormData): 
   if (validatedFields.data.name === 'error') {
     return {
       success: false,
-      validated: true,
+      scrollTop: true,
       formKey: prevState.formKey,
       message: 'Unexpected error occurred. Please try again.',
     }
@@ -80,7 +77,7 @@ export default async function create(prevState: FormState, formData: FormData): 
 
   return {
     success: true,
-    validated: true,
+    scrollTop: true,
     formKey: prevState.formKey + 1,
     message: 'Record saved successfully.',
   }
