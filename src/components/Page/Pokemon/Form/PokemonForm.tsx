@@ -4,7 +4,7 @@ import { Resource } from '@/models/resource'
 import { Type } from '@/models/type'
 import { getLocale } from '@/locales/dictionary'
 import serverFetch from '@/utils/server-fetch'
-import { EggGroup } from '@/models/egg_group'
+import { EggGroup } from '@/models/egg-group'
 
 type Props = {
   pokemon?: Pokemon;
