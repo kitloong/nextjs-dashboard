@@ -21,7 +21,7 @@ import PokemonTypeLabel from '@/components/Page/Pokemon/PokemonTypeLabel'
 import create from '@/app/(dashboard)/pokemons/create/action'
 import useDictionary from '@/locales/dictionary-hook'
 import { Type } from '@/models/type'
-import { EggGroup } from '@/models/egg_group'
+import { EggGroup } from '@/models/egg-group'
 import FormCheckInput from 'react-bootstrap/FormCheckInput'
 import FormCheckLabel from 'react-bootstrap/FormCheckLabel'
 
@@ -31,27 +31,12 @@ type Props = {
   pokemon?: Pokemon;
 }
 
-const SubmitButton = ({
-  validated,
-  success,
-}: { validated: boolean; success: boolean }) => {
+const SubmitButton = () => {
   const { pending } = useFormStatus()
   const dict = useDictionary()
 
-  useEffect(() => {
-    if (validated) {
-      window.scrollTo(0, 0)
-    }
-  }, [validated, pending])
-
-  useEffect(() => {
-    if (success) {
-      // Reset form
-    }
-  }, [success, pending])
-
   return (
-    <Button aria-disabled={pending} className="me-3" type="submit" variant="success">
+    <Button disabled={pending} className="me-3" type="submit" variant="success">
       {pending ? dict.action.submitting : dict.action.submit}
     </Button>
   )
@@ -63,13 +48,21 @@ export default function Form(props: Props) {
     types,
     eggGroups,
   } = props
+
   const dict = useDictionary()
+
   const [state, formAction] = useFormState(create, {
     success: false,
-    validated: false,
+    scrollTop: false,
     message: '',
     formKey: 0,
   })
+
+  useEffect(() => {
+    if (state.scrollTop) {
+      window.scrollTo(0, 0)
+    }
+  }, [state])
 
   return (
     <BSForm noValidate key={state.formKey} action={formAction}>
@@ -235,7 +228,7 @@ export default function Form(props: Props) {
         <FormError messages={state.errors?.speed} />
       </FormGroup>
 
-      <SubmitButton validated={state.validated} success={state.success} />
+      <SubmitButton />
       <Button type="reset" variant="secondary">{dict.action.reset}</Button>
     </BSForm>
   )

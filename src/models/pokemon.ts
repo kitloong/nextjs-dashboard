@@ -1,5 +1,5 @@
 import { Type } from '@/models/type'
-import { EggGroup } from '@/models/egg_group'
+import { EggGroup } from '@/models/egg-group'
 
 export interface Pokemon {
   id: number;
