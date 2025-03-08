@@ -9,6 +9,7 @@ import { getDictionary } from '@/locales/dictionary'
 import getTheme from '@/themes/theme'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/react'
+import Script from 'next/script'
 
 // You change this configuration value to false so that the Font Awesome core SVG library
 // will not try and insert <style> elements into the <head> of the page.
@@ -23,6 +24,8 @@ export default async function RootLayout({
 }) {
   const dictionary = await getDictionary()
 
+  const googleAdsenseId = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID ?? ''
+
   return (
     <html lang="en" data-bs-theme={getTheme()}>
       <body>
@@ -33,6 +36,13 @@ export default async function RootLayout({
         <Analytics />
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? ''} />
+      {googleAdsenseId !== '' && (
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${googleAdsenseId}`}
+          crossOrigin="anonymous"
+        />
+      )}
     </html>
   )
 }
