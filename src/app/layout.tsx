@@ -24,6 +24,8 @@ export default async function RootLayout({
 }) {
   const dictionary = await getDictionary()
 
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? ''
+  const vercelAnalytics = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS === 'true'
   const googleAdsenseId = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID ?? ''
 
   return (
@@ -33,9 +35,9 @@ export default async function RootLayout({
         <DictionaryProvider dictionary={dictionary}>
           {children}
         </DictionaryProvider>
-        <Analytics />
+        {vercelAnalytics && <Analytics />}
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? ''} />
+      {gaMeasurementId !== '' && <GoogleAnalytics gaId={gaMeasurementId} />}
       {googleAdsenseId !== '' && (
         <Script
           async
