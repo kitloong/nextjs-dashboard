@@ -25,6 +25,7 @@ export default async function middleware(request: NextRequest, event: NextFetchE
   if (![
     '/login',
     '/register',
+    '/ads.txt',
   ].includes(request.nextUrl.pathname)) {
     const res: NextMiddlewareResult = await withAuth(
       // Response with local cookies
