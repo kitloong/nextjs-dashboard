@@ -32,7 +32,7 @@ export default async function RootLayout({
         </DictionaryProvider>
         <Analytics />
       </body>
-      <GoogleAnalytics gaId="G-XRY6XWFY5V" />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? ''} />
     </html>
   )
 }
