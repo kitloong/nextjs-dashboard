@@ -10,7 +10,7 @@
     "forgot_password": "忘记密码?",
     "signup": {
       "title": "注册",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua."
+      "description": "这是 https://github.com/kitloong/nextjs-dashboard 的演示页面。点击“登录”即可查看完整的仪表板预览。"
     },
     "message": {
       "auth_failed": "用户名或密码无效"

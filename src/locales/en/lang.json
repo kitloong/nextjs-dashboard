@@ -10,7 +10,7 @@
     "forgot_password": "Forgot password?",
     "signup": {
       "title": "Sign up",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua."
+      "description": "This is a demo page for https://github.com/kitloong/nextjs-dashboard. Click \"Login\" to view the full dashboard preview."
     },
     "message": {
       "auth_failed": "Invalid username or password"
