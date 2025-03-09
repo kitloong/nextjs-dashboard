@@ -10,7 +10,7 @@
     "forgot_password": "パスワードを忘れましたか？",
     "signup": {
       "title": "サインアップ",
-      "description": "いろはにほへとちりぬるをわかよたれそつねならむ\nうゐのおくやまけふこえてあさきゆめみしゑひもせす"
+      "description": "これは https://github.com/kitloong/nextjs-dashboard のデモページです。「ログイン」をクリックすると、ダッシュボードの全体プレビューを表示できます。"
     },
     "message": {
       "auth_failed": "認証に失敗しました"
